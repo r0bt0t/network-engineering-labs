@@ -32,7 +32,9 @@ These notes act as a quick reference during lab work to reinforce command famili
 ## Glossary of useful commands 
 
 ```bash
-Service password-encryption – hashes all plain text passwords 
+Service password-encryption
+``` Hashes all plain text passwords 
+```bash
 Write memory – saves running config to startup config 
 Copy running-config startup-config – long way of achieving the above 
 Ip default-gateway xxx.xxx.xxx.xxx - set default gateway 
@@ -57,12 +59,11 @@ Line – access line configuration mode allowing you to manage and secure the ph
 username [username] secret [password] - creates a username and encrypted local password 
 login local – Utilises the locally stored password as login credentials 
 transport input ssh – ensures SSH is used for remote management traffic 
-Show interface status -  
-ip domain name castle.local - assigns the default DNS domain name to the device which is required in order to generate cryptographic SSH keys 
+Show interface status – displays interface status 
+ip domain name [something].local - assigns the default DNS domain name to the device which is required in order to generate cryptographic SSH keys 
 crypto key generate rsa - enable the SSH server on the switch and generate an RSA key pair 
 ip ssh version 2 – upgrades the device to a newer more secure SSH standard 
 exec-timeout 10 0 - sets a specific time to disconnect idle EXEC sessions. The default value for the EXEC timeout is 10 minutes 
-Show interfaces status – Displays detail of connected devices 
 Show mac address-table – Details MAC addresses 
 Show interfaces description - Descriptive detail of each interface 
 ```
