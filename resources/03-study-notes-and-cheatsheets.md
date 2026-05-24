@@ -32,6 +32,10 @@ These notes act as a quick reference during lab work to reinforce command famili
 ## Glossary of useful commands 
 
 - `Service password-encryption` Hashes all plain text passwords 
+- `Reload` Restarts the device 
+- `write memory` Saves running config to startup config 
+- `Write erase` Factory reset the memory 
+- `erase startup-config` Factory reset the startup configuration 
 - `Write memory` Saves running config to startup config 
 - `Copy running-config startup-config` Long way of achieving the above 
 - `Ip default-gateway xxx.xxx.xxx.xxx` Set default gateway 
