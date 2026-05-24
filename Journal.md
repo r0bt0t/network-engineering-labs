@@ -40,4 +40,3 @@ At the start of my labs, I am focusing on:
 
 ## Lab Progress
 
-- Lab 001: Basic Switch Configuration (in progress / completed)
