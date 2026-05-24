@@ -1,0 +1,10 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Packet Tracer autosave files (optional)
+*.tmp
+*.bak
+
+# VS Code settings (optional)
+.vscode/
