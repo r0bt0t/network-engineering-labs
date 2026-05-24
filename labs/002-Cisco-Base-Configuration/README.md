@@ -5,13 +5,6 @@ Configure a base level configuration on a Cisco switch, themed around a post-apo
 
 ---
 
-## Topology
-(Add image here)
-
-![Topology](topology.png)
-
----
-
 ## Devices Used
 - Switch 1
 - PC

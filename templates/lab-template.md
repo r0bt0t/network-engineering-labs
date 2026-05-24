@@ -5,13 +5,6 @@ Describe what this lab is trying to achieve.
 
 ---
 
-## Topology
-(Add image here)
-
-![Topology](topology.png)
-
----
-
 ## Devices Used
 - Router R1
 - Switch S1
