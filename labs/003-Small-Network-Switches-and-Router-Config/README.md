@@ -1,4 +1,4 @@
-# Lab XXX - TITLE
+# Lab 003 - Small Network Config (Micro Campus)
 
 ## Objective
 Re-establish device identity, banners, and secrets across both switches and the router.
