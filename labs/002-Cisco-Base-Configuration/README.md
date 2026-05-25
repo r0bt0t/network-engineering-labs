@@ -1,7 +1,7 @@
 # Lab 002 - CISCO BASE CONFIGURATION
 
 ## Objective
-Configure a base level configuration on a Cisco switch, themed around a post-apocalyptic coffee company
+Configure a base level configuration on a Cisco switch
 
 ---
 

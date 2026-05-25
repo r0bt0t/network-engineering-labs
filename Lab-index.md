@@ -10,7 +10,11 @@ Each lab is designed to demonstrate practical networking skills, configuration k
 
 | Lab ID | Title | Key Topics | Status |
 |--------|-------|------------|--------|
-| 001 | Basic Switch Configuration | IOS basics, interface setup, management VLAN | In Progress |
+| 001 | Basic Switch Configuration | IOS basics, interface setup, management VLAN | Complete |
+| 002 | Cisco Base Configuration | interface labelling, password protection | Complete |
+| 003 | Multi Switch and Router Setup | IP addressing, seecuring remote access, updating SSH versioning | Complete |
+| 004 | Tracking Switch Interfaces and Intro to CAM Table | Table interrogation and filtering, | Complete |
+| 005 | Exploring Switch CAM Tables | MAC address table, endpoint staging, ARP-initiated traffic| In Progress |
 
 ---
 

@@ -40,3 +40,7 @@ At the start of my labs, I am focusing on:
 
 ## Lab Progress
 
+- CLI navigation and command use is improving
+- Understanding of the practical transit of data is deepening
+- OSI model becoming clearer
+- Beginnings of exploration in to securing networks
