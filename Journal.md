@@ -46,3 +46,4 @@ At the start of my labs, I am focusing on:
 - Beginnings of exploration in to securing networks
 - Populating, interrogating and controlling the CAM table
 - ARP requests and IP ping
+- Locating devices within LAN from IP address starting point

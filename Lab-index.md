@@ -15,6 +15,9 @@ Each lab is designed to demonstrate practical networking skills, configuration k
 | 003 | Multi Switch and Router Setup | IP addressing, seecuring remote access, updating SSH versioning | Complete |
 | 004 | Tracking Switch Interfaces and Intro to CAM Table | Table interrogation and filtering, | Complete |
 | 005 | Exploring Switch CAM Tables | MAC address table, endpoint staging, ARP-initiated traffic| Complete |
+| 006 | Finding devices | identify device on LAN from IP address only, use of ARP and CAM tables | Complete |
+| 007 |  |  |  |
+| 008 |  | |  |
 
 ---
 
