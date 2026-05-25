@@ -44,3 +44,5 @@ At the start of my labs, I am focusing on:
 - Understanding of the practical transit of data is deepening
 - OSI model becoming clearer
 - Beginnings of exploration in to securing networks
+- Populating, interrogating and controlling the CAM table
+- ARP requests and IP ping

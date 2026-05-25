@@ -14,7 +14,7 @@ Each lab is designed to demonstrate practical networking skills, configuration k
 | 002 | Cisco Base Configuration | interface labelling, password protection | Complete |
 | 003 | Multi Switch and Router Setup | IP addressing, seecuring remote access, updating SSH versioning | Complete |
 | 004 | Tracking Switch Interfaces and Intro to CAM Table | Table interrogation and filtering, | Complete |
-| 005 | Exploring Switch CAM Tables | MAC address table, endpoint staging, ARP-initiated traffic| In Progress |
+| 005 | Exploring Switch CAM Tables | MAC address table, endpoint staging, ARP-initiated traffic| Complete |
 
 ---
 
@@ -22,7 +22,7 @@ Each lab is designed to demonstrate practical networking skills, configuration k
 
 This repository is structured to progress through:
 
-- Layer 2 Switching
+- Layer 2 Switching ✅
 - VLAN segmentation
 - Inter-VLAN routing
 - Static and dynamic routing
