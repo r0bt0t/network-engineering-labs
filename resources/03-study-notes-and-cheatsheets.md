@@ -67,6 +67,7 @@ Switch(config-if)# no shutdown
 - `ip ssh version 2` Upgrades the device to a newer more secure SSH standard 
 - `exec-timeout 10 0` Sets a specific time to disconnect idle EXEC sessions. The default value for the EXEC timeout is 10 minutes 
 - `Show mac address-table` Details MAC addresses 
+- `clear mac address-table dynamic` Clear learned MAC addresses  
 - `Show interfaces description` Descriptive detail of each interface 
 
 ---
@@ -74,3 +75,17 @@ Switch(config-if)# no shutdown
 ## Purpose
 
 The command learnings I've made so far
+
+---
+
+## Glossary of useful command line commands
+
+- `arp –a` Displays Arp cache (known MAC addresses) 
+- `ping xxx.xxx.xxx.xxx` Verifies IP-level connectivity to another TCP/IP computer by sending Internet Control Message Protocol (ICMP) echo Request messages. 
+- `tracert` Tracks the path data packets traverse over an IP network from a source device to a destination device. 
+- `ipconfig` Users can access important information such as their network interface's IP address (Internet Protocol address), subnet mask, default gateway, and DNS server configurations by running the ipconfig command. 
+- `getmac` Retrieve the MAC address of their network devices 
+- `nslookup` Used to query the Domain Name System (DNS) to retrieve domain name and IP address information. 
+- `netstat` Provides information on active TCP connections, listening ports, Ethernet statistics, IP routing tables, and IPv4/IPv6 statistics. 
+- `tasklist` Command displays a list of currently running processes on the system. 
+- `taskkill` Command terminates tasks by process id (PID) or image name. 
