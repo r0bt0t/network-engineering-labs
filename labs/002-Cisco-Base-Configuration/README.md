@@ -12,11 +12,11 @@
 
 <tr>
 <td valign="top">
-<img src="images/Topology2.png">
+<img src="Images/Topology2.png">
 </td>
 
 <td valign="top">
-<img src="images/networking_image_04.png">
+<img src="Images/networking_image_04.png">
 </td>
 </tr>
 </table>
