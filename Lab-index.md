@@ -12,7 +12,9 @@
 #### I cannot thank them all enough for their guidance, their excellent teaching, their support and the supportive and engaged community they have created around the course.
 
 </td>
+</tr>
 
+<tr>
 <td valign="top">
 <img src="Images/networking_image_16.png" width="800" style="margin-top: 15px; margin-bottom: 20px;>
 </td>
@@ -61,10 +63,6 @@ This repository is structured to progress through:
 <td valign="bottom">
 
 <img src="Images/networking_image_17.png" height="230">
-
-</td>
-
-<td valign="top" width="30">
 
 </td>
 
