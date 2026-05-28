@@ -11,7 +11,7 @@ This document outlines the structured resources I am using to study for the CCNA
 <tr>
 
 <td valign="top">
-<img src="images/networking_image_30.png" style="margin-top:2%">
+<img src="Images/networking_image_30.png" style="margin-top:2%">
 </td>
 
 </tr>
