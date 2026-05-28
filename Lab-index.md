@@ -56,10 +56,6 @@ This repository is structured to progress through:
 - IPv6 fundamentals
 </td>
 
-<td valign="top" width="80">
-
-</td>
-
 <td valign="bottom">
 
 <img src="Images/networking_image_17.png" height="230">
