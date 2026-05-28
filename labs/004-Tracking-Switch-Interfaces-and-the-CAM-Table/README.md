@@ -14,11 +14,11 @@
 
 <tr>
 <td colspan="2" valign="top">
-<img src="images/Topology2.png">
+<img src="Images/Topology2.png">
 </td>
 
 <td valign="top">
-<img src="images/networking_image_02.png">
+<img src="Images/networking_image_02.png">
 </td>
 
 </tr>
