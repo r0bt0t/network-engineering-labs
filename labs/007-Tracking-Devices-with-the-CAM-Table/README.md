@@ -15,11 +15,11 @@
 
 <tr>
 <td valign="top">
-<img src="images/Packet-Tracer-Img2.png">
+<img src="Images/Packet-Tracer-Img2.png">
 </td>
 
 <td valign="bottom">
-<img src="images/networking_image_25.png">
+<img src="Images/networking_image_25.png">
 </td>
 
 </tr>
