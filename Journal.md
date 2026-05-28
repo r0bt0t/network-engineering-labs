@@ -12,7 +12,7 @@
 <tr>
 
 <td align="center">
-<img src="images/networking_cap_image_1.png">
+<img src="Images/networking_cap_image_1.png">
 </td>
 
 </tr>
