@@ -14,7 +14,7 @@
 </td>
 
 <td valign="top">
-<img src="images/networking_image_16.png" width="800" style="margin-top: 15px; margin-bottom: 20px;>
+<img src="Images/networking_image_16.png" width="800" style="margin-top: 15px; margin-bottom: 20px;>
 </td>
 
 </tr>
@@ -60,7 +60,7 @@ This repository is structured to progress through:
 
 <td valign="bottom">
 
-<img src="images/networking_image_17.png" height="230">
+<img src="Images/networking_image_17.png" height="230">
 
 </td>
 
