@@ -14,11 +14,11 @@
 
 <tr>
 <td valign="top">
-<img src="images/Topology.png">
+<img src="Images/Topology.png">
 </td>
 
 <td valign="bottom">
-<img src="images/CaricatureMe.png">
+<img src="Images/CaricatureMe.png">
 </td>
 
 </tr>
