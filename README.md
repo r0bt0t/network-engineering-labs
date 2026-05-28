@@ -25,7 +25,7 @@ Each lab follows this structure:
 </td>
 
 <td valign="top">
-<img src="images/networking_image_14.png" width="200">
+<img src="Images/networking_image_14.png" width="200">
 </td>
 
 </tr>
@@ -41,5 +41,5 @@ Each lab follows this structure:
 - Documentation of technical processes
 
 <div align="left" style="margin-top: 15px; margin-bottom: 20px;">
-  <img src="images/CaricatureMe.png" width="800">
+  <img src="Images/CaricatureMe.png" width="800">
   </div>
