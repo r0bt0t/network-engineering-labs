@@ -15,11 +15,11 @@ For this deployment to be successful, you must complete the following:
 
 <tr>
 <td valign="top">
-<img src="images/Topology2.png">
+<img src="Images/Topology2.png">
 </td>
 
 <td valign="top">
-<img src="images/networking_image_17.png">
+<img src="Images/networking_image_17.png">
 </td>
 
 </tr>
