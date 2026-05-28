@@ -3,7 +3,7 @@
 ### Hands-on Cisco CCNA networking labs, troubleshooting exercises, and learning journal.
 
 <div align="left" style="margin-top: 15px; margin-bottom: 20px;">
-  <img src="/network-engineering-labs/Images/networking_cap_image_3.png">
+  <img src="Images/networking_cap_image_3.png">
 </div>
 
 ## Lab Workflow
