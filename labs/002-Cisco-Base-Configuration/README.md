@@ -1,7 +1,25 @@
 # Lab 002 - CISCO BASE CONFIGURATION
 
+<table>
+<tr>
+<td colspan="2" valign="top">
+
 ## Objective
-Configure a base level configuration on a Cisco switch
+### Configure a base level configuration on a Cisco switch
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<img src="images/Topology2.png">
+</td>
+
+<td valign="top">
+<img src="images/networking_image_04.png">
+</td>
+</tr>
+</table>
 
 ---
 

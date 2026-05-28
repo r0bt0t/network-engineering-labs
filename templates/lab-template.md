@@ -1,7 +1,27 @@
 # Lab XXX - TITLE
 
-## Objective
-Describe what this lab is trying to achieve.
+<table>
+<tr>
+<td colspan="2" valign="top">
+
+
+# Objective
+- ### 
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<img src="images/exampleImgInSameFolder">
+</td>
+
+<td valign="bottom">
+<img src="images/exampleImgInSameFolder">
+</td>
+
+</tr>
+</table>
 
 ---
 

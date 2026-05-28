@@ -1,12 +1,28 @@
 # CCNA Learning Journal
 
-This journal documents my hands-on learning journey while studying for the Cisco CCNA certification. It tracks progress, challenges, troubleshooting experiences, and key technical concepts learned through practical lab work.
+<table>
+<tr>
+<td valign="top">
+
+### This journal documents my hands-on learning journey while studying for the Cisco CCNA certification. It tracks progress, challenges, troubleshooting experiences, and key technical concepts learned through practical lab work.
+
+</td>
+</tr>
+
+<tr>
+
+<td align="center">
+<img src="images/networking_cap_image_1.png">
+</td>
+
+</tr>
+</table>
 
 ---
 
 ## Start of Journey (May 2026)
 
-I have begun building a structured lab portfolio to reinforce networking theory through practical configuration and troubleshooting using Cisco IOS.
+### I have begun building a structured lab portfolio to reinforce networking theory through practical configuration and troubleshooting using Cisco IOS.
 
 The goal is to develop strong foundational knowledge in:
 - Switching and VLANs
@@ -38,6 +54,10 @@ At the start of my labs, I am focusing on:
 
 ---
 
+<table>
+<tr>
+<td valign="top">
+
 ## Lab Progress
 
 - CLI navigation and command use is improving
@@ -47,3 +67,12 @@ At the start of my labs, I am focusing on:
 - Populating, interrogating and controlling the CAM table
 - ARP requests and IP ping
 - Locating devices within LAN from IP address starting point
+
+</td>
+
+<td align="center">
+<img src="images/networking_image_23.png">
+</td>
+
+</tr>
+</table>

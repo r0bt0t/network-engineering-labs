@@ -1,12 +1,25 @@
 # CCNA Learning Path
 
+<table>
+<tr>
+<td valign="top">
+
 This document outlines the structured resources I am using to study for the CCNA certification and build practical networking skills.
 
----
+</td>
+</tr>
+<tr>
+
+<td valign="top">
+<img src="images/networking_image_30.png" style="margin-top:2%">
+</td>
+
+</tr>
+</table>
 
 ## Current Study Plan
 
-I am currently following a combination of:
+**I am currently following a combination of:**
 
 - NetworkChuck Academy (Summer of CCNA)
 - Jeremy’s IT Lab structured CCNA course
@@ -17,7 +30,7 @@ I am currently following a combination of:
 
 ## Study Approach
 
-My learning approach is:
+**My learning approach is:**
 
 1. Watch structured video lessons
 2. Take notes and summarise concepts
@@ -29,4 +42,4 @@ My learning approach is:
 
 ## Goal
 
-To develop strong foundational networking knowledge aligned with CCNA exam objectives and real-world networking skills.
+**To develop strong foundational networking knowledge aligned with CCNA exam objectives and real-world networking skills.**

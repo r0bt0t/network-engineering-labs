@@ -1,9 +1,28 @@
 # Lab 004 - Tracking Switch Interfaces and the CAM Table
 
+<table>
+<tr>
+<td colspan="2" valign="top">
+
 ## Objective
 - Distinguish interface naming conventions and roles using the switch’s summary views.
 - Evaluate duplex and speed negotiation on active ports to flag connectivity issues early.
 - Correlate interface descriptions and CAM table entries to pinpoint where devices live.
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" valign="top">
+<img src="images/Topology2.png">
+</td>
+
+<td valign="top">
+<img src="images/networking_image_02.png">
+</td>
+
+</tr>
+</table>
 
 ---
 
@@ -100,11 +119,11 @@ Total Mac Addresses for this criterion: 1
 
 ## Verification
 
-###Completion Check
+### Completion Check
 
-    - The interface summary on Switch6 confirms the state of Ethernet0/0 through Ethernet0/3.
-    - The status report shows full-duplex, healthy links for AccessPoint1, SensorPod-A, and the core uplink, or flags any negotiation issues you noted.
-    - The MAC address table review pinpoints where each device connects and highlights which ports backhaul to the core.
+- The interface summary on Switch6 confirms the state of Ethernet0/0 through Ethernet0/3.
+- The status report shows full-duplex, healthy links for AccessPoint1, SensorPod-A, and the core uplink, or flags any negotiation issues you noted.
+- The MAC address table review pinpoints where each device connects and highlights which ports backhaul to the core.
 
 ---
 

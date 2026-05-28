@@ -1,8 +1,25 @@
 # Lab 001 - Basic Switch Configuration
 
+<table>
+<tr>
+<td colspan="2" valign="top">
+
 ## Objective
 
-Learn and apply basic Cisco switch configuration using IOS CLI.
+**Learn and apply basic Cisco switch configuration using IOS CLI.**
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<img src="images/Topology2.png">
+</td>
+<td valign="top">
+<img src="images/networking_image_01.png">
+</td>
+</tr>
+</table>
 
 ---
 
@@ -83,5 +100,5 @@ show running-config
 ## Key Takeaways
 
 - Switch management requires VLAN interface configuration
-- `no shutdown` is essential for activation
+- **`no shutdown`** is essential for activation of an interface
 - Verification commands are critical before troubleshooting

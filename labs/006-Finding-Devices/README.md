@@ -1,11 +1,28 @@
 # Lab 006 - Finding Devices
 
-## Objective
-1. A user with the IP address of 192.168.1.18 has been complaining of slow internet access.
-USING SWITCH ACCESS ONLY, locate this device's MAC address down to the switch and port level in this network. 
+<table>
+<tr>
+<td colspan="2" valign="top">
 
-2. The IP address 192.168.1.11 has been identified as causing a security breach.
-Locate this device in the network so malware scanes can be run.
+# Objective
+- A user with the IP address of 192.168.1.18 has been complaining of slow internet access.
+- **USING SWITCH ACCESS ONLY**, locate this device's MAC address down to the switch and port level in this network. 
+- The IP address 192.168.1.11 has been identified as causing a security breach.
+- Locate this device in the network so malware scans can be run.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<img src="images/Topology2.png">
+</td>
+
+<td valign="top">
+<img src="images/networking_image_22.png">
+</td>
+
+</tr>
+</table>
 
 ---
 

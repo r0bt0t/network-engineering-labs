@@ -1,6 +1,21 @@
 # Study Notes & Cheatsheets
 
-This section contains quick reference material used during lab work.
+<table>
+<tr>
+<td valign="top">
+
+### This section contains quick reference material used during lab work.
+
+</td>
+</tr>
+<tr>
+
+<td valign="top">
+<img src="images/networking_image_28.png" style="margin-top:2%">
+</td>
+
+</tr>
+</table>
 
 ---
 
@@ -72,13 +87,9 @@ Switch(config-if)# no shutdown
 
 ---
 
-## Purpose
+## Additional Reference
 
-The command learnings I've made so far
-
----
-
-## Glossary of useful command line commands
+**Glossary of useful command line commands**
 
 - `arp –a` Displays Arp cache (known MAC addresses) 
 - `ping xxx.xxx.xxx.xxx` Verifies IP-level connectivity to another TCP/IP computer by sending Internet Control Message Protocol (ICMP) echo Request messages. 
@@ -89,3 +100,5 @@ The command learnings I've made so far
 - `netstat` Provides information on active TCP connections, listening ports, Ethernet statistics, IP routing tables, and IPv4/IPv6 statistics. 
 - `tasklist` Command displays a list of currently running processes on the system. 
 - `taskkill` Command terminates tasks by process id (PID) or image name. 
+
+<img src="images/networking_image_24.png" style="margin-top:2%">

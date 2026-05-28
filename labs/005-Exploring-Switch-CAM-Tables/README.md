@@ -1,10 +1,29 @@
 # Lab 005 - Exploring Switch CAM Tables
 
+<table>
+<tr>
+<td colspan="2" valign="top">
+
 ## Objective
 For this deployment to be successful, you must complete the following:
 - Stage the endpoints so their Layer 2 identities are easy to spot from the switch.
 - Trigger ARP-initiated traffic between PCs on the same VLAN to populate the CAM table.
 - Inspect, clear, and repopulate the MAC address table to validate how the switch learns.
+
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<img src="images/Topology2.png">
+</td>
+
+<td valign="top">
+<img src="images/networking_image_17.png">
+</td>
+
+</tr>
+</table>
 
 ---
 

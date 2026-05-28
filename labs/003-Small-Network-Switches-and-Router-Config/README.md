@@ -1,10 +1,28 @@
 # Lab 003 - Small Network Config (Micro Campus)
 
+<table>
+<tr>
+<td colspan="2" valign="top">
+
 ## Objective
-Re-establish device identity, banners, and secrets across both switches and the router.
-Lock down console and VTY access with the Castle credential set and enable password encryption.
-Stand up the management VLAN on each switch and tie it to the router’s inside interface.
-Save, verify, and (when asked) wipe configurations without losing control of the site.
+- Re-establish device identity, banners, and secrets across both switches and the router.
+- Lock down console and VTY access with the Castle credential set and enable password encryption.
+- Stand up the management VLAN on each switch and tie it to the router’s inside interface.
+- Save, verify, and (when asked) wipe configurations without losing control of the site.
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<img src="images/Topology.png">
+</td>
+
+<td valign="bottom">
+<img src="images/CaricatureMe.png">
+</td>
+
+</tr>
+</table>
 
 ---
 
@@ -42,9 +60,9 @@ DS-07-RTR1(config)#enable secret CrC0ffee!
 ```
 
 ### Explanation
-Update each device so its hostname reflects DS-07-SW1, DS-07-SW2, and DS-07-RTR1.
-Ensure all three systems display the Castle warning banner text Castle Rysen Ops: Authorized engineers only. whenever someone connects.
-Protect privileged access with the shared secret CrC0ffee! and confirm stored passwords are hidden by the standard encryption feature.
+- Update each device so its hostname reflects DS-07-SW1, DS-07-SW2, and DS-07-RTR1.
+- Ensure all three systems display the Castle warning banner text Castle Rysen Ops: Authorized engineers only. whenever someone connects.
+- Protect privileged access with the shared secret CrC0ffee! and confirm stored passwords are hidden by the standard encryption feature.
 
 ---
 
@@ -271,13 +289,13 @@ ping 192.168.10.12
 ## Troubleshooting
 
 ### Issue 1
-Attempting to assign router ip address to vlan1 instead of ethernet0/0 (the connection to the internal network)
+- **Attempting to assign router ip address to vlan1 instead of ethernet0/0 (the connection to the internal network)**
 
 ### Diagnosis
-Unable to complete task/unable to ping
+- **Unable to complete task/unable to ping**
 
 ### Fix
-Assigned ip direct to port as specified
+- **Assigned ip direct to port as specified**
 
 ---
 
