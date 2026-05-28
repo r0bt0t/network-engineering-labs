@@ -71,7 +71,7 @@ At the start of my labs, I am focusing on:
 </td>
 
 <td align="center">
-<img src="images/networking_image_23.png">
+<img src="Images/networking_image_23.png">
 </td>
 
 </tr>
