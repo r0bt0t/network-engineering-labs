@@ -101,4 +101,4 @@ Switch(config-if)# no shutdown
 - `tasklist` Command displays a list of currently running processes on the system. 
 - `taskkill` Command terminates tasks by process id (PID) or image name. 
 
-<img src="images/networking_image_24.png" style="margin-top:2%">
+<img src="Images/networking_image_24.png" style="margin-top:2%">
