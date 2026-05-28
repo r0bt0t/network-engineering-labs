@@ -11,7 +11,7 @@
 <tr>
 
 <td valign="top">
-<img src="images/networking_image_28.png" style="margin-top:2%">
+<img src="Images/networking_image_28.png" style="margin-top:2%">
 </td>
 
 </tr>
