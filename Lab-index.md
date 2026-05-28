@@ -12,11 +12,9 @@
 #### I cannot thank them all enough for their guidance, their excellent teaching, their support and the supportive and engaged community they have created around the course.
 
 </td>
-</tr>
 
-<tr>
 <td valign="top">
-<img src="Images/networking_image_16.png" width="800" style="margin-top: 15px; margin-bottom: 20px;>
+<img src="Images/networking_image_16.png" style="margin-top: 15px; margin-bottom: 20px;">
 </td>
 
 </tr>
@@ -56,9 +54,9 @@ This repository is structured to progress through:
 - IPv6 fundamentals
 </td>
 
-<td valign="bottom">
+<td valign="top">
 
-<img src="Images/networking_image_17.png" height="230">
+<img src="Images/networking_image_17.png">
 
 </td>
 
