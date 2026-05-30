@@ -1,14 +1,18 @@
-# Lab 003 - Small Network Config (Micro Campus)
+# Lab 003 - Small Network Config: Micro Campus
 
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-## Objective
-- Re-establish device identity, banners, and secrets across both switches and the router.
-- Lock down console and VTY access with the Castle credential set and enable password encryption.
-- Stand up the management VLAN on each switch and tie it to the router’s inside interface.
-- Save, verify, and (when asked) wipe configurations without losing control of the site.
+# Objective
+
+* ### Re-establish device identity across two switches and one router.
+* ### Configure hostnames, warning banners and privileged access secrets.
+* ### Secure console and VTY access using local credentials and SSH-only remote access.
+* ### Configure management addressing for both switches and the router inside interface.
+* ### Add useful interface descriptions to document the physical topology.
+* ### Save the configuration and verify management connectivity between the switches and router.
+
 </td>
 </tr>
 
@@ -26,255 +30,509 @@
 
 ---
 
+## Scenario
+
+This lab simulates bringing a small “micro campus” network back into a controlled and documented state.
+
+The network contains two switches and one router. The goal was to apply a consistent basic configuration to each device, secure local and remote access, configure management IP addressing, and verify that the switches could reach the router.
+
+This lab is a good foundation exercise because it combines several day-one networking tasks:
+
+```text
+Device identity → Access security → SSH preparation → Management IPs → Interface descriptions → Verification → Save configuration
+```
+
+---
+
 ## Devices Used
-- Router DS-07-RTR1
-- Switch DS-07-SW1
-- Switch DS-07-SW2
+
+| Device       | Role                    |
+| ------------ | ----------------------- |
+| `DS-07-RTR1` | Router / inside gateway |
+| `DS-07-SW1`  | Primary switch          |
+| `DS-07-SW2`  | Secondary switch        |
 
 ---
 
-## Configuration Steps
+## Addressing Plan
 
-### Step 1 - Basic setup
+| Device       | Interface | IP Address         | Purpose           |
+| ------------ | --------- | ------------------ | ----------------- |
+| `DS-07-RTR1` | `E0/0`    | `192.168.10.1/24`  | Inside gateway    |
+| `DS-07-SW1`  | `Vlan1`   | `192.168.10.11/24` | Switch management |
+| `DS-07-SW2`  | `Vlan1`   | `192.168.10.12/24` | Switch management |
+
+---
+
+## Final Device Roles
+
+```text
+DS-07-RTR1 E0/0
+      |
+      | 192.168.10.1/24
+      |
+DS-07-SW1 Vlan1 - 192.168.10.11/24
+      |
+      |
+DS-07-SW2 Vlan1 - 192.168.10.12/24
+```
+
+---
+
+# Configuration Steps
+
+---
+
+## Step 1 - Configure Device Identity on DS-07-SW1
+
 ```bash
-Switch1>en
-Switch1#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-Switch1(config)#hostname DS-07-SW1                                                         
-DS-07-SW1(config)#banner motd ^Castle Rysen Ops: Authorised engineers only.^
-DS-07-SW1(config)#enable secret CrC0ffee!
-
-Switch2>en
-Switch2#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-Switch2(config)#hostname DS-07-SW2
-DS-07-SW2(config)#banner motd ^Castle Rysen Ops: Authorised Engineers only.^
-DS-07-SW2(config)#enable secret CrC0ffee!
-
-Router>en
-Router#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-Router(config)#hostname DS-07-RTR1
-DS-07-RTR1(config)#banner motd ^Castle Rysen Ops: Authorised engineers only.^
-DS-07-RTR1(config)#enable secret CrC0ffee!
+enable
+configure terminal
+hostname DS-07-SW1
+banner motd ^Castle Rysen Ops: Authorised engineers only.^
+enable secret CrC0ffee!
 ```
 
 ### Explanation
-- Update each device so its hostname reflects DS-07-SW1, DS-07-SW2, and DS-07-RTR1.
-- Ensure all three systems display the Castle warning banner text Castle Rysen Ops: Authorized engineers only. whenever someone connects.
-- Protect privileged access with the shared secret CrC0ffee! and confirm stored passwords are hidden by the standard encryption feature.
+
+The hostname was changed so the prompt clearly identified the switch being configured.
+
+The banner gives a visible warning when someone connects to the device, and the enable secret protects privileged EXEC mode.
 
 ---
 
-### Step 2 - Main configuration
+## Step 2 - Configure Device Identity on DS-07-SW2
+
 ```bash
-DS-07-SW1(config)#line con 0
-DS-07-SW1(config-line)#password VaultAccess
-DS-07-SW1(config-line)#login
-DS-07-SW1(config-line)#exit
-DS-07-SW1(config)#service password encryption
-                                   ^
-% Invalid input detected at '^' marker.
-
-DS-07-SW1(config)#service password-encryption
-DS-07-SW1(config)#username admin secret ShelterAccess
-DS-07-SW1(config)#line vty 0 4
-DS-07-SW1(config-line)#login local
-DS-07-SW1(config-line)#transport input ssh
-DS-07-SW1(config-line)#exit
-DS-07-SW1(config)#ip ssh version 2
-DS-07-SW1(config)#exec-timeout 10 0
-                    ^
-% Invalid input detected at '^' marker.
-
-DS-07-SW1(config)#line vty 0 4
-DS-07-SW1(config-line)#exec-timeout 10 0
-DS-07-SW1(config-line)#exit
-DS-07-SW1(config)#interface vlan1
-DS-07-SW1(config-if)#ip address 192.168.10.11 255.255.255.0
-DS-07-SW1(config-if)#no shutdown
-DS-07-SW1(config-if)#exit
-DS-07-SW1(config)#ip default-gateway 192.168.10.1
-DS-07-SW1(config)#ip domain name castle.local
-DS-07-SW1(config)#crypto key generate rsa
-The name for the keys will be: DS-07-SW1.castle.local
-Choose the size of the key modulus in the range of 2048 to 4096 for your
-  General Purpose Keys. Choosing a key modulus greater than 512 may take
-  a few minutes.
-
-How many bits in the modulus [2048]: 2048
-% Generating 2048 bit RSA keys, keys will be non-exportable...
-[OK] (elapsed time was 0 seconds)
-
-DS-07-SW1(config)#interface en0/3
-                             ^
-% Invalid input detected at '^' marker.
-
-DS-07-SW1(config)#interface et0/3
-DS-07-SW1(config-if)#description Uplink-to-Router
-DS-07-SW1(config-if)#no shutdown
-DS-07-SW1(config-if)#interface e0/2
-DS-07-SW1(config-if)#description WAP1-Feed
-DS-07-SW1(config-if)#no shutdown
-DS-07-SW1(config-if)#interface e0/1
-DS-07-SW1(config-if)#description Link-to-DS-07-SW2
-DS-07-SW1(config-if)#no shutdown
-DS-07-SW1(config-if)#interface e0/0
-DS-07-SW1(config-if)#description 2nd-Link-to-DS-07-SW2
-DS-07-SW1(config-if)#no shutdown
-DS-07-SW1(config-if)#^Z
-DS-07-SW1#write memory
-Building configuration...
-[OK]
-DS-07-SW1#
-
-DS-07-SW2(config)#line con 0
-DS-07-SW2(config-line)#password VaultAccess
-DS-07-SW2(config-line)#login
-DS-07-SW2(config-line)#exit
-DS-07-SW2(config)#service password encryption
-                                   ^
-% Invalid input detected at '^' marker.
-
-DS-07-SW2(config)#service password-encryption
-DS-07-SW2(config)#username admin secret ShelterAccess
-DS-07-SW2(config)#line vty 0 4
-DS-07-SW2(config-line)#login local
-DS-07-SW2(config-line)#transport input ssh
-DS-07-SW2(config-line)#exec-timeout 10 0
-DS-07-SW2(config-line)#exit
-DS-07-SW2(config)#ip ssh version 2
-DS-07-SW2(config)#ip domain name castle.local
-DS-07-SW2(config)#crypto key generate rsa
-The name for the keys will be: DS-07-SW2.castle.local
-Choose the size of the key modulus in the range of 2048 to 4096 for your
-  General Purpose Keys. Choosing a key modulus greater than 512 may take
-  a few minutes.
-
-How many bits in the modulus [2048]: 2048
-% Generating 2048 bit RSA keys, keys will be non-exportable...
-[OK] (elapsed time was 0 seconds)
-
-DS-07-SW2(config)#interface vlan1
-DS-07-SW2(config-if)#ip address 192.168.10.12 255.255.255.0
-DS-07-SW2(config-if)#no shutdown
-DS-07-SW2(config-if)#exit
-DS-07-SW2(config)#ip default-gateway 192.168.10.1
-DS-07-SW2(config)#interface e0/0
-DS-07-SW2(config-if)#description Link-to-DS-07-SW1
-DS-07-SW2(config-if)#no shutdown
-DS-07-SW2(config-if)#interface e0/1
-DS-07-SW2(config-if)#description 2nd-Link-to-DS-07-SW1
-DS-07-SW2(config-if)#no shutdown
-DS-07-SW2(config-if)#interface e0/2
-DS-07-SW2(config-if)#description WAP2-link
-DS-07-SW2(config-if)#no shutdown
-DS-07-SW2(config-if)#interface e0/3
-DS-07-SW2(config-if)#description Drop-to-Server
-DS-07-SW2(config-if)#no shutdown
-DS-07-SW2(config-if)#exit
-DS-07-SW2(config)#exit
-DS-07-SW2#write memory
-Building configuration...
-[OK]
-DS-07-SW2#
-
-Router>en
-Router#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-Router(config)#hostname DS-07-RTR1
-DS-07-RTR1(config)#banner motd ^Castle Rysen Ops: Authorised engineers only.^
-DS-07-RTR1(config)#enable secret CrC0ffee!
-DS-07-RTR1(config)#line con 0
-DS-07-RTR1(config-line)#password VaultAccess
-DS-07-RTR1(config-line)#login
-DS-07-RTR1(config-line)#exit
-DS-07-RTR1(config)#service password-encryption
-DS-07-RTR1(config)#username admin secret ShelterAccess
-DS-07-RTR1(config)#ip ssh version 2
-DS-07-RTR1(config)#ip domain name castle.local
-DS-07-RTR1(config)#crypto key generate rsa
-The name for the keys will be: DS-07-RTR1.castle.local
-Choose the size of the key modulus in the range of 2048 to 4096 for your
-  General Purpose Keys. Choosing a key modulus greater than 512 may take
-  a few minutes.
-
-How many bits in the modulus [2048]: 2048
-% Generating 2048 bit RSA keys, keys will be non-exportable...
-[OK] (elapsed time was 0 seconds)
-
-DS-07-RTR1(config)#line vty 0 4
-DS-07-RTR1(config-line)#login local
-DS-07-RTR1(config-line)#transport input ssh
-DS-07-RTR1(config-line)#exec-timeout 10 0
-DS-07-RTR1(config-line)#exit
-DS-07-RTR1(config)#interface e0/0
-DS-07-RTR1(config-if)#description Link-to-DS-07-SW1
-DS-07-RTR1(config-if)#no shutdown
-DS-07-RTR1(config-if)#inteface vlan1
-                       ^
-% Invalid input detected at '^' marker.
-
-DS-07-RTR1(config-if)#interface vlan1
-                                 ^
-% Invalid input detected at '^' marker.
-
-DS-07-RTR1(config)#interface vlan1
-                              ^
-% Invalid input detected at '^' marker.
-
-DS-07-RTR1(config)#interface e0/0
-DS-07-RTR1(config-if)#ip address 192.168.10.1
-% Incomplete command.
-
-DS-07-RTR1(config-if)#ip address 192.168.10.1 255.255.255.0
-DS-07-RTR1(config-if)#^Z
-DS-07-RTR1#write memory
-Building configuration...
-[OK]
-
-DS-07-SW1#ping 192.168.10.1
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 192.168.10.1, timeout is 2 seconds:
-.!!!!
-Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/1 ms
-DS-07-SW1#ping 192.168.10.1
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 192.168.10.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
-DS-07-SW1#
-
-DS-07-SW2#ping 192.168.10.1
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 192.168.10.1, timeout is 2 seconds:
-.!!!!
-Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/1 ms
-DS-07-SW2#ping 192.168.10.1
-Type escape sequence to abort.
-Sending 5, 100-byte ICMP Echos to 192.168.10.1, timeout is 2 seconds:
-!!!!!
-Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
-DS-07-SW2#
+enable
+configure terminal
+hostname DS-07-SW2
+banner motd ^Castle Rysen Ops: Authorised Engineers only.^
+enable secret CrC0ffee!
 ```
 
 ### Explanation
-- Require the console password VaultAccess before anyone can move past the initial prompt on every device.
-- Guard the remote-access lines with the password ShelterAccess, limiting them to SSH sessions, and confirm both passwords are stored in encrypted form.
-- Assign DS-07-SW1 the management address 192.168.10.11/24, ensure the virtual interface is active, and document which physical ports face the router and the neighboring switch.
-- Assign DS-07-SW2 the management address 192.168.10.12/24, confirm the interface is active, and label the uplink along with the ports that feed the existing WAP and server drops.
-- Point both switches at 192.168.10.1 as their management gateway.
-- Place the router’s inside interface on 192.168.10.1/24, describing the link back to DS-07-SW1.
-- Confirm the interface is brought online so switch traffic reaches the router through that connection.
-- Compare the live configuration to the saved startup copy on each device to check whether the new banner, hostnames, and secrets have been preserved.
-- Commit the changes to non-volatile storage, repeat the comparison, and restart DS-07-SW1 to confirm the passwords still take effect (VaultAccess on the console, CrC0ffee! for privileged access).
-- Every prompt reads DS-07-*, the banner flashes Castle Rysen Ops: Authorized engineers only., and the enable secret reports as type 5 under show running-config.
-- Both switches report the management interface as operational with addresses 192.168.10.11 and 192.168.10.12, and their management gateway is set to 192.168.10.1.
-- The router lists 192.168.10.1/24 on its inside connection with the Castle security controls active.
-- Saved configurations match the running state on every device, and DS-07-SW2 powers up with the hardened settings instead of reverting to the factory prompt.
+
+The same identity and privileged access standards were applied to the second switch.
+
+Using consistent naming and security controls across all devices makes the network easier to manage and reduces confusion when moving between consoles.
+
 ---
 
-## Verification
+## Step 3 - Configure Device Identity on DS-07-RTR1
+
+```bash
+enable
+configure terminal
+hostname DS-07-RTR1
+banner motd ^Castle Rysen Ops: Authorised engineers only.^
+enable secret CrC0ffee!
+```
+
+### Explanation
+
+The router was also given a meaningful hostname, warning banner and enable secret.
+
+At this stage, all three network devices had clear identity and protected privileged access.
+
+---
+
+## Step 4 - Secure Console Access on DS-07-SW1
+
+```bash
+line con 0
+password VaultAccess
+login
+exit
+```
+
+### Explanation
+
+The console line controls local access to the device.
+
+This configuration requires the console password before someone can use the switch from the console connection.
+
+---
+
+## Step 5 - Enable Password Encryption on DS-07-SW1
+
+```bash
+service password-encryption
+```
+
+### Explanation
+
+This command encrypts plain-text passwords in the running configuration.
+
+I initially entered:
+
+```bash
+service password encryption
+```
+
+This failed because the correct IOS command uses a hyphen:
+
+```bash
+service password-encryption
+```
+
+This was a useful reminder that IOS syntax is precise, especially with hyphenated commands.
+
+---
+
+## Step 6 - Configure Local User and SSH-Only VTY Access on DS-07-SW1
+
+```bash
+username admin secret ShelterAccess
+line vty 0 4
+login local
+transport input ssh
+exec-timeout 10 0
+exit
+ip ssh version 2
+ip domain name castle.local
+crypto key generate rsa
+2048
+```
+
+### Explanation
+
+A local user account was created for remote login.
+
+The VTY lines were configured to use the local user database and accept SSH only:
+
+```bash
+login local
+transport input ssh
+```
+
+SSH version 2 was enabled because it is more secure than older SSH versions.
+
+The domain name was needed before generating RSA keys, because IOS uses the hostname and domain name to create the key label.
+
+The `exec-timeout 10 0` setting was applied under the VTY lines so idle remote sessions time out after 10 minutes.
+
+---
+
+## Step 7 - Configure DS-07-SW1 Management IP
+
+```bash
+interface vlan1
+ip address 192.168.10.11 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.10.1
+```
+
+### Explanation
+
+Because `DS-07-SW1` is a Layer 2 switch, its management IP was configured on an SVI:
+
+```bash
+interface vlan1
+```
+
+The default gateway points the switch towards the router:
+
+```text
+DS-07-SW1 → 192.168.10.1
+```
+
+This allows the switch to communicate beyond its local subnet if required.
+
+---
+
+## Step 8 - Add Interface Descriptions on DS-07-SW1
+
+```bash
+interface et0/3
+description Uplink-to-Router
+no shutdown
+
+interface e0/2
+description WAP1-Feed
+no shutdown
+
+interface e0/1
+description Link-to-DS-07-SW2
+no shutdown
+
+interface e0/0
+description 2nd-Link-to-DS-07-SW2
+no shutdown
+
+end
+write memory
+```
+
+### Explanation
+
+Interface descriptions were added so the physical layout could be understood from the switch CLI.
+
+This is a small but useful operational habit. A future engineer can run `show interfaces description` and immediately understand what each link is intended to connect to.
+
+I initially tried:
+
+```bash
+interface en0/3
+```
+
+That failed because the correct interface abbreviation was `et0/3` or `e0/3`.
+
+---
+
+## Step 9 - Secure Console Access on DS-07-SW2
+
+```bash
+line con 0
+password VaultAccess
+login
+exit
+service password-encryption
+```
+
+### Explanation
+
+The same console password and password encryption approach was applied to `DS-07-SW2`.
+
+Again, the correct command was:
+
+```bash
+service password-encryption
+```
+
+not:
+
+```bash
+service password encryption
+```
+
+---
+
+## Step 10 - Configure Local User and SSH-Only VTY Access on DS-07-SW2
+
+```bash
+username admin secret ShelterAccess
+line vty 0 4
+login local
+transport input ssh
+exec-timeout 10 0
+exit
+ip ssh version 2
+ip domain name castle.local
+crypto key generate rsa
+2048
+```
+
+### Explanation
+
+`DS-07-SW2` was configured with the same remote access security model as `DS-07-SW1`.
+
+The goal was consistency:
+
+| Setting                     | Purpose                         |
+| --------------------------- | ------------------------------- |
+| `username admin secret ...` | Local login account             |
+| `login local`               | Use the local user database     |
+| `transport input ssh`       | Allow SSH, block Telnet         |
+| `ip ssh version 2`          | Use SSHv2                       |
+| `crypto key generate rsa`   | Generate RSA keys needed by SSH |
+
+---
+
+## Step 11 - Configure DS-07-SW2 Management IP
+
+```bash
+interface vlan1
+ip address 192.168.10.12 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.10.1
+```
+
+### Explanation
+
+`DS-07-SW2` was assigned the second switch management address:
+
+```text
+192.168.10.12/24
+```
+
+The switch uses the same router gateway:
+
+```text
+192.168.10.1
+```
+
+---
+
+## Step 12 - Add Interface Descriptions on DS-07-SW2
+
+```bash
+interface e0/0
+description Link-to-DS-07-SW1
+no shutdown
+
+interface e0/1
+description 2nd-Link-to-DS-07-SW1
+no shutdown
+
+interface e0/2
+description WAP2-link
+no shutdown
+
+interface e0/3
+description Drop-to-Server
+no shutdown
+
+exit
+exit
+write memory
+```
+
+### Explanation
+
+Descriptions were added to the second switch to show its links back to `DS-07-SW1`, plus its WAP and server-facing connections.
+
+This made the topology easier to understand directly from device output.
+
+---
+
+## Step 13 - Configure Router Access Security
+
+```bash
+hostname DS-07-RTR1
+banner motd ^Castle Rysen Ops: Authorised engineers only.^
+enable secret CrC0ffee!
+
+line con 0
+password VaultAccess
+login
+exit
+
+service password-encryption
+username admin secret ShelterAccess
+ip ssh version 2
+ip domain name castle.local
+crypto key generate rsa
+2048
+
+line vty 0 4
+login local
+transport input ssh
+exec-timeout 10 0
+exit
+```
+
+### Explanation
+
+The router was secured using the same access model as the switches:
+
+* console password for local access
+* enable secret for privileged access
+* local username for remote access
+* SSH-only VTY access
+* SSH version 2
+* RSA keys for SSH
+* encrypted stored passwords
+
+This gave all three devices a consistent baseline configuration.
+
+---
+
+## Step 14 - Configure Router Inside Interface
+
+```bash
+interface e0/0
+description Link-to-DS-07-SW1
+no shutdown
+ip address 192.168.10.1 255.255.255.0
+end
+write memory
+```
+
+### Explanation
+
+The router’s inside interface was configured as the gateway for the switch management subnet:
+
+```text
+192.168.10.1/24
+```
+
+I initially tried to configure `interface vlan1` on the router, but the router did not support that interface in this context.
+
+The correct approach was to assign the IP address directly to the router’s physical Ethernet interface:
+
+```bash
+interface e0/0
+ip address 192.168.10.1 255.255.255.0
+```
+
+---
+
+# Verification
+
+---
+
+## DS-07-SW1 Ping Test
+
+```bash
+ping 192.168.10.1
+```
+
+### Observed Output
+
+```text
+.!!!!
+Success rate is 80 percent (4/5)
+```
+
+A second test returned:
+
+```text
+!!!!!
+Success rate is 100 percent (5/5)
+```
+
+### Explanation
+
+The first failed packet was likely due to ARP resolution. The second ping confirmed stable connectivity from `DS-07-SW1` to the router gateway.
+
+---
+
+## DS-07-SW2 Ping Test
+
+```bash
+ping 192.168.10.1
+```
+
+### Observed Output
+
+```text
+.!!!!
+Success rate is 80 percent (4/5)
+```
+
+A second test returned:
+
+```text
+!!!!!
+Success rate is 100 percent (5/5)
+```
+
+### Explanation
+
+`DS-07-SW2` also successfully reached the router gateway after ARP resolution.
+
+This confirmed both switches had working management IP settings and could reach:
+
+```text
+DS-07-RTR1 192.168.10.1
+```
+
+---
+
+## Recommended Verification Commands
 
 ```bash
 show ip interface brief
@@ -282,30 +540,226 @@ show running-config
 ping 192.168.10.1
 ping 192.168.10.11
 ping 192.168.10.12
+show interfaces description
+show ip ssh
 ```
 
 ---
 
-## Troubleshooting
+## Expected Final Addressing
 
-### Issue 1
-- **Attempting to assign router ip address to vlan1 instead of ethernet0/0 (the connection to the internal network)**
+| Device       | Expected IP        | Gateway        |
+| ------------ | ------------------ | -------------- |
+| `DS-07-RTR1` | `192.168.10.1/24`  | N/A            |
+| `DS-07-SW1`  | `192.168.10.11/24` | `192.168.10.1` |
+| `DS-07-SW2`  | `192.168.10.12/24` | `192.168.10.1` |
+
+---
+
+# Troubleshooting
+
+## Issue 1 - Password encryption command syntax
+
+### What happened
+
+I entered:
+
+```bash
+service password encryption
+```
+
+This produced an invalid input error.
 
 ### Diagnosis
-- **Unable to complete task/unable to ping**
+
+The command requires a hyphen between `password` and `encryption`.
 
 ### Fix
-- **Assigned ip direct to port as specified**
+
+The correct command was:
+
+```bash
+service password-encryption
+```
+
+### Lesson
+
+IOS syntax is exact. Hyphens matter.
 
 ---
 
-## Key Learnings
-- Ensure I am in the correct mode at all times
-- Learned to fully secure SSH and upgrade it to the newer more secure version
-- Memorisation of CLI commands
-- Check spellings, mode and especially hyphens where appropriate
+## Issue 2 - Exec-timeout entered in the wrong mode
+
+### What happened
+
+I entered:
+
+```bash
+exec-timeout 10 0
+```
+
+from global configuration mode, and IOS rejected it.
+
+### Diagnosis
+
+`exec-timeout` is a line configuration command, so it needs to be entered under a line such as:
+
+```bash
+line vty 0 4
+```
+
+### Fix
+
+The command was applied under the VTY lines:
+
+```bash
+line vty 0 4
+exec-timeout 10 0
+```
+
+### Lesson
+
+The prompt is important. Some commands are only valid in specific configuration modes.
 
 ---
 
-## Improvements for Next Time
-- Speed improvement in completing basic config is my aim for the next lab
+## Issue 3 - Wrong interface abbreviation
+
+### What happened
+
+I tried:
+
+```bash
+interface en0/3
+```
+
+This failed.
+
+### Diagnosis
+
+The interface abbreviation was not recognised.
+
+### Fix
+
+I used the valid Ethernet interface form:
+
+```bash
+interface et0/3
+```
+
+or:
+
+```bash
+interface e0/3
+```
+
+### Lesson
+
+Interface abbreviations are flexible, but only if IOS recognises them. If one abbreviation fails, use the fuller interface name or check with `?`.
+
+---
+
+## Issue 4 - Tried to configure VLAN1 on the router
+
+### What happened
+
+I attempted to configure the router IP address under `interface vlan1`.
+
+This failed because the router did not support that switch-style SVI configuration in this lab context.
+
+### Diagnosis
+
+A Layer 2 switch uses an SVI for management, but the router needed its IP address on the physical inside interface.
+
+### Fix
+
+The IP address was assigned to the router’s Ethernet interface:
+
+```bash
+interface e0/0
+ip address 192.168.10.1 255.255.255.0
+```
+
+### Lesson
+
+Switches and routers handle management/gateway interfaces differently. A Layer 2 switch uses an SVI for management, while the router’s gateway IP belongs on the routed interface.
+
+---
+
+## Issue 5 - Incomplete IP address command
+
+### What happened
+
+I entered:
+
+```bash
+ip address 192.168.10.1
+```
+
+IOS returned:
+
+```text
+% Incomplete command.
+```
+
+### Diagnosis
+
+The subnet mask was missing.
+
+### Fix
+
+The full command was:
+
+```bash
+ip address 192.168.10.1 255.255.255.0
+```
+
+### Lesson
+
+An IPv4 interface address on IOS requires both the IP address and subnet mask.
+
+---
+
+# Key Learnings
+
+* Configure hostnames early so prompts are clear.
+* Use banners and enable secrets as part of a basic security baseline.
+* `service password-encryption` requires a hyphen.
+* SSH requires a domain name and RSA keys.
+* VTY lines can be restricted to SSH using `transport input ssh`.
+* `exec-timeout` belongs under line configuration mode.
+* Layer 2 switches use an SVI for management IP addressing.
+* Routers usually take their gateway IP directly on a routed physical interface.
+* Default gateways are required on Layer 2 switches for management traffic beyond the local subnet.
+* Interface descriptions make small networks much easier to understand later.
+* Always save configuration changes with `write memory`.
+
+---
+
+# Improvements for Next Time
+
+* Build a small checklist for basic device hardening so the steps become faster and more automatic.
+* Check the current IOS mode before entering line-specific or interface-specific commands.
+* Use `?` more often when unsure of an interface name or command syntax.
+* Verify SSH with `show ip ssh` and, if possible, a remote login test.
+* Capture `show running-config` snippets showing encrypted passwords, SSH settings and interface descriptions.
+* Be consistent with banner spelling and capitalisation across devices.
+* Consider using named VLANs and a dedicated management VLAN in future labs rather than relying on VLAN 1.
+
+---
+
+# Final Result
+
+This lab successfully configured a small three-device network with consistent identity, local access security, SSH-ready remote access, management IP addressing and interface documentation.
+
+The final management addressing was:
+
+```text
+DS-07-RTR1  192.168.10.1/24
+DS-07-SW1   192.168.10.11/24
+DS-07-SW2   192.168.10.12/24
+```
+
+Both switches successfully reached the router gateway at `192.168.10.1`, confirming that the management addressing was operational.
+
+The lab also reinforced several important fundamentals: command modes matter, router and switch interfaces behave differently, SSH requires preparation, and small syntax details such as hyphens and subnet masks are easy to miss but important to correct.
