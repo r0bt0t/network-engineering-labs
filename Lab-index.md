@@ -34,7 +34,13 @@
 | 006 | Finding devices | identify device on LAN from IP address only, use of ARP and CAM tables | Complete |
 | 007 | Tracking Devices with the CAM Table | Interrogation of CAM and MAC tables, aligning IP to MAC | Complete |
 | 008 | Switch Recon | Understanding physical and logical equipment ties using CLI alone | Complete |
-| | | | |
+| 009 | Collapsed Core VLAN Segmentation | Small enterprise set up using two layer 2 switches | Complete |
+| 010 | Configuring Switch Interfaces | basic initial switch configuration | Complete |
+| 011 | Configuring Router Interfaces | Basic initial router configuration | Complete |
+| 012 | Reading Interface Counters | Building understanding of building, reading and monitoring counters | Complete |
+| 013 | Local Routing | Routing within a LAN | Complete |
+| 014 | Configuring Local Routing | Continuation of routing in preparation for WAN set up | Complete |
+|  |  |  |  |
 
 <table>
 <tr>
