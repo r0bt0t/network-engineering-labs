@@ -6,11 +6,11 @@
 
 # Objective
 
-* ### Confirm the physical and logical relationship between `RW-CORE-SW` and `RW-ACC-SW`.
-* ### Identify the active VLAN, trunk link, management IPs and switch-to-switch uplink.
-* ### Trace each endpoint from IP address to MAC address, then from MAC address to physical switchport.
-* ### Add clear interface descriptions so the final topology can be understood quickly by another engineer.
-* ### Document the final working layout without disrupting service.
+#### Confirm the physical and logical relationship between `RW-CORE-SW` and `RW-ACC-SW`.
+#### Identify the active VLAN, trunk link, management IPs and switch-to-switch uplink.
+#### Trace each endpoint from IP address to MAC address, then from MAC address to physical switchport.
+#### Add clear interface descriptions so the final topology can be understood quickly by another engineer.
+#### Document the final working layout without disrupting service.
 
 </td>
 </tr>

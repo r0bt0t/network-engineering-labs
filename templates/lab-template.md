@@ -6,10 +6,10 @@
 
 # Objective
 
-* ### Describe the main technical goal of the lab.
-* ### Explain what network skill or concept is being demonstrated.
-* ### State what the final working outcome should prove.
-* ### Include any troubleshooting, security, routing, switching, or verification objective if relevant.
+#### Describe the main technical goal of the lab.
+#### Explain what network skill or concept is being demonstrated.
+#### State what the final working outcome should prove.
+#### Include any troubleshooting, security, routing, switching, or verification objective if relevant.
 
 </td>
 </tr>
