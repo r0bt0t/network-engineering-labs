@@ -23,8 +23,8 @@ body {
   min-height: 100vh;
   position: relative;
   display: flex;
-  align-items: centre;
-  justify-content: centre;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -53,14 +53,11 @@ body {
   overflow: hidden;
 }
 
-/* Large starting title */
+/* Logo / title */
 .hero-title {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  align-items: centre;
+  align-items: center;
   gap: 2rem;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   letter-spacing: 0.08em;
@@ -68,9 +65,24 @@ body {
   text-shadow:
     0 5px 0 rgba(0, 0, 0, 0.18),
     0 18px 40px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+/* Home page: logo starts large in the centre, then animates */
+.home-page .hero-title {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
   animation: moveTitle 1.2s ease-in-out forwards;
   animation-delay: 2s;
-  z-index: 2;
+}
+
+/* Inner pages: logo is already in final position */
+.inner-page .hero-title {
+  left: 4%;
+  top: 5%;
+  transform: translate(0, 0) scale(0.28);
+  transform-origin: top left;
 }
 
 .name-block,
@@ -94,7 +106,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Final title position */
+/* Logo animation for home page only */
 @keyframes moveTitle {
   from {
     left: 50%;
@@ -110,16 +122,113 @@ body {
   }
 }
 
+/* Navigation */
+.portfolio-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.portfolio-links a {
+  color: inherit;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  background: transparent;
+  opacity: 0.72;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.portfolio-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+/* Highlights the current page */
+.portfolio-links a.active {
+  opacity: 1;
+  transform: translateY(1px) scale(1.08);
+  color: var(--text-main);
+  text-shadow:
+    0 -1px 0 rgba(0, 0, 0, 0.7),
+    0 1px 10px rgba(200, 193, 179, 0.16);
+}
+
+/* Adds | separators between nav links */
+.portfolio-links a:not(:last-child)::after {
+  content: "|";
+  display: inline-block;
+  margin: 0 0.85rem;
+  opacity: 0.45;
+  transform: translateY(-1px) scale(1);
+}
+
+/* Prevents the separator after the active link from looking oversized */
+.portfolio-links a.active::after {
+  transform: translateY(-1px) scale(0.92);
+}
+
+/* Positions nav below the logo */
+.main-nav {
+  position: absolute;
+  top: 7.8rem;
+  left: 4.5rem;
+  z-index: 5;
+
+  opacity: 0;
+  animation: navFadeIn 2s ease forwards;
+}
+
+/* Home page: nav waits until logo has moved */
+.home-page .main-nav {
+  animation-delay: 3.25s;
+}
+
+/* Inner pages: nav fades in over 2 seconds from page load */
+.inner-page .main-nav {
+  animation-delay: 0s;
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Welcome section */
 .welcome-content {
   position: absolute;
-  left: 6%;
-  bottom: 8%;
+  left: 4.5%;
+  bottom: 20%;
   width: min(760px, 82%);
   opacity: 0;
   transform: translateY(24px);
   animation: fadeWelcome 1s ease forwards;
-  animation-delay: 3.25s;
+}
+
+/* On home page, welcome text appears after logo/nav movement */
+.home-page .welcome-content {
+  animation-delay: 3.75s;
+}
+
+/* On inner pages, content appears shortly after page load */
+.inner-page .welcome-content {
+  animation-delay: 0.6s;
 }
 
 @keyframes fadeWelcome {
@@ -142,30 +251,6 @@ body {
   color: var(--text-muted);
 }
 
-.portfolio-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.portfolio-links a {
-  text-decoration: none;
-  color: var(--text-main);
-  border: 1px solid var(--line-soft);
-  padding: 0.9rem 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
-  background: rgba(255, 255, 255, 0.03);
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.portfolio-links a:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
-}
-
 /* Mobile layout */
 @media (max-width: 760px) {
   body {
@@ -173,6 +258,7 @@ body {
   }
 
   .portfolio-panel {
+    position: relative;
     width: 92vw;
     min-height: 92vh;
     height: auto;
@@ -194,7 +280,22 @@ body {
     font-size: clamp(4rem, 17vw, 6rem);
   }
 
-  @keyframes moveTitle {
+  .home-page .hero-title {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    animation: moveTitleMobile 1.2s ease-in-out forwards;
+    animation-delay: 2s;
+  }
+
+  .inner-page .hero-title {
+    left: 6%;
+    top: 5%;
+    transform: translate(0, 0) scale(0.42);
+    transform-origin: top left;
+  }
+
+  @keyframes moveTitleMobile {
     from {
       left: 50%;
       top: 50%;
@@ -207,6 +308,18 @@ body {
       transform: translate(0, 0) scale(0.42);
       transform-origin: top left;
     }
+  }
+
+  .main-nav {
+    top: 8.5rem;
+    left: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    flex-wrap: wrap;
+  }
+
+  .portfolio-links a:not(:last-child)::after {
+    margin: 0 0.55rem;
   }
 
   .welcome-content {
@@ -222,23 +335,4 @@ body {
     right: -5vw;
     opacity: 0.12;
   }
-}
-
-.landing-page {
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 2rem;
 }
