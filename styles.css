@@ -1,0 +1,28 @@
+.menu-item {
+  transition: opacity 0.2s ease;
+}
+
+.menu-item:hover {
+  opacity: 0.5;
+}
+
+.size-shift {
+  display: inline-block;
+  padding-left: 13px;
+  padding-right: 13px;
+  transition: transform 0.5s ease;
+}
+
+.size-shift2 {
+  display: inline-block;
+  padding-right: 13px;
+  transition: transform 0.5s ease;
+}
+
+.size-shift:hover {
+  transform: scale(1.15);
+}
+
+.size-shift2:hover {
+  transform: scale(1.15);
+}
