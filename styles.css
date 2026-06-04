@@ -1,3 +1,16 @@
+@font-face {
+  font-family: "Long Shot";
+  src: url("fonts/Long Shot/Long_Shot.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.beeg {
+  font-family: "Long Shot", Arial, Helvetica, sans-serif;
+}
+
+
 .menu-item {
   transition: opacity 0.2s ease;
 }
@@ -26,3 +39,5 @@
 .size-shift2:hover {
   transform: scale(1.15);
 }
+
+
