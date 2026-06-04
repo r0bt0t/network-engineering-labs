@@ -214,7 +214,7 @@ body {
 .welcome-content {
   position: absolute;
   left: 4.5%;
-  bottom: 20%;
+  bottom: 8%;
   width: min(760px, 82%);
   opacity: 0;
   transform: translateY(24px);
