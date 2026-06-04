@@ -81,11 +81,11 @@ body {
 }
 
 .name-block span {
-  font-size: clamp(2.1rem, 5vw, 5rem);
+  font-size: clamp(4rem, 11vw, 10rem);
 }
 
 .title-block span {
-  font-size: clamp(4rem, 11vw, 10rem);
+  font-size: clamp(2.1rem, 5vw, 5rem);
 }
 
 .divider {
