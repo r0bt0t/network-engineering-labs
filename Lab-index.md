@@ -40,6 +40,9 @@
 | 012 | Reading Interface Counters | Building understanding of building, reading and monitoring counters | Complete |
 | 013 | Local Routing | Routing within a LAN | Complete |
 | 014 | Configuring Local Routing | Continuation of routing in preparation for WAN set up | Complete |
+| 015 | Configuring static routing | Connecting multiple LANs | Complete |
+| 016 | Configuring default routing | Connecting networks to the internet via an ISP | Complete |
+| 017 | Configuring EIGRP dynamic routing | First introduction to dynamic routing through the EIGRP protocol | Complete |
 |  |  |  |  |
 
 <table>
