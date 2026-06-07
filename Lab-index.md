@@ -43,6 +43,8 @@
 | 015 | Configuring static routing | Connecting multiple LANs | Complete |
 | 016 | Configuring default routing | Connecting networks to the internet via an ISP | Complete |
 | 017 | Configuring EIGRP dynamic routing | First introduction to dynamic routing through the EIGRP protocol | Complete |
+| 018 | Routing table concepts and route selection | Understanding the routing table | Complete |
+| 019 | Static and default internet routing | Understanding and manipulating static and default routing | Complete |
 |  |  |  |  |
 
 <table>

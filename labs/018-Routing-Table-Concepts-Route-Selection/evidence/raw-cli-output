@@ -1,0 +1,208 @@
+```bash
+Connecting to console for Cafe-RT1
+
+
+User Access Verification
+
+Username: cisco
+Password: 
+Cafe-RT1#
+*Jun  7 09:55:31.093: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: cisco] [Source: LOCAL] [localport: 0] at 09:55:31 UTC Sun Jun 7 2026
+Cafe-RT1#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 216.0.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 216.0.5.1
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, Ethernet0/0
+L        192.168.1.1/32 is directly connected, Ethernet0/0
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/30 is directly connected, Ethernet0/1
+L        192.168.2.1/32 is directly connected, Ethernet0/1
+D     192.168.3.0/24 [90/409600] via 192.168.2.2, 00:00:35, Ethernet0/1
+      216.0.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        216.0.5.0/30 is directly connected, Ethernet0/2
+L        216.0.5.2/32 is directly connected, Ethernet0/2
+Cafe-RT1#
+
+
+Cafe-RT1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-RT1(config)#ip 
+*Jun  7 09:59:42.786: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+Cafe-RT1(config)#ip route
+*Jun  7 09:59:42.888: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*Jun  7 09:59:42.889: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*Jun  7 09:59:42.996: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+Cafe-RT1(config)#ip route 
+*Jun  7 09:59:43.096: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 1 seconds).
+*Jun  7 09:59:43.096: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Cafe-RT1(config)#ip route 192.168.3.0 255.255.255.0 192.168.2.2
+Cafe-RT1(config)#end
+Cafe-RT1#
+*Jun  7 10:00:17.211: %SYS-5-CONFIG_I: Configured from console by cisco on console
+Cafe-RT1#show ip route 192.168.3.0
+Routing entry for 192.168.3.0/24
+  Known via "static", distance 1, metric 0
+  Routing Descriptor Blocks:
+  * 192.168.2.2
+      Route metric is 0, traffic share count is 1
+Cafe-RT1#
+Cafe-RT1#
+Cafe-RT1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-RT1(config)#no ip route 192.168.3.0 255.255.255.0 192.168.2.2
+Cafe-RT1(config)#end
+Cafe-RT1#
+*Jun  7 10:01:30.683: %SYS-5-CONFIG_I: Configured from console by cisco on console
+Cafe-RT1#show ip route 192.168.3.0
+Routing entry for 192.168.3.0/24
+  Known via "eigrp 50", distance 90, metric 409600, precedence routine (0), type internal
+  Redistributing via eigrp 50
+  Last update from 192.168.2.2 on Ethernet0/1, 00:00:13 ago
+  Routing Descriptor Blocks:
+  * 192.168.2.2, from 192.168.2.2, 00:00:13 ago, via Ethernet0/1
+      Route metric is 409600, traffic share count is 1
+      Total delay is 6000 microseconds, minimum bandwidth is 10000 Kbit
+      Reliability 255/255, minimum MTU 1500 bytes
+      Loading 1/255, Hops 1
+Cafe-RT1#show ip route            
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 216.0.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 216.0.5.1
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, Ethernet0/0
+L        192.168.1.1/32 is directly connected, Ethernet0/0
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/30 is directly connected, Ethernet0/1
+L        192.168.2.1/32 is directly connected, Ethernet0/1
+D     192.168.3.0/24 [90/409600] via 192.168.2.2, 00:00:58, Ethernet0/1
+      216.0.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        216.0.5.0/30 is directly connected, Ethernet0/2
+L        216.0.5.2/32 is directly connected, Ethernet0/2
+Cafe-RT1#
+
+
+Cafe-RT1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-RT1(config)#interface loopback 1
+Cafe-RT1(config-if)#
+*Jun  7 10:04:06.844: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback1, changed state to up
+Cafe-RT1(config-if)#ip address 10.0.0.1 255.255.255.0
+Cafe-RT1(config-if)#no shut
+Cafe-RT1(config-if)#no shutdown 
+Cafe-RT1(config-if)#interface loopback 2
+Cafe-RT1(config-if)#
+*Jun  7 10:04:42.936: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback2, changed state to up
+Cafe-RT1(config-if)#ip address 10.0.1.0 255.255.255.0
+Bad mask /24 for address 10.0.1.0
+Cafe-RT1(config-if)#no shut
+Cafe-RT1(config-if)#no shutdown 
+Cafe-RT1(config-if)#end
+Cafe-RT1#sho
+*Jun  7 10:05:19.323: %SYS-5-CONFIG_I: Configured from console by cisco on console
+Cafe-RT1#show ip route 10.0.0.0
+Routing entry for 10.0.0.0/8, 2 known subnets
+  Attached (2 connections)
+  Variably subnetted with 2 masks
+C        10.0.0.0/24 is directly connected, Loopback1
+L        10.0.0.1/32 is directly connected, Loopback1
+Cafe-RT1#show ip route             
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 216.0.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 216.0.5.1
+      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        10.0.0.0/24 is directly connected, Loopback1
+L        10.0.0.1/32 is directly connected, Loopback1
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, Ethernet0/0
+L        192.168.1.1/32 is directly connected, Ethernet0/0
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/30 is directly connected, Ethernet0/1
+L        192.168.2.1/32 is directly connected, Ethernet0/1
+D     192.168.3.0/24 [90/409600] via 192.168.2.2, 00:04:27, Ethernet0/1
+      216.0.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        216.0.5.0/30 is directly connected, Ethernet0/2
+L        216.0.5.2/32 is directly connected, Ethernet0/2
+Cafe-RT1#
+Cafe-RT1#
+Cafe-RT1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-RT1(config)#no interface loopback1
+Cafe-RT1(config)#no interface loopback 
+*Jun  7 10:06:26.383: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback1, changed state to down
+*Jun  7 10:06:26.383: %LINK-5-CHANGED: Interface Loopback1, changed state to administratively down
+Cafe-RT1(config)#no interface loopback2
+Cafe-RT1(config)#end
+Cafe-RT1#
+*Jun  7 10:06:30.893: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback2, changed state to down
+*Jun  7 10:06:30.893: %LINK-5-CHANGED: Interface Loopback2, changed state to administratively down
+Cafe-RT1#
+*Jun  7 10:06:31.299: %SYS-5-CONFIG_I: Configured from console by cisco on console
+Cafe-RT1#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 216.0.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 216.0.5.1
+      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.1.0/24 is directly connected, Ethernet0/0
+L        192.168.1.1/32 is directly connected, Ethernet0/0
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/30 is directly connected, Ethernet0/1
+L        192.168.2.1/32 is directly connected, Ethernet0/1
+D     192.168.3.0/24 [90/409600] via 192.168.2.2, 00:05:15, Ethernet0/1
+      216.0.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        216.0.5.0/30 is directly connected, Ethernet0/2
+L        216.0.5.2/32 is directly connected, Ethernet0/2
+Cafe-RT1#
+```
