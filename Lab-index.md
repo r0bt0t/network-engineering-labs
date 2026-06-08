@@ -45,7 +45,9 @@
 | 017 | Configuring EIGRP dynamic routing | First introduction to dynamic routing through the EIGRP protocol | Complete |
 | 018 | Routing table concepts and route selection | Understanding the routing table | Complete |
 | 019 | Static and default internet routing | Understanding and manipulating static and default routing | Complete |
-|  |  |  |  |
+| 020 | Adding the internet to Packet Tracer | Exploring principles of setting up an active internet conection | Complete |
+| 021 | Configuring static NAT | First introduction to NAT configuration | Complete |
+|   |   |   |   |
 
 <table>
 <tr>

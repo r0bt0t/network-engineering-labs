@@ -1,0 +1,193 @@
+# Lab 021 - Raw CLI Output
+
+```bash
+Connecting to console for Cafe-Rtr
+
+Cafe-Rtr>
+Cafe-Rtr>en
+Cafe-Rtr#
+*Jun  8 20:23:17.369: %PNP-6-PNP_SAVING_TECH_SUMMARY: Saving PnP tech summary (/pnp-tech/pnp-tech-discovery-summary)... Please wait. Do not interrupt.
+*Jun  8 20:23:17.471: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*Jun  8 20:23:17.472: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+*Jun  8 20:23:17.578: %SYS-5-CONFIG_P: Configured programmatically by process PnP Agent Discovery from console as vty0
+Cafe-Rtr#s
+*Jun  8 20:23:17.678: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 1 seconds).
+*Jun  8 20:23:17.678: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+Cafe-Rtr#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Ethernet0/0            192.168.1.1     YES TFTP   up                    up      
+Ethernet0/1            216.0.5.2       YES TFTP   up                    up      
+Ethernet0/2            unassigned      YES unset  administratively down down    
+Ethernet0/3            unassigned      YES unset  administratively down down    
+Cafe-Rtr#
+
+Connecting to console for PC1
+Connected to CML terminalserver.
+
+Core Linux
+pc1 login: 
+Core Linux
+pc1 login: cisco
+Password: 
+   ( '>')
+  /) TC (\   Core is distributed with ABSOLUTELY NO WARRANTY.
+ (/-_--_-\)           www.tinycorelinux.net
+
+cisco@pc1:~$ ping 1.1.1.1
+PING 1.1.1.1 (1.1.1.1): 56 data bytes
+
+
+
+ping -c 5 1.1.1.1
+^C
+--- 1.1.1.1 ping statistics ---
+223 packets transmitted, 0 packets received, 100% packet loss
+cisco@pc1:~$ 
+
+ISP-Rtr#show ip interface brief
+*Jun  8 20:24:33.326: %PNP-6-PNP_TECH_SUMMARY_SAVED_OK: PnP tech summary (/pnp-tech/pnp-tech-discovery-summary) saved successfully (elapsed time: 1 seconds).
+*Jun  8 20:24:33.326: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Config Wizard)
+ISP-Rtr#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Ethernet0/0            216.0.5.1       YES TFTP   up                    up      
+Ethernet0/1            unassigned      YES unset  administratively down down    
+Ethernet0/2            unassigned      YES unset  administratively down down    
+Ethernet0/3            unassigned      YES unset  administratively down down    
+Loopback0              1.1.1.1         YES TFTP   up                    up      
+Loopback1              8.8.8.8         YES TFTP   up                    up      
+ISP-Rtr#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is not set
+
+      1.0.0.0/32 is subnetted, 1 subnets
+C        1.1.1.1 is directly connected, Loopback0
+      8.0.0.0/32 is subnetted, 1 subnets
+C        8.8.8.8 is directly connected, Loopback1
+      216.0.5.0/24 is variably subnetted, 4 subnets, 2 masks
+C        216.0.5.0/30 is directly connected, Ethernet0/0
+L        216.0.5.1/32 is directly connected, Ethernet0/0
+S        216.0.5.20/32 [1/0] via 216.0.5.2
+S        216.0.5.21/32 [1/0] via 216.0.5.2
+ISP-Rtr#
+
+Cafe-Rtr#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-Rtr(config)#ip nat inside source static 192.168.1.50 216.0.5.20
+Cafe-Rtr(config)#end
+Cafe-Rtr#
+*Jun  8 20:29:51.650: %SYS-5-CONFIG_I: Configured from console by console
+Cafe-Rtr#show ip nat translation
+Pro Inside global      Inside local       Outside local      Outside global
+--- 216.0.5.20         192.168.1.50       ---                ---
+Cafe-Rtr#
+
+Cafe-Rtr#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-Rtr(config)#interface et0/0
+Cafe-Rtr(config-if)#ip nat inside
+Cafe-Rtr(config-if)#exit
+Cafe-Rtr(config)#interface et0/1
+Cafe-Rtr(config-if)#ip nat outside
+Cafe-Rtr(config-if)#exit
+Cafe-Rtr(config)#^Z
+Cafe-Rtr#sho
+*Jun  8 20:31:56.422: %SYS-5-CONFIG_I: Configured from console by console
+Cafe-Rtr#show running-config interface et0/0
+Building configuration...
+
+Current configuration : 104 bytes
+!
+interface Ethernet0/0
+ description Cafe LAN
+ ip address 192.168.1.1 255.255.255.0
+ ip nat inside
+end
+
+Cafe-Rtr#show running-config interface et0/1
+Building configuration...
+
+Current configuration : 115 bytes
+!
+interface Ethernet0/1
+ description WAN toward ISP-Rtr
+ ip address 216.0.5.2 255.255.255.252
+ ip nat outside
+end
+
+Cafe-Rtr#
+
+cisco@pc1:~$ ping -c 5 1.1.1.1
+PING 1.1.1.1 (1.1.1.1): 56 data bytes
+64 bytes from 1.1.1.1: seq=0 ttl=254 time=1.152 ms
+64 bytes from 1.1.1.1: seq=1 ttl=254 time=1.247 ms
+64 bytes from 1.1.1.1: seq=2 ttl=254 time=0.990 ms
+64 bytes from 1.1.1.1: seq=3 ttl=254 time=1.090 ms
+64 bytes from 1.1.1.1: seq=4 ttl=254 time=1.037 ms
+
+--- 1.1.1.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 0.990/1.103/1.247 ms
+cisco@pc1:~$ 
+
+
+Cafe-Rtr#show ip nat translations
+Pro Inside global      Inside local       Outside local      Outside global
+icmp 216.0.5.20:706    192.168.1.50:706   1.1.1.1:706        1.1.1.1:706
+--- 216.0.5.20         192.168.1.50       ---                ---
+Cafe-Rtr#
+
+ISP-Rtr#ping 216.0.5.20
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 216.0.5.20, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+ISP-Rtr#
+
+Cafe-Rtr#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Cafe-Rtr(config)#ip nat inside source static 192.168.1.51 216.0.5.21    
+Cafe-Rtr(config)#exit
+Cafe-Rtr#
+*Jun  8 20:39:06.234: %SYS-5-CONFIG_I: Configured from console by console
+Cafe-Rtr#show ip nat translation
+Pro Inside global      Inside local       Outside local      Outside global
+--- 216.0.5.20         192.168.1.50       ---                ---
+--- 216.0.5.21         192.168.1.51       ---                ---
+Cafe-Rtr#
+
+Connecting to console for PC2
+
+Core Linux
+pc2 login: 
+Core Linux
+pc2 login: cisco
+Password: 
+   ( '>')
+  /) TC (\   Core is distributed with ABSOLUTELY NO WARRANTY.
+ (/-_--_-\)           www.tinycorelinux.net
+
+cisco@pc2:~$ ping -c 5 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: seq=0 ttl=254 time=1.600 ms
+64 bytes from 8.8.8.8: seq=1 ttl=254 time=1.083 ms
+64 bytes from 8.8.8.8: seq=2 ttl=254 time=1.098 ms
+64 bytes from 8.8.8.8: seq=3 ttl=254 time=1.094 ms
+64 bytes from 8.8.8.8: seq=4 ttl=254 time=1.051 ms
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 1.051/1.185/1.600 ms
+cisco@pc2:~$
+```
