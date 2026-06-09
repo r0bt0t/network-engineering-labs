@@ -1,3 +1,7 @@
+---
+title: Lab Index
+---
+
 # Lab Index
 
 <table>
