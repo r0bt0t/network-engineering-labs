@@ -8,8 +8,9 @@
 
 ### Each lab is designed to demonstrate practical networking skills, configuration knowledge, and troubleshooting ability.
 
-#### The work here is entirely of my own making but has been completed whilst I follow the **Summer of CCNA** CCNA training course hosted by the **Network Chuck Academy** and taught by **Network Chuck**, and **Jeremy Cioara**, ably assisted by **Zach Hill**.
-#### I cannot thank them all enough for their guidance, their excellent teaching, their support and the supportive and engaged community they have created around the course.
+#### The work here is entirely of my own making but has been completed whilst I follow the **Summer of CCNA** CCNA training course hosted by the **Network Chuck Academy** and taught by **Network Chuck** and **Jeremy Cioara**, ably assisted by **Zach Hill**.
+
+#### I cannot thank them all enough for their guidance, their excellent teaching, their support, and the supportive and engaged community they have created around the course.
 
 </td>
 
@@ -24,30 +25,29 @@
 
 ## Completed Labs
 
-| Lab ID | Title | Key Topics | Status |
-|--------|-------|------------|--------|
-| 001 | Basic Switch Configuration | IOS basics, interface setup, management VLAN | Complete |
-| 002 | Cisco Base Configuration | interface labelling, password protection | Complete |
-| 003 | Multi Switch and Router Setup | IP addressing, seecuring remote access, updating SSH versioning | Complete |
-| 004 | Tracking Switch Interfaces and Intro to CAM Table | Table interrogation and filtering, | Complete |
-| 005 | Exploring Switch CAM Tables | MAC address table, endpoint staging, ARP-initiated traffic| Complete |
-| 006 | Finding devices | identify device on LAN from IP address only, use of ARP and CAM tables | Complete |
-| 007 | Tracking Devices with the CAM Table | Interrogation of CAM and MAC tables, aligning IP to MAC | Complete |
-| 008 | Switch Recon | Understanding physical and logical equipment ties using CLI alone | Complete |
-| 009 | Collapsed Core VLAN Segmentation | Small enterprise set up using two layer 2 switches | Complete |
-| 010 | Configuring Switch Interfaces | basic initial switch configuration | Complete |
-| 011 | Configuring Router Interfaces | Basic initial router configuration | Complete |
-| 012 | Reading Interface Counters | Building understanding of building, reading and monitoring counters | Complete |
-| 013 | Local Routing | Routing within a LAN | Complete |
-| 014 | Configuring Local Routing | Continuation of routing in preparation for WAN set up | Complete |
-| 015 | Configuring static routing | Connecting multiple LANs | Complete |
-| 016 | Configuring default routing | Connecting networks to the internet via an ISP | Complete |
-| 017 | Configuring EIGRP dynamic routing | First introduction to dynamic routing through the EIGRP protocol | Complete |
-| 018 | Routing table concepts and route selection | Understanding the routing table | Complete |
-| 019 | Static and default internet routing | Understanding and manipulating static and default routing | Complete |
-| 020 | Adding the internet to Packet Tracer | Exploring principles of setting up an active internet conection | Complete |
-| 021 | Configuring static NAT | First introduction to NAT configuration | Complete |
-|   |   |   |   |
+| Lab ID | Lab Write-Up                                                                                           | Evidence                                                                                    | Key Topics                                                                   | Status   |
+| ------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- |
+| 001    | [Basic Switch Configuration](labs/001-Basic-Switch-Configuration/)                                     | [Raw CLI](labs/001-Basic-Switch-Configuration/evidence/raw-cli-output.md)                   | IOS basics, interface setup, management VLAN                                 | Complete |
+| 002    | [Cisco Base Configuration](labs/002-Cisco-Base-Configuration/)                                         | [Raw CLI](labs/002-Cisco-Base-Configuration/evidence/raw-cli-output.md)                     | Interface labelling, password protection                                     | Complete |
+| 003    | [Small Network Switches and Router Config](labs/003-Small-Network-Switches-and-Router-Config/)         | [Raw CLI](labs/003-Small-Network-Switches-and-Router-Config/evidence/raw-cli-output.md)     | IP addressing, securing remote access, updating SSH versioning               | Complete |
+| 004    | [Tracking Switch Interfaces and the CAM Table](labs/004-Tracking-Switch-Interfaces-and-the-CAM-Table/) | [Raw CLI](labs/004-Tracking-Switch-Interfaces-and-the-CAM-Table/evidence/raw-cli-output.md) | Table interrogation and filtering                                            | Complete |
+| 005    | [Exploring Switch CAM Tables](labs/005-Exploring-Switch-CAM-Tables/)                                   | [Raw CLI](labs/005-Exploring-Switch-CAM-Tables/evidence/raw-cli-output.md)                  | MAC address table, endpoint staging, ARP-initiated traffic                   | Complete |
+| 006    | [Finding Devices](labs/006-Finding-Devices/)                                                           | [Raw CLI](labs/006-Finding-Devices/evidence/raw-cli-output.md)                              | Identifying devices on a LAN from IP address only, use of ARP and CAM tables | Complete |
+| 007    | [Tracking Devices with the CAM Table](labs/007-Tracking-Devices-with-the-CAM-Table/)                   | [Raw CLI](labs/007-Tracking-Devices-with-the-CAM-Table/evidence/raw-cli-output.md)          | Interrogation of CAM and MAC tables, aligning IP to MAC                      | Complete |
+| 008    | [Switch Recon](labs/008-Switch-Recon/)                                                                 | [Raw CLI](labs/008-Switch-Recon/evidence/raw-cli-output.md)                                 | Understanding physical and logical equipment ties using CLI alone            | Complete |
+| 009    | [Collapsed Core VLAN Segmentation](labs/009-Collapsed-Core-VLAN-Segmentation/)                         | [Raw CLI](labs/009-Collapsed-Core-VLAN-Segmentation/evidence/raw-cli-output.md)             | Small enterprise setup using two Layer 2 switches                            | Complete |
+| 010    | [Configuring Switch Interfaces](labs/010-Configuring-Switch-Interfaces/)                               | [Raw CLI](labs/010-Configuring-Switch-Interfaces/evidence/raw-cli-output.md)                | Basic initial switch configuration                                           | Complete |
+| 011    | [Configuring Router Interfaces](labs/011-Configuring-Router-Interfaces/)                               | [Raw CLI](labs/011-Configuring-Router-Interfaces/evidence/raw-cli-output.md)                | Basic initial router configuration                                           | Complete |
+| 012    | [Reading Interface Counters](labs/012-Reading-Interface-Counters/)                                     | [Raw CLI](labs/012-Reading-Interface-Counters/evidence/raw-cli-output.md)                   | Building, reading and monitoring interface counters                          | Complete |
+| 013    | [Local Routing](labs/013-Local-Routing/)                                                               | [Raw CLI](labs/013-Local-Routing/evidence/raw-cli-output.md)                                | Routing within a LAN                                                         | Complete |
+| 014    | [Configuring Local Routing](labs/014-Configuring-Local-Routing/)                                       | [Raw CLI](labs/014-Configuring-Local-Routing/evidence/raw-cli-output.md)                    | Continuation of routing in preparation for WAN setup                         | Complete |
+| 015    | [Configuring Static Routing](labs/015-Configuring-Static-Routing/)                                     | [Raw CLI](labs/015-Configuring-Static-Routing/evidence/raw-cli-output.md)                   | Connecting multiple LANs                                                     | Complete |
+| 016    | [Configuring Default Routing](labs/016-Configuring-Default-Routing/)                                   | [Raw CLI](labs/016-Configuring-Default-Routing/evidence/raw-cli-output.md)                  | Connecting networks to the internet via an ISP                               | Complete |
+| 017    | [Configuring EIGRP Dynamic Routing](labs/017-Configuring-EIGRP-Dynamic-Routing/)                       | [Raw CLI](labs/017-Configuring-EIGRP-Dynamic-Routing/evidence/raw-cli-output.md)            | First introduction to dynamic routing through the EIGRP protocol             | Complete |
+| 018    | [Routing Table Concepts and Route Selection](labs/018-Routing-Table-Concepts-Route-Selection/)         | [Raw CLI](labs/018-Routing-Table-Concepts-Route-Selection/evidence/raw-cli-output.md)       | Understanding the routing table                                              | Complete |
+| 019    | [Static and Default Internet Routing](labs/019-Static-and-Default-Internet-Routing/)                   | [Raw CLI](labs/019-Static-and-Default-Internet-Routing/evidence/raw-cli-output.md)          | Understanding and manipulating static and default routing                    | Complete |
+| 020    | [Adding the Internet](labs/020-Adding-The-Internet/)                                                   | [Raw CLI](labs/020-Adding-The-Internet/evidence/raw-cli-output.md)                          | Exploring principles of setting up an active internet connection             | Complete |
+| 021    | [Configuring Static NAT](labs/021-Configuring-Static-NAT/)                                             | [Raw CLI](labs/021-Configuring-Static-NAT/evidence/raw-cli-output.md)                       | First introduction to NAT configuration                                      | Complete |
 
 <table>
 <tr>
@@ -58,13 +58,14 @@
 
 This repository is structured to progress through:
 
-- Layer 2 Switching ✅
-- VLAN segmentation
-- Inter-VLAN routing
-- Static and dynamic routing
-- Network security (ACLs)
-- Network services (DHCP, NAT)
-- IPv6 fundamentals
+* Layer 2 switching ✅
+* VLAN segmentation
+* Inter-VLAN routing
+* Static and dynamic routing
+* Network security, including ACLs
+* Network services, including DHCP and NAT
+* IPv6 fundamentals
+
 </td>
 
 <td valign="top">
@@ -75,4 +76,3 @@ This repository is structured to progress through:
 
 </tr>
 </table>
-
