@@ -1,30 +1,35 @@
 # Lab 004 - Tracking Switch Interfaces and the CAM Table
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Use switch summary commands to identify active and inactive interfaces.
-* ### Interpret interface naming, status and protocol state from switch output.
-* ### Check interface descriptions to map switchports to real network devices.
-* ### Review speed, duplex and VLAN information to confirm healthy port negotiation.
-* ### Use the MAC/CAM address table to confirm where devices are connected.
-* ### Practise correcting command syntax when filtering or querying switch tables.
+<ul>
+  <li><h3>Use switch summary commands to identify active and inactive interfaces.</h3></li>
+  <li><h3>Interpret interface naming, status and protocol state from switch output.</h3></li>
+  <li><h3>Check interface descriptions to map switchports to real network devices.</h3></li>
+  <li><h3>Review speed, duplex and VLAN information to confirm healthy port negotiation.</h3></li>
+  <li><h3>Use the MAC/CAM address table to confirm where devices are connected.</h3></li>
+  <li><h3>Practise correcting command syntax when filtering or querying switch tables.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
 <td colspan="2" valign="top">
-<img src="Images/Topology2.png">
+<img src="Images/Topology2.png" alt="Switch interface and CAM table topology">
 </td>
 
 <td valign="top">
-<img src="Images/networking_image_02.png">
+<img src="Images/networking_image_02.png" alt="Network engineer illustration">
 </td>
-
 </tr>
 </table>
 

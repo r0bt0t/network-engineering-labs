@@ -1,28 +1,34 @@
 # Lab 011 - Configuring Router Interfaces
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure and secure the `Cafe-RT1` router for the Coffee House Beta deployment.
-#### Demonstrate router baseline hardening, interface inspection, LAN interface activation, interface documentation, neighbour discovery and management reachability testing.
-#### Prove that `Cafe-RT1` can reach `Cafe-SW1` across the management subnet.
-#### Preserve the working configuration after successful verification.
+<h4>Configure and secure the <code>Cafe-RT1</code> router for the Coffee House Beta deployment.</h4>
+
+<h4>Demonstrate router baseline hardening, interface inspection, LAN interface activation, interface documentation, neighbour discovery and management reachability testing.</h4>
+
+<h4>Prove that <code>Cafe-RT1</code> can reach <code>Cafe-SW1</code> across the management subnet.</h4>
+
+<h4>Preserve the working configuration after successful verification.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top" width="50%">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Configuring router interfaces topology">
 </td>
 
 <td valign="bottom" width="50%">
-<img src="Images/networking_image_17.png">
+<img src="Images/networking_image_17.png" width="100%" alt="Router configuration illustration">
 </td>
-
 </tr>
 </table>
 

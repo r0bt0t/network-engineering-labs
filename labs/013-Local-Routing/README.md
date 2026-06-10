@@ -1,28 +1,34 @@
 # Lab 013 - Coffee House to Fallout Local Routing
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure local routing between the Coffee House and Fallout LANs using two routers and a point-to-point link.
-#### Demonstrate router baseline verification, LAN gateway activation, point-to-point addressing, static routing and end-to-end reachability testing.
-#### Confirm both routers preserve their interface descriptions, run IOS XE 17.16, use type 9 secrets, and require local authentication.
-#### Save the validated configurations after successful routing and connectivity verification.
+<h4>Configure local routing between the Coffee House and Fallout LANs using two routers and a point-to-point link.</h4>
+
+<h4>Demonstrate router baseline verification, LAN gateway activation, point-to-point addressing, static routing and end-to-end reachability testing.</h4>
+
+<h4>Confirm both routers preserve their interface descriptions, run IOS XE 17.16, use type 9 secrets, and require local authentication.</h4>
+
+<h4>Save the validated configurations after successful routing and connectivity verification.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top" width="50%">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Coffee House to Fallout local routing topology">
 </td>
 
 <td valign="bottom" width="50%">
-<img src="Images/networking_image_eureka-002.png">
+<img src="Images/networking_image_eureka-002.png" width="100%" alt="Local routing network engineer illustration">
 </td>
-
 </tr>
 </table>
 

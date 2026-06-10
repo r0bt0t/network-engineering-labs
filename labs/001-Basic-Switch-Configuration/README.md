@@ -1,29 +1,32 @@
 # Lab 001 - Basic Switch Configuration
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Learn and apply basic Cisco switch configuration using the IOS CLI.
-* ### Move between user EXEC, privileged EXEC and global configuration modes.
-* ### Configure a switch hostname so the device is easy to identify.
-* ### Disable DNS lookup to avoid delays after mistyped commands.
-* ### Protect privileged EXEC mode with an enable secret.
-* ### Configure a management SVI so the switch can be managed using an IP address.
-* ### Save the running configuration so the changes survive a reload.
-* ### Use verification commands to confirm the final configuration.
+<ul>
+  <li><h3>Learn and apply basic Cisco switch configuration using the IOS CLI.</h3></li>
+  <li><h3>Move between user EXEC, privileged EXEC and global configuration modes.</h3></li>
+  <li><h3>Configure a switch hostname so the device is easy to identify.</h3></li>
+  <li><h3>Disable DNS lookup to avoid delays after mistyped commands.</h3></li>
+  <li><h3>Protect privileged EXEC mode with an enable secret.</h3></li>
+  <li><h3>Configure a management SVI so the switch can be managed using an IP address.</h3></li>
+  <li><h3>Save the running configuration so the changes survive a reload.</h3></li>
+  <li><h3>Use verification commands to confirm the final configuration.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology2.png">
-</td>
-<td valign="top">
-<img src="Images/networking_image_01.png">
+<img src="Images/Topology2.png" alt="Basic switch configuration topology">
 </td>
 </tr>
 </table>

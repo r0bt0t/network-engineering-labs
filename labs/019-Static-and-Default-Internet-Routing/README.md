@@ -1,27 +1,31 @@
 # Lab 019 - Static and Default Internet Routing
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure deliberate static routing between two routed sites.
+<h4>Configure deliberate static routing between two routed sites.</h4>
 
-#### Remove leftover dynamic routing processes so that only connected and static routes remain.
+<h4>Remove leftover dynamic routing processes so that only connected and static routes remain.</h4>
 
-#### Configure a default Internet route from Cafe-RT1 towards the ISP gateway.
+<h4>Configure a default Internet route from <code>Cafe-RT1</code> towards the ISP gateway.</h4>
 
-#### Verify that local, remote-site and simulated Internet traffic all follow the intended paths.
+<h4>Verify that local, remote-site and simulated Internet traffic all follow the intended paths.</h4>
 
-#### Demonstrate route preference using administrative distance, metric values and longest prefix match.
+<h4>Demonstrate route preference using administrative distance, metric values and longest prefix match.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Static and default Internet routing topology">
 </td>
 </tr>
 </table>

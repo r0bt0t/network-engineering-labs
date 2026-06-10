@@ -1,31 +1,34 @@
 # Lab 020 - Adding the Internet
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Deploy an ISP router to represent a simulated public internet edge.
+<h4>Deploy an ISP router to represent a simulated public internet edge.</h4>
 
-#### Secure the ISP router with baseline access controls.
+<h4>Secure the ISP router with baseline access controls.</h4>
 
-#### Configure WAN addressing between the cafe router and ISP router.
+<h4>Configure WAN addressing between the cafe router and ISP router.</h4>
 
-#### Create ISP loopback interfaces to simulate public DNS targets.
+<h4>Create ISP loopback interfaces to simulate public DNS targets.</h4>
 
-#### Verify that the cafe router can reach the simulated internet using its default route.
+<h4>Verify that the cafe router can reach the simulated internet using its default route.</h4>
 
-#### Confirm that the internal PC cannot yet reach the internet because NAT has not been configured.
+<h4>Confirm that the internal PC cannot yet reach the internet because NAT has not been configured.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Adding the internet topology">
 </td>
-
 </tr>
 </table>
 

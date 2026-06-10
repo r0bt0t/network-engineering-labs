@@ -1,29 +1,34 @@
 # Lab 006 - Finding Devices
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Locate a slow user device using only switch access and a reported IP address.
-* ### Translate IP addresses into MAC addresses using ARP.
-* ### Use the CAM/MAC address table to trace devices through the switching path.
-* ### Identify the final switchport for a slow client device and a device linked to a security breach.
-* ### Practise a calm, methodical Layer 2 investigation workflow.
+<ul>
+  <li><h3>Locate a slow user device using only switch access and a reported IP address.</h3></li>
+  <li><h3>Translate IP addresses into MAC addresses using ARP.</h3></li>
+  <li><h3>Use the CAM/MAC address table to trace devices through the switching path.</h3></li>
+  <li><h3>Identify the final switchport for a slow client device and a device linked to a security breach.</h3></li>
+  <li><h3>Practise a calm, methodical Layer 2 investigation workflow.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/Topology2.png">
+<td valign="top" width="60%">
+<img src="Images/Topology2.png" width="100%" alt="Finding devices network topology">
 </td>
 
-<td valign="top">
-<img src="Images/networking_image_22.png">
+<td valign="top" width="40%">
+<img src="Images/networking_image_22.png" width="100%" alt="Network investigation illustration">
 </td>
-
 </tr>
 </table>
 

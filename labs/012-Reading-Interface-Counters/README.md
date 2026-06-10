@@ -1,28 +1,34 @@
 # Lab 012 - Reading Interface Counters
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Capture and interpret key interface counters on `Cafe-RT1` `Ethernet0/0`.
-#### Confirm that the router LAN link to `Cafe-SW1` is healthy by checking errors, CRCs, collisions, resets, traffic rates and load values.
-#### Correlate the router interface MAC address with the switch MAC address table.
-#### Compare the healthy lab output with a sample duplex mismatch so the warning signs can be recognised in future troubleshooting.
+<h4>Capture and interpret key interface counters on <code>Cafe-RT1</code> <code>Ethernet0/0</code>.</h4>
+
+<h4>Confirm that the router LAN link to <code>Cafe-SW1</code> is healthy by checking errors, CRCs, collisions, resets, traffic rates and load values.</h4>
+
+<h4>Correlate the router interface MAC address with the switch MAC address table.</h4>
+
+<h4>Compare the healthy lab output with a sample duplex mismatch so the warning signs can be recognised in future troubleshooting.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top" width="50%">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Reading interface counters topology">
 </td>
 
 <td valign="bottom" width="50%">
-<img src="Images/networking_cap_image_3.png">
+<img src="Images/networking_cap_image_3.png" width="100%" alt="Interface counters and troubleshooting illustration">
 </td>
-
 </tr>
 </table>
 

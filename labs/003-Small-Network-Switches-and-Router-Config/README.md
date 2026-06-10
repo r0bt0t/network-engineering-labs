@@ -1,30 +1,35 @@
 # Lab 003 - Small Network Config: Micro Campus
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Re-establish device identity across two switches and one router.
-* ### Configure hostnames, warning banners and privileged access secrets.
-* ### Secure console and VTY access using local credentials and SSH-only remote access.
-* ### Configure management addressing for both switches and the router inside interface.
-* ### Add useful interface descriptions to document the physical topology.
-* ### Save the configuration and verify management connectivity between the switches and router.
+<ul>
+  <li><h3>Re-establish device identity across two switches and one router.</h3></li>
+  <li><h3>Configure hostnames, warning banners and privileged access secrets.</h3></li>
+  <li><h3>Secure console and VTY access using local credentials and SSH-only remote access.</h3></li>
+  <li><h3>Configure management addressing for both switches and the router inside interface.</h3></li>
+  <li><h3>Add useful interface descriptions to document the physical topology.</h3></li>
+  <li><h3>Save the configuration and verify management connectivity between the switches and router.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" alt="Small network micro campus topology">
 </td>
 
 <td valign="bottom">
-<img src="Images/CaricatureMe.png">
+<img src="Images/CaricatureMe.png" alt="Network engineer illustration">
 </td>
-
 </tr>
 </table>
 

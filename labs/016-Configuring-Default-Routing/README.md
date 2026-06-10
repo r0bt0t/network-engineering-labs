@@ -1,29 +1,32 @@
 # Lab 016 - Configuring Default Routing
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure a default route on `Cafe-RT1` so traffic for unknown destinations is forwarded towards the ISP.
+<h4>Configure a default route on <code>Cafe-RT1</code> so traffic for unknown destinations is forwarded towards the ISP.</h4>
 
-#### Prepare and verify the public uplink interface using the ISP-provided addressing.
+<h4>Prepare and verify the public uplink interface using the ISP-provided addressing.</h4>
 
-#### Confirm the router has an active gateway of last resort.
+<h4>Confirm the router has an active gateway of last resort.</h4>
 
-#### Validate external reachability from the Coffee House LAN.
+<h4>Validate external reachability from the Coffee House LAN.</h4>
 
-#### Save the completed configuration so the default route persists after reload.
+<h4>Save the completed configuration so the default route persists after reload.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Configuring default routing topology">
 </td>
-
 </tr>
 </table>
 

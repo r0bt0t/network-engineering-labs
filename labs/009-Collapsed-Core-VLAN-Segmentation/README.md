@@ -1,40 +1,49 @@
 # Lab 009 - Collapsed Core VLAN Segmentation with Router-on-a-Stick, DHCP and ACL Security
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Build a small business-style collapsed core network using two Layer 2 switches, a router, wired clients and wireless access points.
-#### Segment the network into separate VLANs for Main, Guest, IoT and Management traffic.
-#### Configure router-on-a-stick inter-VLAN routing using 802.1Q subinterfaces.
-#### Provide DHCP services from the router for client VLANs.
-#### Secure the design by hardening trunks, moving unused ports to a blackhole VLAN, shutting down unused ports and applying ACLs to restrict Guest and IoT access.
-#### Verify the completed design using interface, VLAN, trunk, DHCP, ACL and end-device connectivity tests.
+<h4>Build a small business-style collapsed core network using two Layer 2 switches, a router, wired clients and wireless access points.</h4>
+
+<h4>Segment the network into separate VLANs for Main, Guest, IoT and Management traffic.</h4>
+
+<h4>Configure router-on-a-stick inter-VLAN routing using 802.1Q subinterfaces.</h4>
+
+<h4>Provide DHCP services from the router for client VLANs.</h4>
+
+<h4>Secure the design by hardening trunks, moving unused ports to a blackhole VLAN, shutting down unused ports and applying ACLs to restrict Guest and IoT access.</h4>
+
+<h4>Verify the completed design using interface, VLAN, trunk, DHCP, ACL and end-device connectivity tests.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top" width="50%">
-<img src="images/Small Business VLAN Segmentation Lab Topology.png" width="100%">
+<img src="Images/Small Business VLAN Segmentation Lab Topology.png" width="100%" alt="Small business VLAN segmentation lab topology">
 </td>
 
 <td rowspan="3" valign="middle" width="50%">
-<img src="images/networking_image_eureka-003.png" width="100%">
+<img src="Images/networking_image_eureka-003.png" width="100%" alt="Network engineer illustration">
 </td>
 </tr>
 
 <tr>
 <td valign="middle" width="50%">
-<img src="images/Small Business VLAN Segmentation Lab Tunk Core SW1.png" width="100%">
+<img src="Images/Small Business VLAN Segmentation Lab Trunk Core SW1.png" width="100%" alt="Core switch trunk verification screenshot">
 </td>
 </tr>
 
 <tr>
 <td valign="bottom" width="50%">
-<img src="images/Small Business VLAN Segmentation Lab Main PC.png" width="100%">
+<img src="Images/Small Business VLAN Segmentation Lab Main PC.png" width="100%" alt="Main PC verification screenshot">
 </td>
 </tr>
 </table>

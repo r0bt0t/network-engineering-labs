@@ -1,29 +1,34 @@
 # Lab 007 - Tracking Devices with the CAM Table
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Translate IP-only reports into MAC addresses using switch-side ARP information.
-* ### Use the CAM/MAC address table to trace those MAC addresses to physical switchports.
-* ### Follow MAC addresses across the topology from `CoreSwitch` to `Switch6`.
-* ### Confirm the physical location of both a poorly performing user PC and a suspicious server.
-* ### Document the results clearly so support or security teams can act quickly.
+<ul>
+  <li><h3>Translate IP-only reports into MAC addresses using switch-side ARP information.</h3></li>
+  <li><h3>Use the CAM/MAC address table to trace those MAC addresses to physical switchports.</h3></li>
+  <li><h3>Follow MAC addresses across the topology from <code>CoreSwitch</code> to <code>Switch6</code>.</h3></li>
+  <li><h3>Confirm the physical location of both a poorly performing user PC and a suspicious server.</h3></li>
+  <li><h3>Document the results clearly so support or security teams can act quickly.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/Packet-Tracer-Img2.png">
+<td valign="top" width="60%">
+<img src="Images/Packet-Tracer-Img2.png" width="100%" alt="Device tracking Packet Tracer topology">
 </td>
 
-<td valign="bottom">
-<img src="Images/networking_image_25.png">
+<td valign="bottom" width="40%">
+<img src="Images/networking_image_25.png" width="100%" alt="Network device tracking illustration">
 </td>
-
 </tr>
 </table>
 

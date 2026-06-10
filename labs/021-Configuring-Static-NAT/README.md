@@ -1,29 +1,33 @@
 # Lab 021 - Configuring Static NAT
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Diagnose why internal cafe LAN hosts cannot reach the simulated internet before NAT is configured.
+<h4>Diagnose why internal cafe LAN hosts cannot reach the simulated internet before NAT is configured.</h4>
 
-#### Configure static one-to-one NAT mappings for internal hosts.
+<h4>Configure static one-to-one NAT mappings for internal hosts.</h4>
 
-#### Mark the cafe router's LAN and WAN interfaces as NAT inside and NAT outside.
+<h4>Mark the cafe router's LAN and WAN interfaces as NAT inside and NAT outside.</h4>
 
-#### Verify outbound internet reachability from internal devices.
+<h4>Verify outbound internet reachability from internal devices.</h4>
 
-#### Confirm inbound reachability from the ISP router to the mapped public NAT addresses.
+<h4>Confirm inbound reachability from the ISP router to the mapped public NAT addresses.</h4>
 
-#### Demonstrate how static NAT can publish multiple inside devices using separate public addresses.
+<h4>Demonstrate how static NAT can publish multiple inside devices using separate public addresses.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Configuring static NAT topology">
 </td>
 </tr>
 </table>

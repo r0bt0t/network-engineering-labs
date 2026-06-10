@@ -1,31 +1,35 @@
 # Lab 018 - Routing Table Concepts and Route Selection
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Interpret the routing table on `Cafe-RT1`.
+<h4>Interpret the routing table on <code>Cafe-RT1</code>.</h4>
 
-#### Identify how Cisco IOS displays connected, local, static, default, and EIGRP-learned routes.
+<h4>Identify how Cisco IOS displays connected, local, static, default, and EIGRP-learned routes.</h4>
 
-#### Compare administrative distance and metric values to understand route preference.
+<h4>Compare administrative distance and metric values to understand route preference.</h4>
 
-#### Demonstrate how static routes can temporarily override dynamic routes.
+<h4>Demonstrate how static routes can temporarily override dynamic routes.</h4>
 
-#### Use loopback interfaces to observe variably subnetted route entries and local host routes.
+<h4>Use loopback interfaces to observe variably subnetted route entries and local host routes.</h4>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/Topology.png">
+<td valign="top" width="50%">
+<img src="Images/Topology.png" width="100%" alt="Routing table concepts topology">
 </td>
 
-<td valign="bottom">
-<img src="Images/Routing table.png">
+<td valign="bottom" width="50%">
+<img src="Images/Routing table.png" width="100%" alt="Routing table verification screenshot">
 </td>
 </tr>
 </table>

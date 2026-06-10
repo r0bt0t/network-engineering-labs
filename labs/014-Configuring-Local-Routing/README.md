@@ -1,28 +1,38 @@
 # Lab 014 - Configuring Local Routing
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure local routing awareness on two routers by activating their LAN and point-to-point interfaces.
-#### Demonstrate how directly connected routes appear automatically in the routing table once interfaces are correctly addressed and up/up.
-#### Validate the point-to-point link between `Cafe-RT1` and `Fallout-RT1` using ICMP tests.
-#### Save the working configuration so the lab can be used as a baseline for the next static routing exercise.
+<h4>Configure local routing awareness on two routers by activating their LAN and point-to-point interfaces.</h4>
+
+<h4>Demonstrate how directly connected routes appear automatically in the routing table once interfaces are correctly addressed and up/up.</h4>
+
+<h4>Validate the point-to-point link between <code>Cafe-RT1</code> and <code>Fallout-RT1</code> using ICMP tests.</h4>
+
+<h4>Save the working configuration so the lab can be used as a baseline for the next static routing exercise.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top" width="50%">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Configuring local routing topology">
 </td>
 
 <td valign="bottom" width="50%">
-<img src="Images/networking_image_16.png">
+<img src="Images/networking_image_16.png" width="100%" alt="Local routing network illustration">
 </td>
-
 </tr>
 </table>
 

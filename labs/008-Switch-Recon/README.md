@@ -1,29 +1,36 @@
 # Lab 008 - Switch Recon
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Confirm the physical and logical relationship between `RW-CORE-SW` and `RW-ACC-SW`.
-#### Identify the active VLAN, trunk link, management IPs and switch-to-switch uplink.
-#### Trace each endpoint from IP address to MAC address, then from MAC address to physical switchport.
-#### Add clear interface descriptions so the final topology can be understood quickly by another engineer.
-#### Document the final working layout without disrupting service.
+<h4>Confirm the physical and logical relationship between <code>RW-CORE-SW</code> and <code>RW-ACC-SW</code>.</h4>
+
+<h4>Identify the active VLAN, trunk link, management IPs and switch-to-switch uplink.</h4>
+
+<h4>Trace each endpoint from IP address to MAC address, then from MAC address to physical switchport.</h4>
+
+<h4>Add clear interface descriptions so the final topology can be understood quickly by another engineer.</h4>
+
+<h4>Document the final working layout without disrupting service.</h4>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/Packet-Tracer-Img2.png">
+<td valign="top" width="60%">
+<img src="Images/Packet-Tracer-Img2.png" width="100%" alt="Switch recon Packet Tracer topology">
 </td>
 
-<td valign="top">
-<img src="Images/networking_image_16.png">
+<td valign="top" width="40%">
+<img src="Images/networking_image_16.png" width="100%" alt="Network recon illustration">
 </td>
-
 </tr>
 </table>
 

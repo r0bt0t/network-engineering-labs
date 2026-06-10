@@ -4,23 +4,23 @@
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Describe the main technical goal of the lab.
-#### Explain what network skill or concept is being demonstrated.
-#### State what the final working outcome should prove.
-#### Include any troubleshooting, security, routing, switching, or verification objective if relevant.
+<h4>Describe the main technical goal of the lab.</h4>
+<h4>Explain what network skill or concept is being demonstrated.</h4>
+<h4>State what the final working outcome should prove.</h4>
+<h4>Include any troubleshooting, security, routing, switching, or verification objective if relevant.</h4>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/example-topology.png">
+<td valign="top" width="50%">
+<img src="Images/example-topology.png" width="100%" alt="Example lab topology">
 </td>
 
-<td valign="bottom">
-<img src="Images/example-supporting-image.png">
+<td valign="bottom" width="50%">
+<img src="Images/example-supporting-image.png" width="100%" alt="Example supporting lab image">
 </td>
 
 </tr>

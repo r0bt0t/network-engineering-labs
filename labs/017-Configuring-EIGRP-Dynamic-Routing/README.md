@@ -1,31 +1,34 @@
 # Lab 017 - Configuring EIGRP Dynamic Routing
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table width="100%">
 <tr>
 <td valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Replace manual LAN-to-LAN static routes with EIGRP dynamic routing.
+<h4>Replace manual LAN-to-LAN static routes with EIGRP dynamic routing.</h4>
 
-#### Remove the previous static routes between the Coffee House and Fallout Shelter LANs.
+<h4>Remove the previous static routes between the Coffee House and Fallout Shelter LANs.</h4>
 
-#### Configure EIGRP autonomous system 1 on both routers.
+<h4>Configure EIGRP autonomous system 1 on both routers.</h4>
 
-#### Advertise the correct LAN and point-to-point WAN networks.
+<h4>Advertise the correct LAN and point-to-point WAN networks.</h4>
 
-#### Verify EIGRP neighbour formation, route exchange, and end-to-end connectivity.
+<h4>Verify EIGRP neighbour formation, route exchange, and end-to-end connectivity.</h4>
 
-#### Save the completed configurations for future use.
+<h4>Save the completed configurations for future use.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Configuring EIGRP dynamic routing topology">
 </td>
-
 </tr>
 </table>
 

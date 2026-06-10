@@ -1,30 +1,36 @@
 # Lab 002 - Cisco Base Configuration
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Apply a base configuration to a Cisco switch.
-* ### Rename the switch so the device prompt clearly identifies its role.
-* ### Configure a message-of-the-day banner for access warning.
-* ### Protect privileged EXEC, console and VTY access.
-* ### Enable password encryption for locally stored passwords.
-* ### Configure a management SVI on VLAN 1.
-* ### Add a useful interface description to the uplink port.
-* ### Save the running configuration so the changes survive a reload.
+<ul>
+  <li><h3>Apply a base configuration to a Cisco switch.</h3></li>
+  <li><h3>Rename the switch so the device prompt clearly identifies its role.</h3></li>
+  <li><h3>Configure a message-of-the-day banner for access warning.</h3></li>
+  <li><h3>Protect privileged EXEC, console and VTY access.</h3></li>
+  <li><h3>Enable password encryption for locally stored passwords.</h3></li>
+  <li><h3>Configure a management SVI on VLAN 1.</h3></li>
+  <li><h3>Add a useful interface description to the uplink port.</h3></li>
+  <li><h3>Save the running configuration so the changes survive a reload.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/Topology2.png">
+<img src="Images/Topology2.png" alt="Cisco base configuration topology">
 </td>
 
 <td valign="top">
-<img src="Images/networking_image_04.png">
+<img src="Images/networking_image_04.png" alt="Network engineer illustration">
 </td>
 </tr>
 </table>

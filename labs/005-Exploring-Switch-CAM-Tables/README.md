@@ -1,29 +1,34 @@
 # Lab 005 - Exploring Switch CAM Tables
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-* ### Verify the Layer 3 addressing and Layer 2 identity of two endpoints.
-* ### Generate traffic between PCs on the same VLAN so the switch can learn their MAC addresses.
-* ### Inspect the switch CAM/MAC address table and identify which MAC addresses appear on which ports.
-* ### Clear dynamic MAC address entries and prove that the switch relearns them automatically when traffic flows again.
-* ### Build confidence with the relationship between ARP, MAC addresses, switchports and traffic forwarding.
+<ul>
+  <li><h3>Verify the Layer 3 addressing and Layer 2 identity of two endpoints.</h3></li>
+  <li><h3>Generate traffic between PCs on the same VLAN so the switch can learn their MAC addresses.</h3></li>
+  <li><h3>Inspect the switch CAM/MAC address table and identify which MAC addresses appear on which ports.</h3></li>
+  <li><h3>Clear dynamic MAC address entries and prove that the switch relearns them automatically when traffic flows again.</h3></li>
+  <li><h3>Build confidence with the relationship between ARP, MAC addresses, switchports and traffic forwarding.</h3></li>
+</ul>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/Topology2.png">
+<td valign="top" width="60%">
+<img src="Images/Topology2.png" width="100%" alt="Switch CAM table lab topology">
 </td>
 
-<td valign="top">
-<img src="Images/networking_image_17.png">
+<td valign="top" width="40%">
+<img src="Images/networking_image_17.png" width="100%" alt="Network engineer illustration">
 </td>
-
 </tr>
 </table>
 

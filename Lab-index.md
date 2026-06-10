@@ -8,13 +8,22 @@ title: Lab Index
 <tr>
 <td valign="top">
 
-### This page provides an overview of all completed and planned CCNA labs in this repository.
+<h3>This page provides an overview of all completed and planned CCNA labs in this repository.</h3>
 
-### Each lab is designed to demonstrate practical networking skills, configuration knowledge, and troubleshooting ability.
+<h3>Each lab is designed to demonstrate practical networking skills, configuration knowledge, and troubleshooting ability.</h3>
 
-#### The work here is entirely of my own making but has been completed whilst I follow the **Summer of CCNA** CCNA training course hosted by the **Network Chuck Academy** and taught by **Network Chuck** and **Jeremy Cioara**, ably assisted by **Zach Hill**.
+<h4>
+  The work here is entirely of my own making but has been completed whilst I follow the
+  <strong>Summer of CCNA</strong> CCNA training course hosted by the
+  <strong>Network Chuck Academy</strong> and taught by
+  <strong>Network Chuck</strong> and <strong>Jeremy Cioara</strong>,
+  ably assisted by <strong>Zach Hill</strong>.
+</h4>
 
-#### I cannot thank them all enough for their guidance, their excellent teaching, their support, and the supportive and engaged community they have created around the course.
+<h4>
+  I cannot thank them all enough for their guidance, their excellent teaching,
+  their support, and the supportive and engaged community they have created around the course.
+</h4>
 
 </td>
 

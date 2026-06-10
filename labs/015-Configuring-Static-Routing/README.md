@@ -4,30 +4,29 @@
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure static routing between two remote LANs.
+<h4>Configure static routing between two remote LANs.</h4>
 
-#### Verify that both routers can reach their directly connected networks before adding routes.
+<h4>Verify that both routers can reach their directly connected networks before adding routes.</h4>
 
-#### Add a static route on each router so traffic can travel between the Coffee House LAN and the Fallout Shelter LAN.
+<h4>Add a static route on each router so traffic can travel between the Coffee House LAN and the Fallout Shelter LAN.</h4>
 
-#### Confirm end-to-end connectivity using router and server ping tests.
+<h4>Confirm end-to-end connectivity using router and server ping tests.</h4>
 
-#### Save the validated configurations so the static routes persist after reload.
+<h4>Save the validated configurations so the static routes persist after reload.</h4>
 
 </td>
 </tr>
 
 <tr>
-<td valign="top">
-<img src="Images/Topology.png">
+<td valign="top" width="50%">
+<img src="Images/Topology.png" width="100%" alt="Configuring static routing topology">
 </td>
 
-<td valign="bottom">
-<img src="Images/static-routing-verification.png">
+<td valign="bottom" width="50%">
+<img src="Images/static-routing-verification.png" width="100%" alt="Static routing verification screenshot">
 </td>
-
 </tr>
 </table>
 

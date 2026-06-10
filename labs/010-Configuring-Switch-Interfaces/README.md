@@ -1,28 +1,34 @@
 # Lab 010 - Configuring Switch Interfaces
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Configure and document live switch interfaces on two coffee house access switches.
-#### Demonstrate practical Layer 2 switchport administration, including descriptions, duplex settings, trunking, VLAN creation and SVI management access.
-#### Prove that both switches can communicate across the management VLAN using successful ICMP testing.
-#### Include troubleshooting evidence around command mode errors and SVI state behaviour before trunking was completed.
+<h4>Configure and document live switch interfaces on two coffee house access switches.</h4>
+
+<h4>Demonstrate practical Layer 2 switchport administration, including descriptions, duplex settings, trunking, VLAN creation and SVI management access.</h4>
+
+<h4>Prove that both switches can communicate across the management VLAN using successful ICMP testing.</h4>
+
+<h4>Include troubleshooting evidence around command mode errors and SVI state behaviour before trunking was completed.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top" width="50%">
-<img src="Images/Topology.png">
+<img src="Images/Topology.png" width="100%" alt="Configuring switch interfaces topology">
 </td>
 
 <td valign="bottom" width="50%">
-<img src="Images/networking_image_04.png">
+<img src="Images/networking_image_04.png" width="100%" alt="Network switch configuration illustration">
 </td>
-
 </tr>
 </table>
 
