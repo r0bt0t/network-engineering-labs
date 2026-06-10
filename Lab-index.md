@@ -27,10 +27,6 @@ title: Lab Index
 
 </td>
 
-<td valign="top">
-<img src="Images/networking_image_16.png" style="margin-top: 15px; margin-bottom: 20px;">
-</td>
-
 </tr>
 </table>
 
@@ -62,10 +58,6 @@ title: Lab Index
 | 020    | [Adding the Internet](labs/020-Adding-The-Internet/)                                                   | [Raw CLI](labs/020-Adding-The-Internet/evidence/raw-cli-output.md)                          | Exploring principles of setting up an active internet connection             | Complete |
 | 021    | [Configuring Static NAT](labs/021-Configuring-Static-NAT/)                                             | [Raw CLI](labs/021-Configuring-Static-NAT/evidence/raw-cli-output.md)                       | First introduction to NAT configuration                                      | Complete |
 
-<table>
-<tr>
-
-<td valign="top">
 
 ## Skills Progression Map
 
@@ -78,14 +70,3 @@ This repository is structured to progress through:
 * Network security, including ACLs
 * Network services, including DHCP and NAT
 * IPv6 fundamentals
-
-</td>
-
-<td valign="top">
-
-<img src="Images/networking_image_17.png">
-
-</td>
-
-</tr>
-</table>

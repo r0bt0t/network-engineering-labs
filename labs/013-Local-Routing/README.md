@@ -25,7 +25,6 @@
 <td valign="top" width="50%">
 <img src="Images/Topology.png" width="100%" alt="Coffee House to Fallout local routing topology">
 </td>
-
 </tr>
 </table>
 

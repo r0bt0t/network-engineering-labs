@@ -26,7 +26,6 @@
 <td colspan="2" valign="top">
 <img src="Images/Topology2.png" alt="Switch interface and CAM table topology">
 </td>
-
 </tr>
 </table>
 
