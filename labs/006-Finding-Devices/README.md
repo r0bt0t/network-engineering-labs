@@ -26,9 +26,6 @@
 <img src="Images/Topology2.png" width="100%" alt="Finding devices network topology">
 </td>
 
-<td valign="top" width="40%">
-<img src="Images/networking_image_22.png" width="100%" alt="Network investigation illustration">
-</td>
 </tr>
 </table>
 

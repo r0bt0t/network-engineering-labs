@@ -1,5 +1,10 @@
 # Lab 015 - Configuring Static Routing
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
+
 <table>
 <tr>
 <td colspan="2" valign="top">

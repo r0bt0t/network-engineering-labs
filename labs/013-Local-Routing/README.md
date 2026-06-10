@@ -26,9 +26,6 @@
 <img src="Images/Topology.png" width="100%" alt="Coffee House to Fallout local routing topology">
 </td>
 
-<td valign="bottom" width="50%">
-<img src="Images/networking_image_eureka-002.png" width="100%" alt="Local routing network engineer illustration">
-</td>
 </tr>
 </table>
 

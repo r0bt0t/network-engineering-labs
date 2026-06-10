@@ -26,9 +26,6 @@
 <img src="Images/Topology.png" width="100%" alt="Configuring router interfaces topology">
 </td>
 
-<td valign="bottom" width="50%">
-<img src="Images/networking_image_17.png" width="100%" alt="Router configuration illustration">
-</td>
 </tr>
 </table>
 

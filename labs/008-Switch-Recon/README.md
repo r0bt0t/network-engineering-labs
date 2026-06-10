@@ -28,9 +28,6 @@
 <img src="Images/Packet-Tracer-Img2.png" width="100%" alt="Switch recon Packet Tracer topology">
 </td>
 
-<td valign="top" width="40%">
-<img src="Images/networking_image_16.png" width="100%" alt="Network recon illustration">
-</td>
 </tr>
 </table>
 

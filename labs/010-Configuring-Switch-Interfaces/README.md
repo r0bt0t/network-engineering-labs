@@ -26,9 +26,6 @@
 <img src="Images/Topology.png" width="100%" alt="Configuring switch interfaces topology">
 </td>
 
-<td valign="bottom" width="50%">
-<img src="Images/networking_image_04.png" width="100%" alt="Network switch configuration illustration">
-</td>
 </tr>
 </table>
 

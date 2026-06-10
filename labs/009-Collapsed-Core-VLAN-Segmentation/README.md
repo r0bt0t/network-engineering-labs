@@ -29,10 +29,6 @@
 <td valign="top" width="50%">
 <img src="Images/Small Business VLAN Segmentation Lab Topology.png" width="100%" alt="Small business VLAN segmentation lab topology">
 </td>
-
-<td rowspan="3" valign="middle" width="50%">
-<img src="Images/networking_image_eureka-003.png" width="100%" alt="Network engineer illustration">
-</td>
 </tr>
 
 <tr>

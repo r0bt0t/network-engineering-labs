@@ -29,9 +29,6 @@
 <img src="Images/Topology2.png" alt="Cisco base configuration topology">
 </td>
 
-<td valign="top">
-<img src="Images/networking_image_04.png" alt="Network engineer illustration">
-</td>
 </tr>
 </table>
 

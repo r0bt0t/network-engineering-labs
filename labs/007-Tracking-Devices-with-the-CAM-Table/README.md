@@ -26,9 +26,6 @@
 <img src="Images/Packet-Tracer-Img2.png" width="100%" alt="Device tracking Packet Tracer topology">
 </td>
 
-<td valign="bottom" width="40%">
-<img src="Images/networking_image_25.png" width="100%" alt="Network device tracking illustration">
-</td>
 </tr>
 </table>
 

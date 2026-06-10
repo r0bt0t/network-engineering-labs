@@ -26,9 +26,6 @@
 <img src="Images/Topology2.png" width="100%" alt="Switch CAM table lab topology">
 </td>
 
-<td valign="top" width="40%">
-<img src="Images/networking_image_17.png" width="100%" alt="Network engineer illustration">
-</td>
 </tr>
 </table>
 

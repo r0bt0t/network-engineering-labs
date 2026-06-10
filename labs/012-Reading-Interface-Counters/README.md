@@ -26,9 +26,6 @@
 <img src="Images/Topology.png" width="100%" alt="Reading interface counters topology">
 </td>
 
-<td valign="bottom" width="50%">
-<img src="Images/networking_cap_image_3.png" width="100%" alt="Interface counters and troubleshooting illustration">
-</td>
 </tr>
 </table>
 

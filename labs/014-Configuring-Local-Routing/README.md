@@ -4,10 +4,6 @@
   <a href="../../Lab-index.html">← Back to Lab Index</a>
 </p>
 
-<p class="back-link">
-  <a href="../../Lab-index.html">← Back to Lab Index</a>
-</p>
-
 <table>
 <tr>
 <td colspan="2" valign="top">
@@ -30,9 +26,6 @@
 <img src="Images/Topology.png" width="100%" alt="Configuring local routing topology">
 </td>
 
-<td valign="bottom" width="50%">
-<img src="Images/networking_image_16.png" width="100%" alt="Local routing network illustration">
-</td>
 </tr>
 </table>
 

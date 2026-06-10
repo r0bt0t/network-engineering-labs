@@ -27,9 +27,6 @@
 <img src="Images/Topology.png" alt="Small network micro campus topology">
 </td>
 
-<td valign="bottom">
-<img src="Images/CaricatureMe.png" alt="Network engineer illustration">
-</td>
 </tr>
 </table>
 
