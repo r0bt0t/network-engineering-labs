@@ -57,6 +57,12 @@ title: Lab Index
 | 019    | [Static and Default Internet Routing](labs/019-Static-and-Default-Internet-Routing/)                   | [Raw CLI](labs/019-Static-and-Default-Internet-Routing/evidence/raw-cli-output.md)          | Understanding and manipulating static and default routing                    | Complete |
 | 020    | [Adding the Internet](labs/020-Adding-The-Internet/)                                                   | [Raw CLI](labs/020-Adding-The-Internet/evidence/raw-cli-output.md)                          | Exploring principles of setting up an active internet connection             | Complete |
 | 021    | [Configuring Static NAT](labs/021-Configuring-Static-NAT/)                                             | [Raw CLI](labs/021-Configuring-Static-NAT/evidence/raw-cli-output.md)                       | First introduction to NAT configuration                                      | Complete |
+| 022    | [Configuring Dynamic NAT](labs/022-Configuring-Dynamic-NAT/)                   | [Raw CLI](labs/022-Configuring-Dynamic-NAT/evidence/raw-cli-output.md)          | Understanding and configuring dynamic NAT                    | Complete |
+| 023    | [Configuring NAT Overload](labs/023-Configuring-NAT-Overload/)                                                   | [Raw CLI](labs/023-Configuring-NAT-Overload/evidence/raw-cli-output.md)                          | Configuring NAT overload            | Complete |
+| 024    | [Configuring Basic NAT](labs/024-Configuring-Basic-NAT/)                                             | [Raw CLI](labs/024-Configuring-Basic-NAT/evidence/raw-cli-output.md)                       | Further NAT practice                                    | Complete |
+| 025    | [Creating and naming VLANs](labs/025-Creating-and-Naming-VLANs/)                   | [Raw CLI](labs/025-Creating-and-Naming-VLANs/evidence/raw-cli-output.md)          | Creating and naming VLANs for the first time                   | Complete |
+| 026    | [Using trunks to extend VLANs](labs/026-Using-Trunks-To-Extend-VLANs/)                                                   | [Raw CLI](labs/026-Using-Trunks-To-Extend-VLANs/evidence/raw-cli-output.md)                          | First introduction to trunk configuration            | Complete |
+| 027    | [Routing between VLANs](labs/027-Routing-Between-VLANs/)                                             | [Raw CLI](labs/027-Routing-Between-VLANs/evidence/raw-cli-output.md)                       | Routing between VLANS (Router On A Stick creation)                                | Complete |
 
 
 ## Skills Progression Map
@@ -64,9 +70,9 @@ title: Lab Index
 This repository is structured to progress through:
 
 * Layer 2 switching ✅
-* VLAN segmentation
-* Inter-VLAN routing
-* Static and dynamic routing
+* VLAN segmentation ✅
+* Inter-VLAN routing ✅
+* Static and dynamic routing ✅
 * Network security, including ACLs
-* Network services, including DHCP and NAT
+* Network services, including DHCP and NAT ✅
 * IPv6 fundamentals
