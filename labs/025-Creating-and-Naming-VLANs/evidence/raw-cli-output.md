@@ -1,6 +1,6 @@
 # Lab 025 - Raw CLI Output
 
-```text
+```bash
 CafeSwitch01>en
 CafeSwitch01#show vlan brief
 
@@ -77,7 +77,8 @@ CafeSwitch01#show vlan brief
 VLAN Name                             Status    Ports
 ---- -------------------------------- --------- -------------------------------
 1    default                          active    Et0/0, Et0/1, Et0/2, Et0/3
-                                                Et1/0, Et1/1, Et2/0, Et2/1
+                                                Et1/0, Et1/1, Et1/2, Et1/3
+                                                Et2/0, Et2/1
 10   ADMIN_DEVICES                    active    
 20   PATRON_DEVICES                   active    Et2/2, Et2/3, Et3/0, Et3/1
                                                 Et3/2, Et3/3

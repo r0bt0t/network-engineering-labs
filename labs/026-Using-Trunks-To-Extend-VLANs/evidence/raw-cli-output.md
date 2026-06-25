@@ -1,6 +1,6 @@
 # Lab 026 - Raw CLI Output
 
-```text
+```bash
 Cafe-SW1>en
 Cafe-SW1#conf t
 Enter configuration commands, one per line.  End with CNTL/Z.

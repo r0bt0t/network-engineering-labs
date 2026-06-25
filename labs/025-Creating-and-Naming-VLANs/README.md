@@ -1,26 +1,31 @@
 # Lab 025 - Creating and Naming VLANs
 
+<p class="back-link">
+  <a href="../../Lab-index.html">← Back to Lab Index</a>
+</p>
+
 <table>
 <tr>
 <td colspan="2" valign="top">
 
-# Objective
+<h1>Objective</h1>
 
-#### Create dedicated VLANs for administrative and patron device groups.
-#### Apply clear VLAN names that match the intended security roles.
-#### Mirror the VLAN database across both cafe switches.
-#### Move patron-facing access ports on CafeSwitch01 into the correct VLAN.
+<h4>Inspect the default VLAN footprint on the café access switch before making changes.</h4>
+
+<h4>Create dedicated VLANs for administrative devices and patron-facing devices.</h4>
+
+<h4>Apply clear VLAN names that match the Castle Rysen security segmentation requirements.</h4>
+
+<h4>Mirror the VLAN definitions across both café switches so future trunking can carry consistent VLANs.</h4>
+
+<h4>Move the designated patron access ports on <code>CafeSwitch01</code> into the correct VLAN.</h4>
 
 </td>
 </tr>
 
 <tr>
 <td valign="top">
-<img src="Images/example-topology.png">
-</td>
-
-<td valign="bottom">
-<img src="Images/example-supporting-image.png">
+<img src="Images/Topology.png" width="100%" alt="Creating and naming VLANs topology">
 </td>
 </tr>
 </table>
@@ -29,164 +34,335 @@
 
 ## Scenario
 
-Castle Rysen's district cafe access layer needed to be divided into separate security zones before further switch-to-switch trunking work could begin.
+This lab simulates the first stage of access-layer segmentation for the district café network.
 
-The aim of this lab was to take two switches that were still relying on the default VLAN and prepare them for a more structured access-layer design:
+Initially, all active switch ports were still operating in the default VLAN. Castle Rysen required the café switch estate to be split into separate security zones so that administrative devices and patron-facing devices would no longer share the same broadcast domain.
 
-```text
-Default switch state -> Create VLANs -> Name VLANs -> Mirror VLANs -> Assign patron ports
-```
-
-In plain English:
-
-> VLANs allow one physical switch to be split into multiple logical networks. Devices in different VLANs are separated at Layer 2, which helps reduce unnecessary broadcast traffic and keeps different user groups apart until routing or firewall rules deliberately connect them.
+The goal was to create matching VLAN definitions on both café switches, then assign the patron-facing ports on `CafeSwitch01` to the correct VLAN. This prepares the access layer for later trunking, inter-switch VLAN propagation and eventual routed connectivity between VLANs.
 
 ---
 
-## Lab Topology
+## Devices Used
 
-| Device | Role | Key Interfaces |
-|---|---|---|
-| CafeSwitch01 | Primary cafe access switch | Ethernet2/2, Ethernet2/3, Ethernet3/0-3 |
-| CafeSwitch02 | Secondary cafe access switch | VLAN database mirrored from CafeSwitch01 |
-| Patron devices | Cafe-facing access devices | Connected to VLAN 20 ports on CafeSwitch01 |
-| Administrative devices | Internal operational devices | Prepared for VLAN 10 |
+* CafeSwitch01
+* CafeSwitch02
+* Patron-facing access devices
+* Administrative device segment
 
 ---
 
-## VLAN Plan
+## VLAN Summary
 
-| VLAN ID | VLAN Name | Purpose |
-|---:|---|---|
-| 1 | default | Existing default VLAN retained for legacy connectivity |
-| 10 | ADMIN_DEVICES | Administrative and operational devices |
-| 20 | PATRON_DEVICES | Patron-facing cafe access ports |
+| VLAN ID | VLAN Name        | Purpose                                  |
+| ------: | ---------------- | ---------------------------------------- |
+|       1 | default          | Legacy/default switch VLAN               |
+|      10 | ADMIN_DEVICES    | Administrative device segment            |
+|      20 | PATRON_DEVICES   | Café patron-facing access segment        |
+|    1002 | fddi-default     | Reserved legacy VLAN                     |
+|    1003 | token-ring-default | Reserved legacy VLAN                   |
+|    1004 | fddinet-default  | Reserved legacy VLAN                     |
+|    1005 | trnet-default    | Reserved legacy VLAN                     |
 
 ---
 
-## Task 0 - Inspect the Default VLAN Footprint
+## Port Assignment Summary
 
-The lab began on CafeSwitch01 by entering privileged EXEC mode and checking the existing VLAN table:
+| Switch       | Interfaces                                      | Final VLAN | Purpose                    |
+| ------------ | ----------------------------------------------- | ---------: | -------------------------- |
+| CafeSwitch01 | Ethernet2/2, Ethernet2/3                        |         20 | Patron-facing access ports |
+| CafeSwitch01 | Ethernet3/0, Ethernet3/1, Ethernet3/2, Ethernet3/3 |      20 | Patron-facing access ports |
+| CafeSwitch01 | Remaining access ports                          |          1 | Default / unchanged ports  |
+| CafeSwitch02 | All access ports                                |          1 | Default / unchanged ports  |
 
-```text
+---
+
+## Configuration Steps
+
+### Step 1 - Inspect the Default VLAN Footprint on CafeSwitch01
+
+The first task was to check the existing VLAN table before making changes.
+
+```bash
+enable
 show vlan brief
 ```
 
-The baseline output showed all active Ethernet interfaces still assigned to VLAN 1:
+### Result
 
-```text
-1    default    active    Et0/0, Et0/1, Et0/2, Et0/3
-                         Et1/0, Et1/1, Et1/2, Et1/3
-                         Et2/0, Et2/1, Et2/2, Et2/3
-                         Et3/0, Et3/1, Et3/2, Et3/3
+`CafeSwitch01` initially showed all active switch ports assigned to VLAN 1:
+
+```bash
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/0, Et0/1, Et0/2, Et0/3
+                                                Et1/0, Et1/1, Et1/2, Et1/3
+                                                Et2/0, Et2/1, Et2/2, Et2/3
+                                                Et3/0, Et3/1, Et3/2, Et3/3
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
 ```
 
-This confirmed that no segmentation had been applied yet.
+### Explanation
+
+This confirmed the baseline state of the switch.
+
+Before segmentation, every usable Ethernet port was still in VLAN 1. This means all connected devices would share the same Layer 2 broadcast domain unless the ports were moved into separate VLANs.
 
 ---
 
-## Task 1 - Establish Security VLANs on CafeSwitch01
+### Step 2 - Create Security VLANs on CafeSwitch01
 
-CafeSwitch01 was then configured with two new VLANs:
+`CafeSwitch01` was then configured with two new VLANs:
 
-```text
+* VLAN 10 for administrative devices.
+* VLAN 20 for patron-facing devices.
+
+```bash
+configure terminal
 vlan 10
- name ADMIN_DEVICES
-
+name ADMIN_DEVICES
+exit
 vlan 20
- name PATRON_DEVICES
+name PATRON_DEVICES
+end
 ```
 
-Verification confirmed both VLANs had been added successfully:
+### Verification
 
-```text
-10   ADMIN_DEVICES                    active
-20   PATRON_DEVICES                   active
+```bash
+show vlan brief
 ```
 
-At this stage, the VLANs existed but no access ports had been moved into them yet.
+### Result
+
+`CafeSwitch01` showed both new VLANs in the VLAN database:
+
+```bash
+10   ADMIN_DEVICES                    active    
+20   PATRON_DEVICES                   active    
+```
+
+### Explanation
+
+The VLANs now existed on `CafeSwitch01`, but no ports had been moved yet.
+
+At this stage, VLAN 10 and VLAN 20 were available as separate Layer 2 containers. However, the switch would not actually place any connected device into those VLANs until access ports were assigned to them.
 
 ---
 
-## Task 2 - Mirror the VLAN Definitions on CafeSwitch02
+### Step 3 - Mirror VLAN Definitions on CafeSwitch02
 
-The same VLAN IDs and names were then configured on CafeSwitch02:
+The same VLAN structure was created on `CafeSwitch02`.
 
-```text
+```bash
+enable
+configure terminal
 vlan 10
- name ADMIN_DEVICES
-
+name ADMIN_DEVICES
+exit
 vlan 20
- name PATRON_DEVICES
+name PATRON_DEVICES
+end
 ```
 
-The `show vlan brief` output confirmed CafeSwitch02 matched CafeSwitch01:
+### Verification
 
-```text
-10   ADMIN_DEVICES                    active
-20   PATRON_DEVICES                   active
+```bash
+show vlan brief
 ```
 
-This keeps the VLAN database consistent across both switches, which will be important when trunk links are configured later.
+### Result
+
+`CafeSwitch02` showed the same VLAN names and VLAN IDs:
+
+```bash
+10   ADMIN_DEVICES                    active    
+20   PATRON_DEVICES                   active    
+```
+
+### Explanation
+
+This ensured both café switches used the same VLAN numbering and naming scheme.
+
+Matching VLAN definitions are important before introducing trunk links. A trunk can carry tagged VLAN traffic between switches, but the VLANs still need to be understood consistently on each switch.
 
 ---
 
-## Task 3 - Place Patron Ports into the Correct VLAN
+### Step 4 - Assign Patron Ports on CafeSwitch01
 
-The patron-facing ports on CafeSwitch01 were selected as an interface range:
+The patron-facing access ports on `CafeSwitch01` were selected as a range.
 
-```text
+```bash
+configure terminal
+interface range ethernet2/2 - 3, ethernet3/0 - 3
+switchport mode access
+switchport access vlan 20
+end
+```
+
+### Explanation
+
+The command:
+
+```bash
 interface range ethernet2/2 - 3, ethernet3/0 - 3
 ```
 
-The ports were then locked into access mode and assigned to VLAN 20:
+selected the following interfaces together:
 
-```text
+* `Ethernet2/2`
+* `Ethernet2/3`
+* `Ethernet3/0`
+* `Ethernet3/1`
+* `Ethernet3/2`
+* `Ethernet3/3`
+
+The command:
+
+```bash
 switchport mode access
+```
+
+forced the selected interfaces to behave as access ports.
+
+The command:
+
+```bash
 switchport access vlan 20
 ```
 
-The final VLAN table confirmed that the selected interfaces had moved from the default VLAN into `PATRON_DEVICES`:
-
-```text
-20   PATRON_DEVICES    active    Et2/2, Et2/3, Et3/0, Et3/1
-                                Et3/2, Et3/3
-```
+placed those access ports into VLAN 20, the `PATRON_DEVICES` VLAN.
 
 ---
 
 ## Verification
 
-| Verification Command | Device | Result |
-|---|---|---|
-| `show vlan brief` | CafeSwitch01 | VLANs 10 and 20 were present |
-| `show vlan brief` | CafeSwitch02 | VLANs 10 and 20 were present with matching names |
-| `show vlan brief` | CafeSwitch01 | Ethernet2/2, Ethernet2/3, and Ethernet3/0-3 were assigned to VLAN 20 |
-| `show vlan brief` | CafeSwitch01 | Default VLAN 1 remained active for unassigned legacy ports |
+### Final VLAN Table on CafeSwitch01
 
-Final CafeSwitch01 patron VLAN membership:
+```bash
+show vlan brief
+```
 
-```text
+### Result
+
+`CafeSwitch01` showed the selected patron ports assigned to VLAN 20:
+
+```bash
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/0, Et0/1, Et0/2, Et0/3
+                                                Et1/0, Et1/1, Et1/2, Et1/3
+                                                Et2/0, Et2/1
+10   ADMIN_DEVICES                    active    
 20   PATRON_DEVICES                   active    Et2/2, Et2/3, Et3/0, Et3/1
                                                 Et3/2, Et3/3
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+```
+
+### Explanation
+
+This confirmed that the required patron-facing interfaces had been moved out of the default VLAN and into VLAN 20.
+
+The administrative VLAN, VLAN 10, was also present and ready for later port assignments.
+
+---
+
+### Final VLAN Table on CafeSwitch02
+
+```bash
+show vlan brief
+```
+
+### Result
+
+`CafeSwitch02` showed both required VLANs:
+
+```bash
+10   ADMIN_DEVICES                    active    
+20   PATRON_DEVICES                   active    
+```
+
+### Explanation
+
+This confirmed that `CafeSwitch02` had matching VLAN definitions, even though no ports had yet been assigned to VLAN 10 or VLAN 20 on that switch.
+
+---
+
+## Troubleshooting
+
+### Issue 1 - Default VLAN still contained most access ports
+
+#### Problem
+
+After VLAN 10 and VLAN 20 were created, most switch ports remained in VLAN 1.
+
+#### Diagnosis
+
+Creating a VLAN does not automatically move any switch ports into that VLAN. The VLAN database and the interface assignments are separate parts of the configuration.
+
+#### Fix
+
+The required patron interfaces were manually configured as access ports and assigned to VLAN 20:
+
+```bash
+interface range ethernet2/2 - 3, ethernet3/0 - 3
+switchport mode access
+switchport access vlan 20
 ```
 
 ---
 
-## Final Outcome
+### Issue 2 - VLAN 10 had no access ports assigned
 
-The lab was completed successfully.
+#### Problem
 
-CafeSwitch01 now contains VLAN 10 `ADMIN_DEVICES` and VLAN 20 `PATRON_DEVICES`. The patron-facing interfaces `Ethernet2/2`, `Ethernet2/3`, and `Ethernet3/0` through `Ethernet3/3` were moved into VLAN 20.
+VLAN 10 appeared in the VLAN table but had no ports assigned.
 
-CafeSwitch02 was also configured with the same VLAN IDs and names, preparing both switches for future trunking and wider access-layer segmentation.
+```bash
+10   ADMIN_DEVICES                    active    
+```
+
+#### Diagnosis
+
+This was expected for the scope of this lab. The task was to create and name the administrative VLAN, but the only explicit port assignment requirement was for the patron-facing access ports on `CafeSwitch01`.
+
+#### Fix / Outcome
+
+No correction was required. VLAN 10 was left available for later administrative device assignments.
 
 ---
 
-## Key Takeaways
+## Key Learning Points
 
-- VLANs divide a single switch into separate Layer 2 broadcast domains.
-- Meaningful VLAN names make the purpose of each segment easier to identify during troubleshooting.
-- VLAN IDs and names should be kept consistent across switches that will later share trunk links.
-- Access ports should be explicitly configured with `switchport mode access` before being assigned to an access VLAN.
-- `show vlan brief` is the quickest command for confirming VLAN creation and access-port membership.
+* VLANs split a switch into separate Layer 2 broadcast domains.
+* VLAN 1 is the default VLAN on Cisco switches.
+* Creating a VLAN does not automatically assign any ports to it.
+* VLAN names make the switch configuration easier to read and audit.
+* VLAN IDs and names should be kept consistent across switches.
+* Access ports carry traffic for one VLAN only.
+* `switchport mode access` explicitly configures a port as an access port.
+* `switchport access vlan 20` assigns an access port to VLAN 20.
+* `interface range` allows multiple ports to be configured with the same commands.
+* `show vlan brief` is the main verification command for VLAN membership.
+
+---
+
+## Completion Check
+
+The lab was completed successfully.
+
+* The default VLAN footprint was captured on `CafeSwitch01`.
+* `CafeSwitch01` was configured with VLAN 10 named `ADMIN_DEVICES`.
+* `CafeSwitch01` was configured with VLAN 20 named `PATRON_DEVICES`.
+* `CafeSwitch02` was configured with matching VLAN 10 and VLAN 20 definitions.
+* The patron-facing ports on `CafeSwitch01` were configured as access ports.
+* `Ethernet2/2` and `Ethernet2/3` were assigned to VLAN 20.
+* `Ethernet3/0` through `Ethernet3/3` were assigned to VLAN 20.
+* `show vlan brief` confirmed that VLAN 20 contained the required patron ports.
+* Both switches retained the default VLAN for unchanged legacy ports.
+* The access layer is now ready for later trunk configuration and inter-VLAN routing labs.

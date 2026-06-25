@@ -1,6 +1,6 @@
 # Lab 024 - Raw CLI Output
 
-```text
+```bash
 Router>enable
 Router#conf t
 Enter configuration commands, one per line.  End with CNTL/Z.

@@ -1,6 +1,6 @@
 # Lab 027 - Raw CLI Output
 
-```text
+```bash
 Cafe-SW1>en
 Cafe-SW1#conf t
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -153,6 +153,7 @@ ip dhcp pool Cafe-Base
 ip cef
 login on-success log
 no ipv6 cef
+!
 !
 !
 !
@@ -411,5 +412,5 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         10.0.18.33      0.0.0.0         UG    0      0        0 eth0
 10.0.18.32      0.0.0.0         255.255.255.224 U     0      0        0 eth0
 127.0.0.1       0.0.0.0         255.255.255.255 UH    0      0        0 lo
-cisco@cafe-client1:~$ 
+cisco@cafe-client1:~$
 ```
