@@ -63,7 +63,9 @@ title: Lab Index
 | 025    | [Creating and naming VLANs](labs/025-Creating-and-Naming-VLANs/)                   | [Raw CLI](labs/025-Creating-and-Naming-VLANs/evidence/raw-cli-output.md)          | Creating and naming VLANs for the first time                   | Complete |
 | 026    | [Using trunks to extend VLANs](labs/026-Using-Trunks-To-Extend-VLANs/)                                                   | [Raw CLI](labs/026-Using-Trunks-To-Extend-VLANs/evidence/raw-cli-output.md)                          | First introduction to trunk configuration            | Complete |
 | 027    | [Routing between VLANs](labs/027-Routing-Between-VLANs/)                                             | [Raw CLI](labs/027-Routing-Between-VLANs/evidence/raw-cli-output.md)                       | Routing between VLANS (Router On A Stick creation)                                | Complete |
-
+| 028    | [Locking down legacy trunk protocols](labs/028-Locking-Down-Legacy-Trunk-Protocols/)                                                   | [Raw CLI](labs/028-Locking-Down-Legacy-Trunk-Protocols/evidence/raw-cli-output.md)                          | Disabling Dynamic Trunk Protocol to ensure we mitigate security riska and control access to VLANs correctly            | Complete |
+| 029    | [Understanding the native VLAN](labs/029-The-Purpose-Of-The-Native-VLAN/)                                             | [Raw CLI](labs/029-The-Purpose-Of-The-Native-VLAN/evidence/raw-cli-output.md)                       | Understanding and controlling the native VLAN                            | Complete |
+| 030    | [Implementing the VLAN strategy on a SOHO network](labs/030-Castle-Rysen-Cafe-VLAN-Implementation/)                                             | [Raw CLI](labs/030-Castle-Rysen-Cafe-VLAN-Implementation/evidence/raw-cli-output.md)                       | Implementing our VLAN strategy on a SOHO network                            | Complete |
 
 ## Skills Progression Map
 
