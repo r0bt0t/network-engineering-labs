@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rob Totton's network engineering portfolio: practical Cisco labs, troubleshooting, routing, switching, VLANs and CCNA-focused study." />
 
   <title>Rob Totton | Network Engineering Portfolio</title>
 
@@ -10,58 +11,70 @@
 </head>
 
 <body class="home-page">
-  <main class="landing-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <img
-      src="Images/switches.jpg"
-      alt=""
-      class="background-switch"
-    />
+  <main class="landing-page" id="main-content">
+    <div class="brand-backdrop" aria-hidden="true">
+      <img
+        src="Images/network-banner-bg.png"
+        alt=""
+        class="background-switch"
+      />
+      <div class="backdrop-shade"></div>
+      <div class="backdrop-fade"></div>
+      <div class="backdrop-glow"></div>
+    </div>
 
-    <section class="portfolio-panel">
+    <section class="portfolio-panel" aria-labelledby="portfolio-title">
+      <div class="eyebrow">NETWORK ENGINEERING PORTFOLIO</div>
 
       <div class="hero-title" id="heroTitle">
-        <div class="name-block">
+        <div class="name-block" aria-label="Rob Totton">
           <span>ROB</span>
           <span>TOTTON</span>
         </div>
 
-        <div class="divider">|</div>
+        <div class="divider" aria-hidden="true"></div>
 
-        <div class="title-block">
+        <div class="title-block" id="portfolio-title">
           <span>NETWORK</span>
           <span>ENGINEERING</span>
         </div>
       </div>
 
-     <nav class="portfolio-links main-nav">
-      <a href="pages/about.html">About</a>
-      <a href="pages/journal.html">Journal</a>
-      <a href="Lab-index.html">Labs</a>
-     </nav>
+      <nav class="portfolio-links main-nav" aria-label="Primary navigation">
+        <a href="pages/about.html">About</a>
+        <a href="pages/journal.html">Journal</a>
+        <a href="Lab-index.html">Labs</a>
+      </nav>
 
       <div class="welcome-content" id="welcomeContent">
-        <h1>Welcome to my network engineering portfolio.</h1>
+        <h1>Practical networking, documented properly.</h1>
 
-        <p>
-          This site documents my practical journey through networking,
-          Cisco configuration, Packet Tracer labs, troubleshooting,
-          routing, switching, VLANs, DHCP, static routing, wireless access,
-          and the wider skills I am developing while working towards CCNA-level
+        <p class="welcome-lead">
+          This site documents my hands-on development in network engineering,
+          Cisco configuration and troubleshooting as I work towards CCNA-level
           knowledge.
         </p>
 
         <p>
-          The purpose of this portfolio is to show not only completed lab work,
-          but also the process behind it: the mistakes, corrections,
-          verification commands, design decisions, and evidence that each
-          network behaves as intended.
+          The portfolio is built around practical lab work rather than finished
+          configurations alone. I document the mistakes, corrections,
+          verification commands, design decisions and evidence that show how a
+          network was built and why it behaves as intended.
         </p>
 
+        <div class="hero-actions">
+          <a class="button button-primary" href="Lab-index.html">Explore the labs</a>
+          <a class="button button-secondary" href="pages/about.html">About the portfolio</a>
+        </div>
       </div>
 
+      <div class="panel-meta" aria-hidden="true">
+        <span class="meta-line"></span>
+        <span>ROUTING · SWITCHING · TROUBLESHOOTING · SERVICES</span>
+      </div>
     </section>
-
   </main>
 
   <script src="script.js"></script>

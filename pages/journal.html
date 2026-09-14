@@ -3,61 +3,396 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Rob Totton's CCNA learning journal: practical Cisco study, troubleshooting, routing, switching, security and network services."
+  />
 
-  <title>Rob Totton | Network Engineering Portfolio</title>
+  <title>CCNA Learning Journal | Rob Totton</title>
 
   <link rel="stylesheet" href="../styles.css" />
 </head>
 
-<body class="inner-page">
-  <main class="landing-page">
+<body class="site-page journal-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <img
-      src="../Images/CLI_Skew.png"
-      alt=""
-      class="background-switch"
-    />
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="../index.html" aria-label="Rob Totton network engineering portfolio home">
+        <strong>ROB TOTTON</strong>
+        <span>NETWORK ENGINEERING</span>
+      </a>
 
-    <section class="portfolio-panel">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="journal.html" aria-current="page">Journal</a>
+        <a href="../Lab-index.html">Labs</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="hero-title" id="heroTitle">
-        <div class="name-block">
-          <span>ROB</span>
-          <span>TOTTON</span>
-        </div>
-
-        <div class="divider">|</div>
-
-        <div class="title-block">
-          <span>NETWORK</span>
-          <span>ENGINEERING</span>
-        </div>
-      </div>
-
-     <nav class="portfolio-links main-nav">
-      <a href="../index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="journal.html" class="active">Journal</a>
-      <a href="../Lab-index.html">Labs</a>
-     </nav>
-
-      <div class="welcome-content" id="welcomeContent">
-        <h1>A day in the life</h1>
-
-        <p>
-         Highlighting CCNA studies. Labbing and what software I've used
-        </p>
-
-        <p>
-          Successes, failures, troubleshooting etc
-        </p>
-
-      </div>
-
+  <main class="page-shell" id="main-content">
+    <section
+      class="page-hero page-hero--image"
+      style="--page-hero-image: url('../Images/network-banner-bg.png'); --page-hero-position: center;"
+      aria-labelledby="journal-title"
+    >
+      <p class="page-kicker">LEARNING JOURNAL</p>
+      <h1 id="journal-title">From first IOS commands to integrated network troubleshooting.</h1>
+      <p>
+        A running record of the progress, mistakes, breakthroughs and changes in
+        approach that have come from learning networking by building it.
+      </p>
     </section>
 
+    <article class="markdown-body">
+      <div class="journal-stats" aria-label="Current learning progress">
+        <div class="journal-stat">
+          <strong>May 2026</strong>
+          <span>Journey started</span>
+        </div>
+        <div class="journal-stat">
+          <strong>73</strong>
+          <span>Lab folders</span>
+        </div>
+        <div class="journal-stat">
+          <strong>13</strong>
+          <span>Subject areas</span>
+        </div>
+        <div class="journal-stat">
+          <strong>41</strong>
+          <span>Inferred skills</span>
+        </div>
+      </div>
+
+      <p class="journal-lead">
+        This journal began as a record of learning the basics of Cisco IOS. It
+        has gradually become something more useful: a record of how my approach
+        to networking, troubleshooting and verification has changed as the labs
+        have become larger and more realistic.
+      </p>
+
+      <div class="journal-callout">
+        <strong>Current position · September 2026</strong>
+        <p>
+          The portfolio now extends well beyond introductory switch configuration.
+          I have worked through VLANs and trunking, inter-VLAN routing, Spanning
+          Tree, EtherChannel, static and dynamic routing, NAT, OSPF, HSRP, IPv6,
+          ACLs, Layer 2 security and a growing range of operational services
+          including CDP/LLDP, DNS, DHCP, NTP, SSH, SNMP and Syslog.
+        </p>
+      </div>
+
+      <p class="journal-date">MAY 2026 · FOUNDATIONS</p>
+      <h2>Start of the journey</h2>
+
+      <p>
+        I began building this portfolio to reinforce networking theory through
+        practical configuration and troubleshooting rather than treating the
+        CCNA as a purely academic exercise.
+      </p>
+
+      <p>My initial goals were deliberately simple:</p>
+
+      <ul>
+        <li>become comfortable navigating Cisco IOS</li>
+        <li>understand how switches and routers behave rather than just memorising commands</li>
+        <li>build confidence configuring and verifying interfaces</li>
+        <li>develop a repeatable troubleshooting process</li>
+        <li>document what went wrong as carefully as what went right</li>
+      </ul>
+
+      <p>
+        At this stage even relatively small tasks — moving between EXEC modes,
+        assigning addresses, saving configuration and remembering
+        <code>no shutdown</code> — demanded concentration.
+      </p>
+
+      <h3>Early observations</h3>
+
+      <div class="journal-grid">
+        <div class="journal-card">
+          <h3>Configuration is only half the job</h3>
+          <p>I quickly learned that entering commands is not enough. Verification commands are what tell me whether the device is actually doing what I intended.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Small details matter</h3>
+          <p>A missing command, incorrect mask, shutdown interface or wrong VLAN can make a perfectly reasonable design fail completely.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Troubleshooting needs structure</h3>
+          <p>Randomly changing configuration creates more problems. Checking state, forming a hypothesis and verifying each layer is far more effective.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Repetition builds CLI fluency</h3>
+          <p>Commands that initially felt awkward began to become familiar through repeated configuration, verification and correction.</p>
+        </div>
+      </div>
+
+      <p class="journal-date">LATE MAY 2026 · THREE WEEKS IN</p>
+      <h2>Three weeks in</h2>
+
+      <p>
+        At this point I wrote one of the most useful entries in this journal
+        because it captured exactly how learning networking felt at the beginning.
+      </p>
+
+      <p>
+        I was genuinely overwhelmed by the size of the subject. Networking
+        touches almost every part of modern computing and brings with it a
+        seemingly endless collection of protocols, frameworks and — yes —
+        <strong>bloody acronyms</strong>.
+      </p>
+
+      <img
+        class="journal-image"
+        src="../Images/networking_image_panic-001.png"
+        alt="Illustration representing the feeling of being overwhelmed while learning networking"
+      />
+
+      <p>
+        Rather than allowing that feeling to become discouraging, I decided to
+        list what I had actually learned.
+      </p>
+
+      <p>By then I had:</p>
+
+      <ul>
+        <li>discovered Packet Tracer, EVE-NG and GNS3 as ways to build networks without needing a room full of physical equipment</li>
+        <li>started using the Cisco IOS CLI for configuration, monitoring and troubleshooting</li>
+        <li>become comfortable moving between User EXEC, Privileged EXEC and Global Configuration modes</li>
+        <li>configured passwords, IP addresses and default gateways</li>
+        <li>used ping and basic terminal tools to test connectivity</li>
+        <li>developed a working understanding of the OSI and TCP/IP models — including recognising the occasional <em>Layer 8 problem</em></li>
+        <li>started interrogating CAM and ARP tables to work out how devices were connected</li>
+        <li>learned how MAC addressing and hexadecimal notation fit into Layer 2 networking</li>
+        <li>understood what a broadcast storm is and why switching loops matter</li>
+        <li>upgraded the RAM in my laptop and started exploring Ubuntu and Kali Linux alongside the networking work</li>
+      </ul>
+
+      <p>
+        At the time those felt like very small achievements. Looking back now,
+        they were the foundation for almost everything that followed.
+      </p>
+
+      <img
+        class="journal-image journal-image--small"
+        src="../Images/networking_image_eureka-001.png"
+        alt="Illustration representing a learning breakthrough"
+      />
+
+      <p class="journal-date">JUNE–JULY 2026 · BUILDING NETWORKS</p>
+      <h2>Moving beyond individual commands</h2>
+
+      <p>
+        The biggest change during the next stage was that the labs stopped
+        feeling like isolated IOS exercises and started feeling like actual networks.
+      </p>
+
+      <p>
+        I moved into VLAN segmentation, trunking, native VLAN behaviour and
+        inter-VLAN routing. From there the work expanded into Spanning Tree and
+        EtherChannel, where configuration choices began to have obvious
+        consequences for resilience, loops and available paths.
+      </p>
+
+      <p>
+        Routing developed in the same way. Static and default routes led into
+        routing-table interpretation and dynamic routing. OSPF in particular
+        forced me to think about neighbour relationships, network types, timers,
+        area boundaries, route summarisation and default-route propagation rather
+        than simply whether a ping succeeded.
+      </p>
+
+      <div class="journal-skills">
+        <div class="journal-skill-card">
+          <span>SWITCHING</span>
+          <strong>VLANs · Trunks · STP · EtherChannel</strong>
+          <p>Moving from basic switchports to segmented, resilient Layer 2 designs.</p>
+        </div>
+
+        <div class="journal-skill-card">
+          <span>ROUTING</span>
+          <strong>Static · Default · EIGRP · OSPF</strong>
+          <p>Reading the routing table, understanding path selection and troubleshooting adjacencies.</p>
+        </div>
+
+        <div class="journal-skill-card">
+          <span>EDGE CONNECTIVITY</span>
+          <strong>NAT · PAT · Internet routing</strong>
+          <p>Connecting inside networks to outside services and verifying translations and routes.</p>
+        </div>
+
+        <div class="journal-skill-card">
+          <span>RESILIENCE</span>
+          <strong>HSRP · IPv6</strong>
+          <p>Adding first-hop redundancy and extending the labs beyond IPv4-only networks.</p>
+        </div>
+      </div>
+
+      <h3>A change in troubleshooting mindset</h3>
+
+      <p>
+        Earlier in the journey my instinct was often to ask,
+        <em>What command have I missed?</em>
+      </p>
+
+      <blockquote>
+        What do I expect the network to be doing, what evidence do I have that it
+        is or is not doing it, and at which layer does reality stop matching the design?
+      </blockquote>
+
+      <p>
+        That distinction has probably been more valuable than memorising any
+        individual command.
+      </p>
+
+      <p class="journal-date">AUGUST–SEPTEMBER 2026 · OPERATIONS AND SECURITY</p>
+      <h2>Making the labs behave more like real networks</h2>
+
+      <p>
+        The later labs have increasingly involved services and controls that sit
+        around the basic forwarding plane.
+      </p>
+
+      <p>
+        I have worked with network discovery using CDP and LLDP, time
+        synchronisation with NTP, DNS and DHCP services, SSH management, SNMP,
+        Syslog and telemetry. Security work has included standard and extended
+        ACLs, switch port security, DHCP Snooping, Dynamic ARP Inspection and
+        hardening trunk behaviour.
+      </p>
+
+      <p>
+        The individual technologies matter, but the larger lesson has been how
+        much network operation depends on being able to <strong>observe state</strong>.
+      </p>
+
+      <p>
+        A service can be configured correctly on paper and still fail because of
+        addressing, routing, VLAN membership, ACL direction, reachability, an
+        interface state or a platform limitation. The useful skill is being able
+        to prove which part is working and narrow the fault down.
+      </p>
+
+      <h2>What I can do now</h2>
+
+      <div class="journal-grid journal-grid--capabilities">
+        <div class="journal-card">
+          <h3>Build and segment networks</h3>
+          <p>Configure VLANs, access and trunk links, native VLANs and inter-VLAN routing, then verify that traffic is taking the intended path.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Configure and analyse routing</h3>
+          <p>Work with connected, static, default and dynamic routes, interpret routing tables and troubleshoot OSPF neighbour and route behaviour.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Improve Layer 2 resilience</h3>
+          <p>Use Spanning Tree and EtherChannel concepts to reason about loops, forwarding paths and bundled links.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Work with network services</h3>
+          <p>Configure and validate common services including DHCP, DNS, NTP, SSH, CDP/LLDP, SNMP and Syslog.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Apply security controls</h3>
+          <p>Use ACLs and Layer 2 protections such as port security, DHCP Snooping, Dynamic ARP Inspection and trunk hardening.</p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Document the evidence</h3>
+          <p>Capture the relevant show commands, raw CLI, failures and corrections so that a lab demonstrates the process rather than only the final configuration.</p>
+        </div>
+      </div>
+
+      <h2>What has changed most</h2>
+
+      <p>
+        The clearest measure of progress is not the number of commands I know. It
+        is the way I approach a fault.
+      </p>
+
+      <p>When something fails now, I am much more likely to check:</p>
+
+      <ol>
+        <li><strong>Physical and interface state</strong> — is the relevant interface actually up/up?</li>
+        <li><strong>Layer 2</strong> — is the port in the correct VLAN, is a trunk carrying that VLAN, and what do the MAC tables show?</li>
+        <li><strong>Layer 3</strong> — are the addressing, subnet masks, gateways and routes correct?</li>
+        <li><strong>Protocol state</strong> — are neighbours, timers, roles and learned routes what I expect?</li>
+        <li><strong>Policy and services</strong> — is an ACL, security feature, DHCP/DNS configuration or other service affecting the result?</li>
+        <li><strong>Evidence</strong> — which command proves the conclusion rather than merely suggesting it?</li>
+      </ol>
+
+      <p>
+        That is a very different position from the one I was in three weeks after starting.
+      </p>
+
+      <div class="journal-reflection">
+        <p class="journal-reflection-label">LOOKING BACK</p>
+        <p>
+          The early entry where I worried that networking might simply be too
+          large a subject to get my head around is still worth keeping here. The
+          subject has not become smaller. What has changed is my ability to break
+          a network into understandable pieces and work through them methodically.
+        </p>
+        <p>
+          I still have plenty to learn, and I am not treating the size of this
+          portfolio as a substitute for exam readiness. The next challenge is to
+          make the knowledge faster to recall, stronger under pressure and easier
+          to apply when several technologies interact at once.
+        </p>
+      </div>
+
+      <h2>Current priorities</h2>
+
+      <p>
+        The next stage of the journey is less about constantly adding brand-new
+        topics and more about consolidating what is already here.
+      </p>
+
+      <ul>
+        <li>revisit weaker areas instead of only repeating comfortable ones</li>
+        <li>practise subnetting and route interpretation until they are quicker and more automatic</li>
+        <li>build more mixed-technology troubleshooting scenarios</li>
+        <li>continue improving the quality of lab documentation and verification evidence</li>
+        <li>use timed CCNA-style questions and labs to identify gaps in recall</li>
+        <li>keep connecting individual CCNA topics to the behaviour of complete networks</li>
+      </ul>
+
+      <h2>Overall</h2>
+
+      <p>
+        When I started this journal, configuring an interface correctly felt like
+        an achievement. It still is — but the context is completely different now.
+      </p>
+
+      <p>
+        The satisfying part is no longer simply making a ping work. It is
+        understanding <strong>why</strong> it works, being able to explain
+        <strong>why it failed when it did not</strong>, and having the evidence
+        to support that explanation.
+      </p>
+
+      <p>
+        There is still a long way to go, but I can now look back at those first
+        few weeks and see a genuine progression from learning commands to
+        learning how networks behave.
+      </p>
+
+      <p><strong>I will keep documenting the journey.</strong></p>
+    </article>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    Rob Totton · Network Engineering Portfolio
+  </footer>
 </body>
 </html>

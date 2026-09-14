@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{% if page.title %}{{ page.title }} | {% endif %}Rob Totton — Network Engineering</title>
+
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}" />
+</head>
+
+<body class="site-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="{{ '/' | relative_url }}">
+        <strong>ROB TOTTON</strong>
+        <span>NETWORK ENGINEERING</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="{{ '/pages/about.html' | relative_url }}">About</a>
+        <a href="{{ '/pages/journal.html' | relative_url }}">Journal</a>
+        <a href="{{ '/Lab-index.html' | relative_url }}">Labs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell" id="main-content">
+    <section
+      class="page-hero{% if page.hero_image %} page-hero--image{% endif %}"
+      {% if page.hero_image %}
+      style="--page-hero-image: url('{{ page.hero_image | relative_url }}'); --page-hero-position: {{ page.hero_position | default: 'center' }};"
+      {% endif %}
+    >
+      <p class="page-kicker">NETWORK ENGINEERING PORTFOLIO</p>
+      <h1>{{ page.title | default: 'Portfolio' }}</h1>
+      {% if page.description %}
+        <p>{{ page.description }}</p>
+      {% endif %}
+    </section>
+
+    <article class="markdown-body">
+      {{ content }}
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    Rob Totton · Network Engineering Portfolio
+  </footer>
+
+  <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>

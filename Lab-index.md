@@ -1,5 +1,7 @@
 ---
+layout: default
 title: Lab Index
+description: Practical Cisco networking labs, configuration, verification and troubleshooting.
 ---
 
 # Lab Index

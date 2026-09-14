@@ -3,61 +3,264 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="About Rob Totton: broadband engineer developing deeper network engineering skills through structured Cisco study, practical labs and documented troubleshooting."
+  />
 
-  <title>Rob Totton | Network Engineering Portfolio</title>
+  <title>About | Rob Totton Network Engineering Portfolio</title>
 
   <link rel="stylesheet" href="../styles.css" />
 </head>
 
-<body class="inner-page">
-  <main class="landing-page">
+<body class="site-page about-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <img
-      src="../Images/switches.jpg"
-      alt=""
-      class="background-switch"
-    />
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="../index.html" aria-label="Rob Totton network engineering portfolio home">
+        <strong>ROB TOTTON</strong>
+        <span>NETWORK ENGINEERING</span>
+      </a>
 
-    <section class="portfolio-panel">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="journal.html">Journal</a>
+        <a href="../Lab-index.html">Labs</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="hero-title" id="heroTitle">
-        <div class="name-block">
-          <span>ROB</span>
-          <span>TOTTON</span>
-        </div>
-
-        <div class="divider">|</div>
-
-        <div class="title-block">
-          <span>NETWORK</span>
-          <span>ENGINEERING</span>
-        </div>
-      </div>
-
-     <nav class="portfolio-links main-nav">
-      <a href="../index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="journal.html">Journal</a>
-      <a href="../Lab-index.html">Labs</a>
-     </nav>
-
-      <div class="welcome-content" id="welcomeContent">
-        <h1>The section all about me.</h1>
-
-        <p>
-          Who I am. Why I wanted to pursue networking as a career. What path I have taken so far and what I am currently working on
-        </p>
-
-        <p>
-          Maybe a list of what I have worked on and what i have planned but mainly a comic book style visual resume
-        </p>
-
-      </div>
-
+  <main class="page-shell" id="main-content">
+    <section
+      class="page-hero page-hero--image"
+      style="--page-hero-image: url('../Images/network-banner-bg.png'); --page-hero-position: center;"
+      aria-labelledby="about-title"
+    >
+      <p class="page-kicker">ABOUT</p>
+      <h1 id="about-title">From broadband field engineering to deeper network engineering.</h1>
+      <p>
+        A practical progression built around troubleshooting, curiosity,
+        structured Cisco study and a growing portfolio of hands-on network labs.
+      </p>
     </section>
 
+    <section class="content-card about-content">
+      <div class="about-intro">
+        <div>
+          <p class="section-eyebrow">WHO I AM</p>
+          <h2>Practical experience first. Networking knowledge growing around it.</h2>
+
+          <p class="about-lead">
+            I am a UK-based broadband engineer with several years of frontline
+            experience diagnosing connectivity, Wi-Fi and customer network
+            problems in real homes. That work is what pushed me to understand
+            more deeply what is happening beyond the router, the access point
+            and the immediate fault in front of me.
+          </p>
+
+          <p>
+            Network engineering has become the natural next step. I enjoy the
+            combination of structured logic and practical problem-solving:
+            forming a theory, checking the evidence, finding where expected
+            behaviour diverges from reality and then proving the fix.
+          </p>
+        </div>
+
+        <aside class="about-summary" aria-label="Current direction">
+          <span class="about-summary-label">CURRENT DIRECTION</span>
+          <strong>Building towards network engineering roles</strong>
+          <p>
+            Consolidating CCNA-level knowledge while continuing to develop
+            practical troubleshooting, documentation and network design skills.
+          </p>
+          <a href="../Lab-index.html">View the lab portfolio →</a>
+        </aside>
+      </div>
+
+      <section class="about-section">
+        <p class="section-eyebrow">BACKGROUND</p>
+        <h2>Where I am coming from</h2>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <span>01</span>
+            <h3>Broadband &amp; Wi-Fi troubleshooting</h3>
+            <p>
+              My current work involves diagnosing broadband, in-home Wi-Fi,
+              device connectivity and network-performance issues in live customer
+              environments. It has made fault isolation, communication and
+              practical decision-making part of my day-to-day work.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span>02</span>
+            <h3>Technical and operational experience</h3>
+            <p>
+              Before broadband engineering I worked in technical product testing
+              and team management. That experience developed my interest in
+              repeatable processes, training, evidence, quality and making
+              technical work understandable to other people.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span>03</span>
+            <h3>Structured Cisco study</h3>
+            <p>
+              I have worked through a structured CCNA learning path and continue
+              to reinforce it through Packet Tracer, emulated network labs,
+              troubleshooting exercises and repeated use of Cisco IOS.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <span>04</span>
+            <h3>Portfolio-led learning</h3>
+            <p>
+              Every useful lab becomes documentation. I capture topology,
+              configuration, verification, raw CLI, failures and corrections so
+              that the portfolio shows the process rather than only a successful
+              final screenshot.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <p class="section-eyebrow">PROGRESS</p>
+        <h2>What the portfolio now covers</h2>
+
+        <p>
+          The repository began with basic switch configuration and device
+          discovery. It has now grown into a much broader set of practical labs
+          spanning Layer 2, routing, services, security, resilience and network
+          operations.
+        </p>
+
+        <div class="about-stats" aria-label="Portfolio statistics">
+          <div class="about-stat">
+            <strong>73</strong>
+            <span>Lab folders</span>
+          </div>
+          <div class="about-stat">
+            <strong>13</strong>
+            <span>Subject areas</span>
+          </div>
+          <div class="about-stat">
+            <strong>41</strong>
+            <span>Inferred skills</span>
+          </div>
+          <div class="about-stat">
+            <strong>73</strong>
+            <span>README files</span>
+          </div>
+        </div>
+
+        <div class="about-topic-grid">
+          <div>
+            <span>SWITCHING</span>
+            <p>VLANs, trunks, native VLANs, STP, EtherChannel and Layer 2 troubleshooting.</p>
+          </div>
+          <div>
+            <span>ROUTING</span>
+            <p>Static and default routes, route selection, EIGRP, OSPF and inter-VLAN routing.</p>
+          </div>
+          <div>
+            <span>SERVICES</span>
+            <p>NAT/PAT, DNS, DHCP, NTP, SSH, CDP/LLDP, SNMP and Syslog.</p>
+          </div>
+          <div>
+            <span>SECURITY &amp; RESILIENCE</span>
+            <p>ACLs, port security, DHCP Snooping, DAI, trunk hardening, HSRP and IPv6.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section about-method">
+        <div>
+          <p class="section-eyebrow">HOW I WORK</p>
+          <h2>The part I care about most is proving what happened.</h2>
+        </div>
+
+        <div class="method-list">
+          <div>
+            <strong>01</strong>
+            <span>
+              <b>Build deliberately.</b>
+              Start from the intended topology, addressing and behaviour rather
+              than entering commands without a clear design.
+            </span>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <span>
+              <b>Verify each layer.</b>
+              Interface state, VLAN membership, trunks, addressing, routes,
+              neighbour relationships, services and policy all need evidence.
+            </span>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <span>
+              <b>Troubleshoot methodically.</b>
+              I try to identify where observed behaviour stops matching the
+              design rather than making several configuration changes at once.
+            </span>
+          </div>
+
+          <div>
+            <strong>04</strong>
+            <span>
+              <b>Document the mistake as well as the fix.</b>
+              Failed attempts are often the most useful part of a lab because
+              they show how the fault was isolated and what I learned from it.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <p class="section-eyebrow">NOW</p>
+        <h2>What I am working on next</h2>
+
+        <p>
+          The current priority is consolidation rather than simply collecting
+          more topics. I want the knowledge to become faster to recall, easier to
+          apply under pressure and more reliable when several technologies
+          interact in the same topology.
+        </p>
+
+        <ul class="about-priorities">
+          <li>More mixed-technology troubleshooting rather than isolated feature labs.</li>
+          <li>Faster subnetting, route interpretation and verification workflows.</li>
+          <li>Continued CCNA-style practice to expose weak areas in recall.</li>
+          <li>More work with physical networking equipment alongside simulation and emulation.</li>
+          <li>Ongoing improvement of lab documentation, evidence and portfolio presentation.</li>
+        </ul>
+      </section>
+
+      <section class="about-cta">
+        <div>
+          <span class="section-eyebrow">EXPLORE THE WORK</span>
+          <h2>The best explanation of my progress is in the labs themselves.</h2>
+        </div>
+
+        <div class="about-actions">
+          <a class="button button-primary" href="../Lab-index.html">Browse the labs</a>
+          <a class="button button-secondary" href="journal.html">Read the learning journal</a>
+          <a class="button button-secondary" href="https://github.com/r0bt0t">GitHub profile</a>
+        </div>
+      </section>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    Rob Totton · Network Engineering Portfolio
+  </footer>
 </body>
 </html>
