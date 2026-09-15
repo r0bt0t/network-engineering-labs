@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="CCNA study notes and networking command reference used by Rob Totton during Cisco configuration, verification and troubleshooting labs."
+  />
+
+  <title>Study Notes & Quick Reference | Rob Totton</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body class="site-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a
+        class="site-brand"
+        href="../index.html"
+        aria-label="Rob Totton network engineering portfolio home"
+      >
+        <strong>ROB TOTTON</strong>
+        <span>NETWORK ENGINEERING</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="journal.html">Journal</a>
+        <a href="../Lab-index.html">Labs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell" id="main-content">
+
+    <section
+      class="page-hero page-hero--image"
+      style="
+        --page-hero-image: url('../Images/network-banner-bg.webp');
+        --page-hero-position: center;
+      "
+      aria-labelledby="page-title"
+    >
+      <p class="page-kicker">QUICK REFERENCE</p>
+
+      <h1 id="page-title">
+        Study Notes &amp; Cheatsheets
+      </h1>
+
+      <p>
+        A working collection of Cisco IOS and host commands that I regularly
+        use while configuring, verifying and troubleshooting lab networks.
+      </p>
+    </section>
+
+    <article class="markdown-body">
+
+      <p class="journal-lead">
+        These notes are not intended to replace understanding of the underlying
+        technologies. They provide a quick reference for commonly used commands
+        while working through practical networking labs.
+      </p>
+
+      <img
+        class="journal-image"
+        src="../Images/networking_image_28.png"
+        alt="Networking study notes and command reference illustration"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <h2>Core verification commands</h2>
+
+      <p>
+        A small number of commands appear repeatedly throughout almost every
+        Cisco lab because they provide a quick picture of the device state.
+      </p>
+
+      <pre><code>show ip interface brief
+show interfaces status
+show interfaces description
+show running-config
+show vlan brief
+show ip route
+show mac address-table
+show cdp neighbors</code></pre>
+
+      <h3><code>show ip interface brief</code></h3>
+
+      <p>
+        Provides a concise view of interface addressing and interface/protocol
+        status.
+      </p>
+
+      <h3><code>show interfaces status</code></h3>
+
+      <p>
+        Useful on switches for quickly reviewing port state, VLAN assignment,
+        duplex and speed information.
+      </p>
+
+      <h3><code>show interfaces description</code></h3>
+
+      <p>
+        Displays interface descriptions alongside interface state, making
+        sensible interface descriptions particularly useful during
+        troubleshooting.
+      </p>
+
+      <h3><code>show running-config</code></h3>
+
+      <p>
+        Displays the currently active configuration and is one of the main
+        sources of evidence when comparing intended configuration with actual
+        device state.
+      </p>
+
+      <h3><code>show vlan brief</code></h3>
+
+      <p>
+        Provides a quick view of VLANs and access-port membership.
+      </p>
+
+      <h3><code>show ip route</code></h3>
+
+      <p>
+        Displays the IPv4 routing table and the routes currently available to
+        the device.
+      </p>
+
+      <h3><code>show mac address-table</code></h3>
+
+      <p>
+        Displays MAC addresses learned by the switch and the interfaces through
+        which they are reachable.
+      </p>
+
+      <h3><code>show cdp neighbors</code></h3>
+
+      <p>
+        Displays neighbouring Cisco devices discovered through Cisco Discovery
+        Protocol and can be useful when establishing how devices are physically
+        connected.
+      </p>
+
+      <h2>Saving and managing configuration</h2>
+
+      <h3>Save the active configuration</h3>
+
+      <pre><code>copy running-config startup-config</code></pre>
+
+      <p>
+        Copies the active running configuration into startup configuration so
+        it can be restored after a reboot.
+      </p>
+
+      <p>The shorter traditional command is:</p>
+
+      <pre><code>write memory</code></pre>
+
+      <h3>Erase startup configuration</h3>
+
+      <pre><code>erase startup-config</code></pre>
+
+      <p>or on platforms that support it:</p>
+
+      <pre><code>write erase</code></pre>
+
+      <p>
+        These commands remove the saved startup configuration. A reload is
+        normally required afterwards if the objective is to restart the device
+        without the saved configuration.
+      </p>
+
+      <h3>Reload the device</h3>
+
+      <pre><code>reload</code></pre>
+
+      <h2>Interface configuration</h2>
+
+      <h3>Select an interface</h3>
+
+      <pre><code>interface gigabitEthernet0/1</code></pre>
+
+      <p>
+        Enters interface configuration mode for the selected physical or
+        logical interface.
+      </p>
+
+      <h3>Add an interface description</h3>
+
+      <pre><code>description Uplink-to-Router</code></pre>
+
+      <p>
+        Clear descriptions make later troubleshooting significantly easier,
+        particularly once a topology contains several inter-device links.
+      </p>
+
+      <h3>Enable an interface</h3>
+
+      <pre><code>no shutdown</code></pre>
+
+      <p>
+        Administratively enables the interface.
+      </p>
+
+      <h3>Example</h3>
+
+      <pre><code>interface gigabitEthernet0/1
+ description Uplink-to-Router
+ no shutdown</code></pre>
+
+      <div class="journal-callout">
+        <strong>SVI STATUS</strong>
+
+        <p>
+          Creating a VLAN does not necessarily mean its switched virtual
+          interface will immediately become up/up. In a typical Layer 2 switch
+          environment, the VLAN must exist and normally needs at least one
+          active Layer 2 port in that VLAN and in a forwarding state.
+        </p>
+      </div>
+
+      <h2>Device management</h2>
+
+      <h3>Default gateway on a Layer 2 switch</h3>
+
+      <pre><code>ip default-gateway 192.168.1.1</code></pre>
+
+      <p>
+        Configures the gateway used by a Layer 2 switch for management traffic
+        destined beyond its local subnet.
+      </p>
+
+      <h3>Console configuration</h3>
+
+      <pre><code>line console 0</code></pre>
+
+      <p>
+        Enters configuration mode for the console line.
+      </p>
+
+      <h3>VTY configuration</h3>
+
+      <pre><code>line vty 0 4</code></pre>
+
+      <p>
+        Selects a range of virtual terminal lines used for remote management
+        sessions.
+      </p>
+
+      <h3>Idle session timeout</h3>
+
+      <pre><code>exec-timeout 10 0</code></pre>
+
+      <p>
+        Disconnects an idle EXEC session after 10 minutes and 0 seconds.
+      </p>
+
+      <h2>Passwords and local authentication</h2>
+
+      <h3>Local user account</h3>
+
+      <pre><code>username admin secret &lt;password&gt;</code></pre>
+
+      <p>
+        Creates a local username with a protected secret suitable for use with
+        local authentication.
+      </p>
+
+      <h3>Use the local user database</h3>
+
+      <pre><code>login local</code></pre>
+
+      <p>
+        Configures the relevant line to authenticate against the device's local
+        username database.
+      </p>
+
+      <h3>Password encryption</h3>
+
+      <pre><code>service password-encryption</code></pre>
+
+      <p>
+        Obscures supported plain-text passwords in the configuration using
+        Cisco's reversible Type 7 encryption.
+      </p>
+
+      <p>
+        It prevents casual reading of passwords in the configuration but should
+        not be treated as strong cryptographic protection.
+      </p>
+
+      <h2>SSH configuration</h2>
+
+      <p>
+        Common commands used while configuring SSH management include:
+      </p>
+
+      <pre><code>ip domain name example.local
+username admin secret &lt;password&gt;
+crypto key generate rsa
+ip ssh version 2
+
+line vty 0 4
+ login local
+ transport input ssh</code></pre>
+
+      <h3><code>ip domain name</code></h3>
+
+      <p>
+        Defines a domain name for the device. Together with the hostname, this
+        is used when generating RSA keys on Cisco IOS devices.
+      </p>
+
+      <h3><code>crypto key generate rsa</code></h3>
+
+      <p>
+        Generates the RSA key pair required by the IOS SSH server.
+      </p>
+
+      <h3><code>ip ssh version 2</code></h3>
+
+      <p>
+        Configures the device to use SSH version 2.
+      </p>
+
+      <h3><code>transport input ssh</code></h3>
+
+      <p>
+        Restricts incoming remote-management sessions on the selected VTY lines
+        to SSH.
+      </p>
+
+      <h2>MAC address table</h2>
+
+      <h3>Display learned MAC addresses</h3>
+
+      <pre><code>show mac address-table</code></pre>
+
+      <h3>Clear dynamically learned addresses</h3>
+
+      <pre><code>clear mac address-table dynamic</code></pre>
+
+      <p>
+        Removing dynamic entries can be useful during troubleshooting when
+        testing how a switch relearns connected devices.
+      </p>
+
+      <h2>Useful host troubleshooting commands</h2>
+
+      <p>
+        Troubleshooting does not stop at the router or switch. Host-side tools
+        are often needed to establish whether addressing, DNS or end-to-end
+        connectivity is working correctly.
+      </p>
+
+      <h3><code>ipconfig</code></h3>
+
+      <pre><code>ipconfig
+ipconfig /all</code></pre>
+
+      <p>
+        Displays Windows interface addressing including IP address, subnet
+        mask, default gateway and DNS information.
+      </p>
+
+      <h3><code>arp -a</code></h3>
+
+      <pre><code>arp -a</code></pre>
+
+      <p>
+        Displays entries in the host's ARP cache.
+      </p>
+
+      <h3><code>ping</code></h3>
+
+      <pre><code>ping 192.168.1.1</code></pre>
+
+      <p>
+        Sends ICMP Echo Requests to test IP reachability to another device.
+      </p>
+
+      <h3><code>tracert</code></h3>
+
+      <pre><code>tracert 8.8.8.8</code></pre>
+
+      <p>
+        Displays the Layer 3 path towards a destination by observing the routers
+        encountered along the route.
+      </p>
+
+      <h3><code>nslookup</code></h3>
+
+      <pre><code>nslookup example.com</code></pre>
+
+      <p>
+        Queries DNS and is useful when distinguishing a name-resolution problem
+        from a general connectivity problem.
+      </p>
+
+      <h3><code>getmac</code></h3>
+
+      <pre><code>getmac</code></pre>
+
+      <p>
+        Displays MAC addresses associated with Windows network interfaces.
+      </p>
+
+      <h3><code>netstat</code></h3>
+
+      <pre><code>netstat -ano</code></pre>
+
+      <p>
+        Can display active connections, listening ports and associated process
+        information.
+      </p>
+
+      <h3><code>tasklist</code></h3>
+
+      <pre><code>tasklist</code></pre>
+
+      <p>
+        Displays processes currently running on a Windows system.
+      </p>
+
+      <h3><code>taskkill</code></h3>
+
+      <pre><code>taskkill /PID &lt;process-id&gt;</code></pre>
+
+      <p>
+        Terminates a Windows process using its process ID or other selection
+        criteria.
+      </p>
+
+      <img
+        class="journal-image"
+        src="../Images/networking_image_24.webp"
+        alt="Networking command-line troubleshooting illustration"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <h2>How I use the notes</h2>
+
+      <div class="journal-grid">
+
+        <div class="journal-card">
+          <h3>Configuration</h3>
+
+          <p>
+            Quick references reduce unnecessary context switching while I am
+            building a lab.
+          </p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Verification</h3>
+
+          <p>
+            Show commands provide the evidence needed to establish whether the
+            configuration is actually working.
+          </p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Troubleshooting</h3>
+
+          <p>
+            Commands are grouped around questions about interface state,
+            Layer 2 behaviour, addressing, routing and host connectivity.
+          </p>
+        </div>
+
+        <div class="journal-card">
+          <h3>Recall</h3>
+
+          <p>
+            Repeated practical use gradually turns frequently required commands
+            from reference material into working knowledge.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="journal-reflection">
+        <p class="journal-reflection-label">A USEFUL DISTINCTION</p>
+
+        <p>
+          The aim is not to memorise every Cisco IOS command.
+        </p>
+
+        <p>
+          The more important skill is knowing what information I need from the
+          network, which command can provide that evidence and how to interpret
+          the result.
+        </p>
+      </div>
+
+      <h2>Related portfolio sections</h2>
+
+      <ul>
+        <li>
+          <a href="learning-path.html">
+            CCNA Learning Path
+          </a>
+          — the study resources and process behind the portfolio.
+        </li>
+
+        <li>
+          <a href="journal.html">
+            Learning Journal
+          </a>
+          — how my practical approach has developed.
+        </li>
+
+        <li>
+          <a href="../Lab-index.html">
+            Networking Labs
+          </a>
+          — where these commands are applied in practical scenarios.
+        </li>
+      </ul>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    Rob Totton · Network Engineering Portfolio
+  </footer>
+</body>
+</html>

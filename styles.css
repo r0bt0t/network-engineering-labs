@@ -463,8 +463,13 @@ a:hover {
   from {
     transform: scale(1.015) translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
   }
+
   to {
-    transform: scale(1.055) translate3d(calc(-0.35% + var(--parallax-x, 0px)), calc(-0.28% + var(--parallax-y, 0px)), 0);
+    transform: scale(1.055) translate3d(
+      calc(-0.35% + var(--parallax-x, 0px)),
+      calc(-0.28% + var(--parallax-y, 0px)),
+      0
+    );
   }
 }
 
@@ -1037,15 +1042,17 @@ a:hover {
   font-size: 0.92rem;
 }
 
+/* Corrected reflection panel */
 .journal-reflection {
   position: relative;
   overflow: hidden;
   margin: 38px 0;
   padding: clamp(24px, 4vw, 38px);
   border-radius: 16px;
-  background:
+  background-color: var(--brand-navy);
+  background-image:
     linear-gradient(110deg, rgba(8, 25, 49, 0.97), rgba(11, 65, 91, 0.93)),
-    var(--page-hero-image);
+    var(--page-hero-image, none);
   color: #ffffff;
   box-shadow: 0 16px 36px rgba(7, 24, 46, 0.16);
 }
@@ -1082,7 +1089,6 @@ a:hover {
   font-weight: 850;
   letter-spacing: 0.16em;
 }
-
 
 
 /* =========================================================
@@ -1186,7 +1192,6 @@ a:hover {
     padding: 22px 18px;
   }
 }
-
 
 @media (max-width: 780px) {
   .journal-stats {
