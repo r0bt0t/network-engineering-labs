@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,36 +16,103 @@
 
   <style>
     /*
-      ABOUT PAGE REFINEMENTS
-      These rules are scoped to the About page only.
+      ============================================================
+      ABOUT PAGE
+      ============================================================
+      These styles are scoped to the About page so they will not
+      affect the remainder of the portfolio.
     */
 
-    /* Consistent small section headings */
-    .about-page .section-eyebrow {
-      display: inline-block;
-      width: fit-content;
-      margin: 0 0 1rem;
-      padding: 0.4rem 0.7rem;
 
-      border: 1px solid var(
-        --border-color,
-        rgba(127, 127, 127, 0.28)
-      );
-      border-radius: 999px;
+    /* ------------------------------------------------------------
+       SECTION SPACING
+       ------------------------------------------------------------ */
 
-      font-size: 0.72rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .about-page .about-content {
+      overflow: hidden;
     }
 
-    /* Give each main About section comfortable separation */
     .about-page .about-section {
-      margin-top: 3.5rem;
+      margin-top: 4.5rem;
     }
 
-    /* Background cards */
+
+    /*
+      Consistent heading structure used throughout the page.
+
+      The section label and descriptive heading deliberately use
+      almost identical sizing. The label is distinguished only by
+      its softer colour and slightly lighter font weight.
+    */
+
+    .about-page .about-section-heading {
+      margin: 0 0 2rem;
+    }
+
+    .about-page .section-label {
+      margin: 0 0 1.35rem;
+
+      font-size: clamp(1.45rem, 2vw, 1.8rem);
+      font-weight: 500;
+      line-height: 1.2;
+
+      letter-spacing: 0.035em;
+      text-transform: uppercase;
+
+      color: var(--text-muted, #69727d);
+    }
+
+    .about-page .section-subheading {
+      margin: 0;
+
+      font-size: clamp(1.45rem, 2vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+
+      color: var(--text-primary, #20262d);
+    }
+
+
+    /* ------------------------------------------------------------
+       INTRODUCTION
+       ------------------------------------------------------------ */
+
+    .about-page .about-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.8fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-page .about-lead {
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+
+    /* ------------------------------------------------------------
+       CURRENT DIRECTION
+       ------------------------------------------------------------ */
+
+    .about-page .about-summary {
+      padding: 0 0 0 2rem;
+      border-left: 1px solid rgba(127, 127, 127, 0.25);
+    }
+
+    .about-page .about-summary p {
+      line-height: 1.7;
+    }
+
+    .about-page .about-summary > a {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+
+    /* ------------------------------------------------------------
+       BACKGROUND
+       ------------------------------------------------------------ */
+
     .about-page .about-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -53,102 +121,263 @@
     }
 
     .about-page .about-card {
-      padding: 1.5rem;
+      padding: 1.6rem;
+
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      border-radius: 0.7rem;
     }
 
     .about-page .about-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.9rem;
+
+      font-size: 1.1rem;
+      line-height: 1.35;
     }
 
-    .about-page .about-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Portfolio statistics */
-    .about-page .about-stats {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    /*
-      Portfolio subject areas.
-      Replaces the previously cramped generic div/span layout.
-    */
-    .about-page .about-topic-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .about-page .about-topic-card {
-      padding: 1.4rem 1.5rem;
-
-      border: 1px solid var(
-        --border-color,
-        rgba(127, 127, 127, 0.22)
-      );
-      border-radius: 0.75rem;
-
-      background: var(
-        --surface-soft,
-        rgba(127, 127, 127, 0.045)
-      );
-    }
-
-    .about-page .about-topic-card h3 {
-      margin: 0 0 0.7rem;
-
-      font-size: 0.82rem;
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .about-page .about-topic-card p {
+    .about-page .about-card p {
       margin: 0;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    /* Current direction panel */
-    .about-page .about-summary .section-eyebrow {
-      margin-bottom: 1.1rem;
-    }
 
-    .about-page .about-summary > strong {
-      display: block;
-      margin-bottom: 0.8rem;
-    }
+    /* ------------------------------------------------------------
+       LEARNING LINKS
+       ------------------------------------------------------------ */
 
-    /* Learning links */
     .about-page .about-section ul {
       line-height: 1.7;
     }
 
     .about-page .about-section ul li + li {
-      margin-top: 0.6rem;
+      margin-top: 0.65rem;
     }
 
-    /* Responsive layout */
-    @media (max-width: 760px) {
+
+    /* ------------------------------------------------------------
+       PORTFOLIO STATISTICS
+       ------------------------------------------------------------ */
+
+    .about-page .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+
+      margin: 2.25rem 0 2.5rem;
+    }
+
+    .about-page .about-stat {
+      padding: 1.25rem;
+      text-align: center;
+
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      border-radius: 0.65rem;
+    }
+
+    .about-page .about-stat strong {
+      display: block;
+
+      margin-bottom: 0.25rem;
+
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .about-page .about-stat span {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+
+    /* ------------------------------------------------------------
+       PORTFOLIO TOPICS
+       ------------------------------------------------------------ */
+
+    .about-page .about-topic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .about-page .about-topic-card {
+      padding: 1.6rem;
+
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      border-radius: 0.7rem;
+
+      background: rgba(127, 127, 127, 0.035);
+    }
+
+    .about-page .about-topic-card h3 {
+      margin: 0 0 0.9rem;
+
+      font-size: 1.05rem;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+    }
+
+    .about-page .about-topic-card p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+
+    /* ------------------------------------------------------------
+       HOW I WORK
+       ------------------------------------------------------------ */
+
+    .about-page .about-method {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-page .method-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .about-page .method-list > div {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: 1rem;
+
+      padding: 1.35rem 0;
+
+      border-bottom: 1px solid rgba(127, 127, 127, 0.18);
+    }
+
+    .about-page .method-list > div:first-child {
+      padding-top: 0;
+    }
+
+    .about-page .method-list > div:last-child {
+      border-bottom: 0;
+    }
+
+    .about-page .method-list > div > strong {
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      color: var(--text-muted, #69727d);
+    }
+
+    .about-page .method-list span {
+      line-height: 1.7;
+    }
+
+    .about-page .method-list b {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+
+    /* ------------------------------------------------------------
+       CURRENT PRIORITIES
+       ------------------------------------------------------------ */
+
+    .about-page .about-priorities {
+      margin-top: 1.75rem;
+    }
+
+
+    /* ------------------------------------------------------------
+       CALL TO ACTION
+       ------------------------------------------------------------ */
+
+    .about-page .about-cta {
+      margin-top: 4.5rem;
+      padding-top: 3rem;
+
+      border-top: 1px solid rgba(127, 127, 127, 0.2);
+    }
+
+    .about-page .about-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+
+      margin-top: 2rem;
+    }
+
+
+    /* ------------------------------------------------------------
+       RESPONSIVE
+       ------------------------------------------------------------ */
+
+    @media (max-width: 900px) {
+
+      .about-page .about-intro,
+      .about-page .about-method {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-page .about-summary {
+        padding: 2rem 0 0;
+        border-left: 0;
+        border-top: 1px solid rgba(127, 127, 127, 0.25);
+      }
+
+      .about-page .about-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+
+    @media (max-width: 680px) {
+
+      .about-page .about-section {
+        margin-top: 3.5rem;
+      }
+
       .about-page .about-grid,
       .about-page .about-topic-grid {
         grid-template-columns: 1fr;
       }
 
-      .about-page .about-section {
-        margin-top: 2.75rem;
+      .about-page .about-section-heading {
+        margin-bottom: 1.65rem;
       }
+
+      .about-page .section-label {
+        margin-bottom: 1.1rem;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .about-page .about-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-page .method-list > div {
+        grid-template-columns: 2.5rem minmax(0, 1fr);
+      }
+
     }
   </style>
 </head>
 
+
 <body class="site-page about-page">
-  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+
+  <!-- ==========================================================
+       HEADER
+       ========================================================== -->
 
   <header class="site-header">
+
     <div class="site-header-inner">
 
       <a
@@ -160,19 +389,46 @@
         <span>NETWORK ENGINEERING</span>
       </a>
 
-      <nav class="site-nav" aria-label="Primary navigation">
+
+      <nav
+        class="site-nav"
+        aria-label="Primary navigation"
+      >
         <a href="../index.html">Home</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="journal.html">Journal</a>
-        <a href="../Lab-index.html">Labs</a>
+
+        <a
+          href="about.html"
+          aria-current="page"
+        >
+          About
+        </a>
+
+        <a href="journal.html">
+          Journal
+        </a>
+
+        <a href="../Lab-index.html">
+          Labs
+        </a>
       </nav>
 
     </div>
+
   </header>
 
-  <main class="page-shell" id="main-content">
+
+  <!-- ==========================================================
+       MAIN CONTENT
+       ========================================================== -->
+
+  <main
+    class="page-shell"
+    id="main-content"
+  >
+
 
     <!-- HERO -->
+
     <section
       class="page-hero page-hero--image"
       style="
@@ -181,7 +437,10 @@
       "
       aria-labelledby="about-title"
     >
-      <p class="page-kicker">ABOUT</p>
+
+      <p class="page-kicker">
+        ABOUT
+      </p>
 
       <h1 id="about-title">
         From broadband field engineering to deeper network engineering.
@@ -191,20 +450,34 @@
         A practical progression built around troubleshooting, curiosity,
         structured Cisco study and a growing portfolio of hands-on network labs.
       </p>
+
     </section>
 
 
-    <section class="content-card about-content">
 
-      <!-- INTRODUCTION -->
-      <div class="about-intro">
+    <div class="content-card about-content">
+
+
+      <!-- ======================================================
+           WHO I AM
+           ====================================================== -->
+
+      <section class="about-intro">
 
         <div>
-          <p class="section-eyebrow">WHO I AM</p>
 
-          <h2>
-            Practical experience first. Networking knowledge growing around it.
-          </h2>
+          <header class="about-section-heading">
+
+            <p class="section-label">
+              WHO I AM
+            </p>
+
+            <h2 class="section-subheading">
+              Practical experience first. Networking knowledge growing around it.
+            </h2>
+
+          </header>
+
 
           <p class="about-lead">
             I am a UK-based broadband engineer with several years of frontline
@@ -220,15 +493,33 @@
             forming a theory, checking the evidence, finding where expected
             behaviour diverges from reality and then proving the fix.
           </p>
+
         </div>
 
 
-        <aside class="about-summary" aria-label="Current direction">
-          <p class="section-eyebrow">CURRENT DIRECTION</p>
 
-          <strong>
-            Building towards network engineering roles
-          </strong>
+        <!-- CURRENT DIRECTION -->
+
+        <aside
+          class="about-summary"
+          aria-labelledby="current-direction-title"
+        >
+
+          <header class="about-section-heading">
+
+            <p class="section-label">
+              CURRENT DIRECTION
+            </p>
+
+            <h2
+              class="section-subheading"
+              id="current-direction-title"
+            >
+              Building towards network engineering roles
+            </h2>
+
+          </header>
+
 
           <p>
             Consolidating CCNA-level knowledge while continuing to develop
@@ -238,21 +529,40 @@
           <a href="../Lab-index.html">
             View the lab portfolio →
           </a>
+
         </aside>
 
-      </div>
+      </section>
 
 
-      <!-- BACKGROUND -->
+
+      <!-- ======================================================
+           BACKGROUND
+           ====================================================== -->
+
       <section class="about-section">
-        <p class="section-eyebrow">BACKGROUND</p>
 
-        <h2>Where I am coming from</h2>
+        <header class="about-section-heading">
+
+          <p class="section-label">
+            BACKGROUND
+          </p>
+
+          <h2 class="section-subheading">
+            Where I am coming from
+          </h2>
+
+        </header>
+
 
         <div class="about-grid">
 
+
           <article class="about-card">
-            <h3>Broadband &amp; Wi-Fi troubleshooting</h3>
+
+            <h3>
+              Broadband &amp; Wi-Fi troubleshooting
+            </h3>
 
             <p>
               My current work involves diagnosing broadband, in-home Wi-Fi,
@@ -260,11 +570,16 @@
               environments. It has made fault isolation, communication and
               practical decision-making part of my day-to-day work.
             </p>
+
           </article>
 
 
+
           <article class="about-card">
-            <h3>Technical and operational experience</h3>
+
+            <h3>
+              Technical and operational experience
+            </h3>
 
             <p>
               Before broadband engineering I worked in technical product testing
@@ -272,22 +587,32 @@
               repeatable processes, training, evidence, quality and making
               technical work understandable to other people.
             </p>
+
           </article>
 
 
+
           <article class="about-card">
-            <h3>Structured Cisco study</h3>
+
+            <h3>
+              Structured Cisco study
+            </h3>
 
             <p>
               I have worked through a structured CCNA learning path and continue
               to reinforce it through Packet Tracer, emulated network labs,
               troubleshooting exercises and repeated use of Cisco IOS.
             </p>
+
           </article>
 
 
+
           <article class="about-card">
-            <h3>Portfolio-led learning</h3>
+
+            <h3>
+              Portfolio-led learning
+            </h3>
 
             <p>
               Every useful lab becomes documentation. I capture topology,
@@ -295,17 +620,34 @@
               that the portfolio shows the process rather than only a successful
               final screenshot.
             </p>
+
           </article>
 
+
         </div>
+
       </section>
 
 
-      <!-- LEARNING AND DEVELOPMENT -->
-      <section class="about-section">
-        <p class="section-eyebrow">LEARNING &amp; DEVELOPMENT</p>
 
-        <h2>How I am developing my networking knowledge</h2>
+      <!-- ======================================================
+           LEARNING & DEVELOPMENT
+           ====================================================== -->
+
+      <section class="about-section">
+
+        <header class="about-section-heading">
+
+          <p class="section-label">
+            LEARNING &amp; DEVELOPMENT
+          </p>
+
+          <h2 class="section-subheading">
+            How I am developing my networking knowledge
+          </h2>
+
+        </header>
+
 
         <p>
           Alongside the practical labs in this portfolio, I maintain a record of
@@ -313,9 +655,13 @@
           development.
         </p>
 
+
         <ul>
+
           <li>
-            <a href="learning-path.html">CCNA Learning Path</a>
+            <a href="learning-path.html">
+              CCNA Learning Path
+            </a>
             — how I structure study and practical development.
           </li>
 
@@ -325,15 +671,31 @@
             </a>
             — frequently used Cisco IOS and troubleshooting commands.
           </li>
+
         </ul>
+
       </section>
 
 
-      <!-- PORTFOLIO PROGRESS -->
-      <section class="about-section">
-        <p class="section-eyebrow">PROGRESS</p>
 
-        <h2>What the portfolio now covers</h2>
+      <!-- ======================================================
+           PROGRESS
+           ====================================================== -->
+
+      <section class="about-section">
+
+        <header class="about-section-heading">
+
+          <p class="section-label">
+            PROGRESS
+          </p>
+
+          <h2 class="section-subheading">
+            What the portfolio now covers
+          </h2>
+
+        </header>
+
 
         <p>
           The repository began with basic switch configuration and device
@@ -342,6 +704,9 @@
           operations.
         </p>
 
+
+
+        <!-- PORTFOLIO STATISTICS -->
 
         <div
           class="about-stats"
@@ -371,119 +736,190 @@
         </div>
 
 
+
+        <!-- SUBJECT AREAS -->
+
         <div
           class="about-topic-grid"
           aria-label="Portfolio subject areas"
         >
 
+
           <article class="about-topic-card">
-            <h3>Switching</h3>
+
+            <h3>
+              Switching
+            </h3>
 
             <p>
               VLANs, trunks, native VLANs, STP, EtherChannel and Layer 2
               troubleshooting.
             </p>
+
           </article>
 
 
+
           <article class="about-topic-card">
-            <h3>Routing</h3>
+
+            <h3>
+              Routing
+            </h3>
 
             <p>
               Static and default routes, route selection, EIGRP, OSPF and
               inter-VLAN routing.
             </p>
+
           </article>
 
 
+
           <article class="about-topic-card">
-            <h3>Services</h3>
+
+            <h3>
+              Services
+            </h3>
 
             <p>
               NAT/PAT, DNS, DHCP, NTP, SSH, CDP/LLDP, SNMP and Syslog.
             </p>
+
           </article>
 
 
+
           <article class="about-topic-card">
-            <h3>Security &amp; Resilience</h3>
+
+            <h3>
+              Security &amp; Resilience
+            </h3>
 
             <p>
               ACLs, port security, DHCP Snooping, DAI, trunk hardening, HSRP
               and IPv6.
             </p>
+
           </article>
 
+
         </div>
+
       </section>
 
 
-      <!-- HOW I WORK -->
+
+      <!-- ======================================================
+           HOW I WORK
+           ====================================================== -->
+
       <section class="about-section about-method">
 
-        <div>
-          <p class="section-eyebrow">HOW I WORK</p>
 
-          <h2>
+        <header class="about-section-heading">
+
+          <p class="section-label">
+            HOW I WORK
+          </p>
+
+          <h2 class="section-subheading">
             The part I care about most is proving what happened.
           </h2>
-        </div>
+
+        </header>
+
 
 
         <div class="method-list">
 
+
           <div>
-            <strong>01</strong>
+
+            <strong>
+              01
+            </strong>
 
             <span>
               <b>Build deliberately.</b>
               Start from the intended topology, addressing and behaviour rather
               than entering commands without a clear design.
             </span>
+
           </div>
 
 
+
           <div>
-            <strong>02</strong>
+
+            <strong>
+              02
+            </strong>
 
             <span>
               <b>Verify each layer.</b>
               Interface state, VLAN membership, trunks, addressing, routes,
               neighbour relationships, services and policy all need evidence.
             </span>
+
           </div>
 
 
+
           <div>
-            <strong>03</strong>
+
+            <strong>
+              03
+            </strong>
 
             <span>
               <b>Troubleshoot methodically.</b>
               I try to identify where observed behaviour stops matching the
               design rather than making several configuration changes at once.
             </span>
+
           </div>
 
 
+
           <div>
-            <strong>04</strong>
+
+            <strong>
+              04
+            </strong>
 
             <span>
               <b>Document the mistake as well as the fix.</b>
               Failed attempts are often the most useful part of a lab because
               they show how the fault was isolated and what I learned from it.
             </span>
+
           </div>
 
+
         </div>
+
       </section>
 
 
-      <!-- CURRENT PRIORITIES -->
-      <section class="about-section">
-        <p class="section-eyebrow">NOW</p>
 
-        <h2>What I am working on next</h2>
+      <!-- ======================================================
+           CURRENT PRIORITIES
+           ====================================================== -->
+
+      <section class="about-section">
+
+        <header class="about-section-heading">
+
+          <p class="section-label">
+            NOW
+          </p>
+
+          <h2 class="section-subheading">
+            What I am working on next
+          </h2>
+
+        </header>
+
 
         <p>
           The current priority is consolidation rather than simply collecting
@@ -491,6 +927,7 @@
           apply under pressure and more reliable when several technologies
           interact in the same topology.
         </p>
+
 
         <ul class="about-priorities">
 
@@ -518,19 +955,28 @@
           </li>
 
         </ul>
+
       </section>
 
 
-      <!-- CALL TO ACTION -->
+
+      <!-- ======================================================
+           CALL TO ACTION
+           ====================================================== -->
+
       <section class="about-cta">
 
-        <div>
-          <p class="section-eyebrow">EXPLORE THE WORK</p>
+        <header class="about-section-heading">
 
-          <h2>
+          <p class="section-label">
+            EXPLORE THE WORK
+          </p>
+
+          <h2 class="section-subheading">
             The best explanation of my progress is in the labs themselves.
           </h2>
-        </div>
+
+        </header>
 
 
         <div class="about-actions">
@@ -557,15 +1003,25 @@
           </a>
 
         </div>
+
       </section>
 
-    </section>
+
+    </div>
+
   </main>
 
+
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
 
   <footer class="site-footer">
     Rob Totton · Network Engineering Portfolio
   </footer>
 
+
 </body>
+
 </html>
