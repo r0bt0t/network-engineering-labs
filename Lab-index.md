@@ -10,9 +10,9 @@ description: Practical Cisco networking labs, configuration, verification and tr
 <tr>
 <td valign="top">
 
-<h3>This page provides an overview of all completed and planned CCNA labs in this repository.</h3>
+<h4>This page provides an overview of all completed and planned CCNA labs in this repository.</h4>
 
-<h3>Each lab is designed to demonstrate practical networking skills, configuration knowledge, and troubleshooting ability.</h3>
+<h4>Each lab is designed to demonstrate practical networking skills, configuration knowledge, and troubleshooting ability.</h4>
 
 <h4>
   The work here is entirely of my own making but has been completed whilst I follow the
