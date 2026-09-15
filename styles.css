@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
 :root {
   --brand-cyan: #42d8ed;
   --brand-cyan-soft: #a4eff7;
@@ -27,7 +29,7 @@
   --content-width: 1160px;
   --reading-width: 820px;
 
-  --font-sans: "Aptos", "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  --font-sans: "Montserrat", "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -58,6 +60,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
 }
 
 img {
