@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta
     name="description"
-    content="Rob Totton's CCNA learning journal: practical Cisco study, troubleshooting, routing, switching, security and network services."
+    content="Rob Totton's CCNA learning journal: practical Cisco study, troubleshooting, routing, switching, security, network services and original lab design."
   />
 
   <title>CCNA Learning Journal | Rob Totton</title>
@@ -18,7 +19,11 @@
 
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="site-brand" href="../index.html" aria-label="Rob Totton network engineering portfolio home">
+      <a
+        class="site-brand"
+        href="../index.html"
+        aria-label="Rob Totton network engineering portfolio home"
+      >
         <strong>ROB TOTTON</strong>
         <span>NETWORK ENGINEERING</span>
       </a>
@@ -33,13 +38,21 @@
   </header>
 
   <main class="page-shell" id="main-content">
+
     <section
       class="page-hero page-hero--image"
-      style="--page-hero-image: url('../Images/network-banner-bg.webp'); --page-hero-position: center;"
+      style="
+        --page-hero-image: url('../Images/network-banner-bg.webp');
+        --page-hero-position: center;
+      "
       aria-labelledby="journal-title"
     >
       <p class="page-kicker">LEARNING JOURNAL</p>
-      <h1 id="journal-title">From first IOS commands to integrated network troubleshooting.</h1>
+
+      <h1 id="journal-title">
+        From first IOS commands to integrated network troubleshooting.
+      </h1>
+
       <p>
         A running record of the progress, mistakes, breakthroughs and changes in
         approach that have come from learning networking by building it.
@@ -47,23 +60,29 @@
     </section>
 
     <article class="markdown-body">
+
       <div class="journal-stats" aria-label="Current learning progress">
+
         <div class="journal-stat">
           <strong>May 2026</strong>
           <span>Journey started</span>
         </div>
+
         <div class="journal-stat">
-          <strong>73</strong>
+          <strong>74</strong>
           <span>Lab folders</span>
         </div>
+
         <div class="journal-stat">
           <strong>13</strong>
           <span>Subject areas</span>
         </div>
+
         <div class="journal-stat">
           <strong>41</strong>
           <span>Inferred skills</span>
         </div>
+
       </div>
 
       <p class="journal-lead">
@@ -74,17 +93,26 @@
       </p>
 
       <div class="journal-callout">
-        <strong>Current position · September 2026</strong>
+        <strong>Current position · October 2026</strong>
+
         <p>
-          The portfolio now extends well beyond introductory switch configuration.
-          I have worked through VLANs and trunking, inter-VLAN routing, Spanning
-          Tree, EtherChannel, static and dynamic routing, NAT, OSPF, HSRP, IPv6,
-          ACLs, Layer 2 security and a growing range of operational services
-          including CDP/LLDP, DNS, DHCP, NTP, SSH, SNMP and Syslog.
+          The portfolio now extends well beyond introductory switch
+          configuration. I have worked through VLANs and trunking, inter-VLAN
+          routing, Spanning Tree, EtherChannel, static and dynamic routing, NAT,
+          OSPF, HSRP, IPv6, ACLs, Layer 2 security and a growing range of
+          operational services including CDP/LLDP, DNS, DHCP, NTP, SSH, SNMP
+          and Syslog.
+        </p>
+
+        <p>
+          I have also started moving beyond solving pre-built labs and into
+          designing my own troubleshooting scenarios using the PingMyNetwork
+          Sandbox.
         </p>
       </div>
 
       <p class="journal-date">MAY 2026 · FOUNDATIONS</p>
+
       <h2>Start of the journey</h2>
 
       <p>
@@ -97,54 +125,81 @@
 
       <ul>
         <li>become comfortable navigating Cisco IOS</li>
-        <li>understand how switches and routers behave rather than just memorising commands</li>
+        <li>
+          understand how switches and routers behave rather than just
+          memorising commands
+        </li>
         <li>build confidence configuring and verifying interfaces</li>
         <li>develop a repeatable troubleshooting process</li>
-        <li>document what went wrong as carefully as what went right</li>
+        <li>
+          document what went wrong as carefully as what went right
+        </li>
       </ul>
 
       <p>
-        At this stage even relatively small tasks — moving between EXEC modes,
+        At this stage even relatively small tasks, moving between EXEC modes,
         assigning addresses, saving configuration and remembering
-        <code>no shutdown</code> — demanded concentration.
+        <code>no shutdown</code>, demanded concentration.
       </p>
 
       <h3>Early observations</h3>
 
       <div class="journal-grid">
+
         <div class="journal-card">
           <h3>Configuration is only half the job</h3>
-          <p>I quickly learned that entering commands is not enough. Verification commands are what tell me whether the device is actually doing what I intended.</p>
+
+          <p>
+            I quickly learned that entering commands is not enough.
+            Verification commands are what tell me whether the device is
+            actually doing what I intended.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Small details matter</h3>
-          <p>A missing command, incorrect mask, shutdown interface or wrong VLAN can make a perfectly reasonable design fail completely.</p>
+
+          <p>
+            A missing command, incorrect mask, shutdown interface or wrong VLAN
+            can make a perfectly reasonable design fail completely.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Troubleshooting needs structure</h3>
-          <p>Randomly changing configuration creates more problems. Checking state, forming a hypothesis and verifying each layer is far more effective.</p>
+
+          <p>
+            Randomly changing configuration creates more problems. Checking
+            state, forming a hypothesis and verifying each layer is far more
+            effective.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Repetition builds CLI fluency</h3>
-          <p>Commands that initially felt awkward began to become familiar through repeated configuration, verification and correction.</p>
+
+          <p>
+            Commands that initially felt awkward began to become familiar
+            through repeated configuration, verification and correction.
+          </p>
         </div>
+
       </div>
 
       <p class="journal-date">LATE MAY 2026 · THREE WEEKS IN</p>
+
       <h2>Three weeks in</h2>
 
       <p>
         At this point I wrote one of the most useful entries in this journal
-        because it captured exactly how learning networking felt at the beginning.
+        because it captured exactly how learning networking felt at the
+        beginning.
       </p>
 
       <p>
         I was genuinely overwhelmed by the size of the subject. Networking
         touches almost every part of modern computing and brings with it a
-        seemingly endless collection of protocols, frameworks and — yes —
+        seemingly endless collection of protocols, frameworks and, yes,
         <strong>bloody acronyms</strong>.
       </p>
 
@@ -154,7 +209,6 @@
         alt="Illustration representing the feeling of being overwhelmed while learning networking"
         loading="lazy"
         decoding="async"
-        alt="Networking lab"
       />
 
       <p>
@@ -165,16 +219,50 @@
       <p>By then I had:</p>
 
       <ul>
-        <li>discovered Packet Tracer, EVE-NG and GNS3 as ways to build networks without needing a room full of physical equipment</li>
-        <li>started using the Cisco IOS CLI for configuration, monitoring and troubleshooting</li>
-        <li>become comfortable moving between User EXEC, Privileged EXEC and Global Configuration modes</li>
+        <li>
+          discovered Packet Tracer, EVE-NG and GNS3 as ways to build networks
+          without needing a room full of physical equipment
+        </li>
+
+        <li>
+          started using the Cisco IOS CLI for configuration, monitoring and
+          troubleshooting
+        </li>
+
+        <li>
+          become comfortable moving between User EXEC, Privileged EXEC and
+          Global Configuration modes
+        </li>
+
         <li>configured passwords, IP addresses and default gateways</li>
-        <li>used ping and basic terminal tools to test connectivity</li>
-        <li>developed a working understanding of the OSI and TCP/IP models — including recognising the occasional <em>Layer 8 problem</em></li>
-        <li>started interrogating CAM and ARP tables to work out how devices were connected</li>
-        <li>learned how MAC addressing and hexadecimal notation fit into Layer 2 networking</li>
-        <li>understood what a broadcast storm is and why switching loops matter</li>
-        <li>upgraded the RAM in my laptop and started exploring Ubuntu and Kali Linux alongside the networking work</li>
+
+        <li>
+          used ping and basic terminal tools to test connectivity
+        </li>
+
+        <li>
+          developed a working understanding of the OSI and TCP/IP models,
+          including recognising the occasional <em>Layer 8 problem</em>
+        </li>
+
+        <li>
+          started interrogating CAM and ARP tables to work out how devices were
+          connected
+        </li>
+
+        <li>
+          learned how MAC addressing and hexadecimal notation fit into Layer 2
+          networking
+        </li>
+
+        <li>
+          understood what a broadcast storm is and why switching loops matter
+        </li>
+
+        <li>
+          upgraded the RAM in my laptop and started exploring Ubuntu and Kali
+          Linux alongside the networking work
+        </li>
       </ul>
 
       <p>
@@ -188,15 +276,16 @@
         alt="Illustration representing a learning breakthrough"
         loading="lazy"
         decoding="async"
-        alt="Networking lab"
       />
 
       <p class="journal-date">JUNE–JULY 2026 · BUILDING NETWORKS</p>
+
       <h2>Moving beyond individual commands</h2>
 
       <p>
         The biggest change during the next stage was that the labs stopped
-        feeling like isolated IOS exercises and started feeling like actual networks.
+        feeling like isolated IOS exercises and started feeling like actual
+        networks.
       </p>
 
       <p>
@@ -210,34 +299,52 @@
         Routing developed in the same way. Static and default routes led into
         routing-table interpretation and dynamic routing. OSPF in particular
         forced me to think about neighbour relationships, network types, timers,
-        area boundaries, route summarisation and default-route propagation rather
-        than simply whether a ping succeeded.
+        area boundaries, route summarisation and default-route propagation
+        rather than simply whether a ping succeeded.
       </p>
 
       <div class="journal-skills">
+
         <div class="journal-skill-card">
           <span>SWITCHING</span>
           <strong>VLANs · Trunks · STP · EtherChannel</strong>
-          <p>Moving from basic switchports to segmented, resilient Layer 2 designs.</p>
+
+          <p>
+            Moving from basic switchports to segmented, resilient Layer 2
+            designs.
+          </p>
         </div>
 
         <div class="journal-skill-card">
           <span>ROUTING</span>
           <strong>Static · Default · EIGRP · OSPF</strong>
-          <p>Reading the routing table, understanding path selection and troubleshooting adjacencies.</p>
+
+          <p>
+            Reading the routing table, understanding path selection and
+            troubleshooting adjacencies.
+          </p>
         </div>
 
         <div class="journal-skill-card">
           <span>EDGE CONNECTIVITY</span>
           <strong>NAT · PAT · Internet routing</strong>
-          <p>Connecting inside networks to outside services and verifying translations and routes.</p>
+
+          <p>
+            Connecting inside networks to outside services and verifying
+            translations and routes.
+          </p>
         </div>
 
         <div class="journal-skill-card">
           <span>RESILIENCE</span>
           <strong>HSRP · IPv6</strong>
-          <p>Adding first-hop redundancy and extending the labs beyond IPv4-only networks.</p>
+
+          <p>
+            Adding first-hop redundancy and extending the labs beyond
+            IPv4-only networks.
+          </p>
         </div>
+
       </div>
 
       <h3>A change in troubleshooting mindset</h3>
@@ -248,8 +355,9 @@
       </p>
 
       <blockquote>
-        What do I expect the network to be doing, what evidence do I have that it
-        is or is not doing it, and at which layer does reality stop matching the design?
+        What do I expect the network to be doing, what evidence do I have that
+        it is or is not doing it, and at which layer does reality stop matching
+        the design?
       </blockquote>
 
       <p>
@@ -257,104 +365,385 @@
         individual command.
       </p>
 
-      <p class="journal-date">AUGUST–SEPTEMBER 2026 · OPERATIONS AND SECURITY</p>
+      <p class="journal-date">
+        AUGUST–SEPTEMBER 2026 · OPERATIONS AND SECURITY
+      </p>
+
       <h2>Making the labs behave more like real networks</h2>
 
       <p>
-        The later labs have increasingly involved services and controls that sit
+        The later labs increasingly involved services and controls that sit
         around the basic forwarding plane.
       </p>
 
       <p>
-        I have worked with network discovery using CDP and LLDP, time
+        I worked with network discovery using CDP and LLDP, time
         synchronisation with NTP, DNS and DHCP services, SSH management, SNMP,
-        Syslog and telemetry. Security work has included standard and extended
-        ACLs, switch port security, DHCP Snooping, Dynamic ARP Inspection and
+        Syslog and telemetry. Security work included standard and extended ACLs,
+        switch port security, DHCP Snooping, Dynamic ARP Inspection and
         hardening trunk behaviour.
       </p>
 
       <p>
         The individual technologies matter, but the larger lesson has been how
-        much network operation depends on being able to <strong>observe state</strong>.
+        much network operation depends on being able to
+        <strong>observe state</strong>.
       </p>
 
       <p>
-        A service can be configured correctly on paper and still fail because of
-        addressing, routing, VLAN membership, ACL direction, reachability, an
-        interface state or a platform limitation. The useful skill is being able
-        to prove which part is working and narrow the fault down.
+        A service can be configured correctly on paper and still fail because
+        of addressing, routing, VLAN membership, ACL direction, reachability,
+        interface state or a platform limitation.
+      </p>
+
+      <p>
+        The useful skill is being able to prove which part is working and narrow
+        the fault down.
+      </p>
+
+      <p class="journal-date">
+        OCTOBER 2026 · FROM SOLVING LABS TO DESIGNING THEM
+      </p>
+
+      <h2>Designing my first troubleshooting lab</h2>
+
+      <p>
+        One of the most useful changes this month was moving from solving
+        troubleshooting labs written by somebody else to designing one myself.
+      </p>
+
+      <p>
+        Using the PingMyNetwork Sandbox, I created
+        <a href="../labs/074-Branch-Office-OSPF-Blackout/">
+          Lab 074 - The Branch Office OSPF Blackout
+        </a>.
+      </p>
+
+      <p>
+        The topology itself is deliberately simple: three routers connecting an
+        HQ LAN to a Branch LAN using single-area OSPF.
+      </p>
+
+      <p>
+        The challenge was not building a complicated network. The challenge was
+        deciding how to break a working one in ways that produced useful and
+        realistic troubleshooting symptoms.
+      </p>
+
+      <h3>Starting with a known-good network</h3>
+
+      <p>
+        Before introducing any deliberate faults, I configured and verified the
+        complete network in a working state.
+      </p>
+
+      <p>
+        That turned out to be important because I made two genuine mistakes
+        during the initial build: an incorrect transit-interface IP address and
+        a missing OSPF network statement.
+      </p>
+
+      <p>
+        Those mistakes needed to be identified and corrected before I could be
+        confident that every problem in the finished challenge had been
+        introduced deliberately.
+      </p>
+
+      <div class="journal-callout">
+        <strong>A USEFUL DESIGN RULE</strong>
+
+        <p>
+          If I am going to deliberately break a network for somebody else to
+          troubleshoot, I first need to prove that the network works.
+        </p>
+      </div>
+
+      <h3>Choosing the faults</h3>
+
+      <p>
+        I eventually settled on three OSPF faults that create a progression
+        rather than three unrelated configuration errors.
+      </p>
+
+      <ol>
+        <li>
+          An <strong>OSPF area mismatch</strong> between R1-HQ and R2-WAN
+        </li>
+
+        <li>
+          An incorrectly configured
+          <strong>passive OSPF WAN interface</strong> on R3-Branch
+        </li>
+
+        <li>
+          A missing OSPF
+          <strong>Branch LAN advertisement</strong>
+        </li>
+      </ol>
+
+      <p>
+        The starting network therefore presents the learner with interfaces
+        that are correctly addressed and remain up/up, but with no useful OSPF
+        neighbour relationships and no end-to-end connectivity.
+      </p>
+
+      <h3>The troubleshooting progression</h3>
+
+      <p>
+        The intended progression is:
+      </p>
+
+      <ol>
+        <li>Confirm that the relevant interfaces are up/up.</li>
+        <li>Confirm that directly connected IP communication still works.</li>
+        <li>Discover that the expected OSPF neighbours have not formed.</li>
+        <li>Identify and correct the OSPF area mismatch.</li>
+        <li>Identify the incorrectly passive router-to-router interface.</li>
+        <li>Restore both OSPF neighbour relationships.</li>
+        <li>Check the routing table rather than stopping at a FULL adjacency.</li>
+        <li>Discover that the Branch LAN is still not being advertised.</li>
+        <li>Restore the missing network advertisement.</li>
+        <li>Verify bidirectional end-to-end connectivity.</li>
+      </ol>
+
+      <p>
+        One of the best pieces of evidence appeared while correcting the first
+        fault.
+      </p>
+
+      <pre><code>%OSPF-4-ERRRCV: Received invalid packet:
+mismatched area ID from backbone area from 10.0.12.2,
+GigabitEthernet0/1</code></pre>
+
+      <p>
+        Instead of simply knowing that an adjacency had failed, IOS was
+        providing a direct clue about why it had failed.
+      </p>
+
+      <p>
+        Correcting the fault then generated:
+      </p>
+
+      <pre><code>%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2
+on GigabitEthernet0/1 from LOADING to FULL,
+Loading Done</code></pre>
+
+      <h3>FULL does not mean finished</h3>
+
+      <p>
+        The third fault was deliberately chosen because it remains relevant
+        after the neighbour relationships are repaired.
+      </p>
+
+      <p>
+        Both OSPF adjacencies can reach the <code>FULL</code> state while the
+        Branch LAN is still missing from the routing domain.
+      </p>
+
+      <p>
+        That reinforced the difference between two separate questions:
+      </p>
+
+      <blockquote>
+        Have my OSPF routers formed the expected adjacencies?
+      </blockquote>
+
+      <blockquote>
+        Are the networks I actually need being advertised and installed in the
+        routing table?
+      </blockquote>
+
+      <p>
+        The answer to the first question can be yes while the answer to the
+        second is still no.
+      </p>
+
+      <h3>Verification after repair</h3>
+
+      <p>
+        After correcting all three faults, R2-WAN showed both expected
+        neighbours:
+      </p>
+
+      <pre><code>Neighbor ID     State       Address       Interface
+3.3.3.3         FULL/DR     10.0.23.2     GigabitEthernet0/2
+1.1.1.1         FULL/BDR    10.0.12.1     GigabitEthernet0/1</code></pre>
+
+      <p>
+        It also learned both user LANs through OSPF:
+      </p>
+
+      <pre><code>O 192.168.10.0/24 via 10.0.12.1
+O 192.168.30.0/24 via 10.0.23.2</code></pre>
+
+      <p>
+        Finally, connectivity was tested in both directions between the HQ and
+        Branch PCs, with four replies received in each direction and no packet
+        loss.
+      </p>
+
+      <h3>Why designing the lab helped</h3>
+
+      <p>
+        Creating the scenario required a different thought process from solving
+        one.
+      </p>
+
+      <p>
+        I had to think about:
+      </p>
+
+      <ul>
+        <li>what should remain operational;</li>
+        <li>what should fail;</li>
+        <li>what symptoms each fault should produce;</li>
+        <li>which commands should expose those symptoms;</li>
+        <li>whether one fault would hide another;</li>
+        <li>how the symptoms should change after each correction;</li>
+        <li>what would constitute proof that the network was fully restored.</li>
+      </ul>
+
+      <p>
+        That made the exercise useful not just as an OSPF lab, but as a way of
+        thinking more deliberately about how network faults present themselves.
       </p>
 
       <h2>What I can do now</h2>
 
       <div class="journal-grid journal-grid--capabilities">
+
         <div class="journal-card">
           <h3>Build and segment networks</h3>
-          <p>Configure VLANs, access and trunk links, native VLANs and inter-VLAN routing, then verify that traffic is taking the intended path.</p>
+
+          <p>
+            Configure VLANs, access and trunk links, native VLANs and
+            inter-VLAN routing, then verify that traffic is taking the intended
+            path.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Configure and analyse routing</h3>
-          <p>Work with connected, static, default and dynamic routes, interpret routing tables and troubleshoot OSPF neighbour and route behaviour.</p>
+
+          <p>
+            Work with connected, static, default and dynamic routes, interpret
+            routing tables and troubleshoot OSPF neighbour and route behaviour.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Improve Layer 2 resilience</h3>
-          <p>Use Spanning Tree and EtherChannel concepts to reason about loops, forwarding paths and bundled links.</p>
+
+          <p>
+            Use Spanning Tree and EtherChannel concepts to reason about loops,
+            forwarding paths and bundled links.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Work with network services</h3>
-          <p>Configure and validate common services including DHCP, DNS, NTP, SSH, CDP/LLDP, SNMP and Syslog.</p>
+
+          <p>
+            Configure and validate common services including DHCP, DNS, NTP,
+            SSH, CDP/LLDP, SNMP and Syslog.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Apply security controls</h3>
-          <p>Use ACLs and Layer 2 protections such as port security, DHCP Snooping, Dynamic ARP Inspection and trunk hardening.</p>
+
+          <p>
+            Use ACLs and Layer 2 protections such as port security, DHCP
+            Snooping, Dynamic ARP Inspection and trunk hardening.
+          </p>
         </div>
 
         <div class="journal-card">
           <h3>Document the evidence</h3>
-          <p>Capture the relevant show commands, raw CLI, failures and corrections so that a lab demonstrates the process rather than only the final configuration.</p>
+
+          <p>
+            Capture the relevant show commands, raw CLI, failures and
+            corrections so that a lab demonstrates the process rather than only
+            the final configuration.
+          </p>
         </div>
+
+        <div class="journal-card">
+          <h3>Design troubleshooting scenarios</h3>
+
+          <p>
+            Build a known-good network, introduce controlled faults and verify
+            that the resulting symptoms create a logical troubleshooting path.
+          </p>
+        </div>
+
       </div>
 
       <h2>What has changed most</h2>
 
       <p>
-        The clearest measure of progress is not the number of commands I know. It
-        is the way I approach a fault.
+        The clearest measure of progress is not the number of commands I know.
+        It is the way I approach a fault.
       </p>
 
       <p>When something fails now, I am much more likely to check:</p>
 
       <ol>
-        <li><strong>Physical and interface state</strong> — is the relevant interface actually up/up?</li>
-        <li><strong>Layer 2</strong> — is the port in the correct VLAN, is a trunk carrying that VLAN, and what do the MAC tables show?</li>
-        <li><strong>Layer 3</strong> — are the addressing, subnet masks, gateways and routes correct?</li>
-        <li><strong>Protocol state</strong> — are neighbours, timers, roles and learned routes what I expect?</li>
-        <li><strong>Policy and services</strong> — is an ACL, security feature, DHCP/DNS configuration or other service affecting the result?</li>
-        <li><strong>Evidence</strong> — which command proves the conclusion rather than merely suggesting it?</li>
+        <li>
+          <strong>Physical and interface state</strong> - is the relevant
+          interface actually up/up?
+        </li>
+
+        <li>
+          <strong>Layer 2</strong> - is the port in the correct VLAN, is a trunk
+          carrying that VLAN, and what do the MAC tables show?
+        </li>
+
+        <li>
+          <strong>Layer 3</strong> - are the addressing, subnet masks, gateways
+          and routes correct?
+        </li>
+
+        <li>
+          <strong>Protocol state</strong> - are neighbours, timers, roles and
+          learned routes what I expect?
+        </li>
+
+        <li>
+          <strong>Policy and services</strong> - is an ACL, security feature,
+          DHCP/DNS configuration or other service affecting the result?
+        </li>
+
+        <li>
+          <strong>Evidence</strong> - which command proves the conclusion rather
+          than merely suggesting it?
+        </li>
       </ol>
 
       <p>
-        That is a very different position from the one I was in three weeks after starting.
+        That is a very different position from the one I was in three weeks
+        after starting.
       </p>
 
       <div class="journal-reflection">
+
         <p class="journal-reflection-label">LOOKING BACK</p>
+
         <p>
           The early entry where I worried that networking might simply be too
-          large a subject to get my head around is still worth keeping here. The
-          subject has not become smaller. What has changed is my ability to break
-          a network into understandable pieces and work through them methodically.
+          large a subject to get my head around is still worth keeping here.
+          The subject has not become smaller. What has changed is my ability to
+          break a network into understandable pieces and work through them
+          methodically.
         </p>
+
         <p>
           I still have plenty to learn, and I am not treating the size of this
-          portfolio as a substitute for exam readiness. The next challenge is to
-          make the knowledge faster to recall, stronger under pressure and easier
-          to apply when several technologies interact at once.
+          portfolio as a substitute for exam readiness. The next challenge is
+          to make the knowledge faster to recall, stronger under pressure and
+          easier to apply when several technologies interact at once.
         </p>
+
       </div>
 
       <h2>Current priorities</h2>
@@ -365,19 +754,50 @@
       </p>
 
       <ul>
-        <li>revisit weaker areas instead of only repeating comfortable ones</li>
-        <li>practise subnetting and route interpretation until they are quicker and more automatic</li>
-        <li>build more mixed-technology troubleshooting scenarios</li>
-        <li>continue improving the quality of lab documentation and verification evidence</li>
-        <li>use timed CCNA-style questions and labs to identify gaps in recall</li>
-        <li>keep connecting individual CCNA topics to the behaviour of complete networks</li>
+        <li>
+          revisit weaker areas instead of only repeating comfortable ones
+        </li>
+
+        <li>
+          practise subnetting and route interpretation until they become quicker
+          and more automatic
+        </li>
+
+        <li>
+          continue using PingMyNetwork labs and practice exams to expose gaps in
+          recall
+        </li>
+
+        <li>
+          build more mixed-technology troubleshooting scenarios
+        </li>
+
+        <li>
+          design more original labs where doing so helps deepen understanding
+        </li>
+
+        <li>
+          continue improving the quality of lab documentation and verification
+          evidence
+        </li>
+
+        <li>
+          use timed CCNA-style questions and labs to strengthen performance
+          under pressure
+        </li>
+
+        <li>
+          keep connecting individual CCNA topics to the behaviour of complete
+          networks
+        </li>
       </ul>
 
       <h2>Overall</h2>
 
       <p>
-        When I started this journal, configuring an interface correctly felt like
-        an achievement. It still is — but the context is completely different now.
+        When I started this journal, configuring an interface correctly felt
+        like an achievement. It still is, but the context is completely
+        different now.
       </p>
 
       <p>
@@ -388,12 +808,24 @@
       </p>
 
       <p>
-        There is still a long way to go, but I can now look back at those first
-        few weeks and see a genuine progression from learning commands to
-        learning how networks behave.
+        Building Lab 074 added another stage to that progression. Instead of
+        only asking why somebody else's network was broken, I had to understand
+        the technology well enough to create the failure myself, predict the
+        symptoms and then prove that the solution restored the intended
+        behaviour.
       </p>
 
-      <p><strong>I will keep documenting the journey.</strong></p>
+      <p>
+        There is still a long way to go, but I can now look back at those first
+        few weeks and see a genuine progression from learning commands, to
+        learning how networks behave, to beginning to design troubleshooting
+        exercises around that behaviour.
+      </p>
+
+      <p>
+        <strong>I will keep documenting the journey.</strong>
+      </p>
+
     </article>
   </main>
 

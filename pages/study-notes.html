@@ -88,6 +88,9 @@ show interfaces description
 show running-config
 show vlan brief
 show ip route
+show ip ospf neighbor
+show ip route ospf
+show running-config | section router ospf
 show mac address-table
 show cdp neighbors</code></pre>
 
@@ -132,6 +135,29 @@ show cdp neighbors</code></pre>
       <p>
         Displays the IPv4 routing table and the routes currently available to
         the device.
+      </p>
+
+      <h3><code>show ip ospf neighbor</code></h3>
+
+      <p>
+        Displays OSPF neighbour relationships and their current state. This is
+        one of the quickest ways to confirm whether an expected OSPF adjacency
+        has formed.
+      </p>
+
+      <h3><code>show ip route ospf</code></h3>
+
+      <p>
+        Filters the IPv4 routing table to routes learned through OSPF and is
+        useful for verifying that remote networks are actually being
+        advertised and installed.
+      </p>
+
+      <h3><code>show running-config | section router ospf</code></h3>
+
+      <p>
+        Isolates the OSPF portion of the running configuration, making it easier
+        to compare neighbouring routers and identify configuration mismatches.
       </p>
 
       <h3><code>show mac address-table</code></h3>
@@ -224,6 +250,129 @@ show cdp neighbors</code></pre>
           interface will immediately become up/up. In a typical Layer 2 switch
           environment, the VLAN must exist and normally needs at least one
           active Layer 2 port in that VLAN and in a forwarding state.
+        </p>
+      </div>
+
+      <h2>OSPF configuration and troubleshooting</h2>
+
+      <p>
+        These commands are useful when configuring OSPF, checking neighbour
+        relationships and determining whether expected networks are being
+        advertised and learned correctly.
+      </p>
+
+      <h3>Display OSPF neighbours</h3>
+
+      <pre><code>show ip ospf neighbor</code></pre>
+
+      <p>
+        Displays OSPF neighbour relationships and their current state. A
+        successfully established adjacency should normally reach the
+        <code>FULL</code> state.
+      </p>
+
+      <h3>Display OSPF-enabled interfaces</h3>
+
+      <pre><code>show ip ospf interface brief</code></pre>
+
+      <p>
+        Provides a concise view of interfaces participating in OSPF, including
+        their process, area and interface state.
+      </p>
+
+      <h3>Inspect detailed OSPF interface information</h3>
+
+      <pre><code>show ip ospf interface</code></pre>
+
+      <p>
+        Displays detailed OSPF information for participating interfaces,
+        including area membership, timers, network type and neighbour-related
+        information.
+      </p>
+
+      <h3>Display OSPF-learned routes</h3>
+
+      <pre><code>show ip route ospf</code></pre>
+
+      <p>
+        Filters the routing table to routes learned through OSPF. This is
+        particularly useful after neighbour relationships have formed because a
+        <code>FULL</code> adjacency does not necessarily mean every required network
+        is being advertised.
+      </p>
+
+      <h3>Review routing protocol information</h3>
+
+      <pre><code>show ip protocols</code></pre>
+
+      <p>
+        Displays information about active routing protocols, including routing
+        processes, passive interfaces and the networks currently being matched
+        by routing protocol configuration.
+      </p>
+
+      <h3>Display the OSPF section of the running configuration</h3>
+
+      <pre><code>show running-config | section router ospf</code></pre>
+
+      <p>
+        Isolates the OSPF configuration from the complete running configuration,
+        making it easier to compare neighbouring routers when troubleshooting.
+      </p>
+
+      <h3>Basic OSPF configuration</h3>
+
+      <pre><code>router ospf 1
+ router-id 1.1.1.1
+ network 10.0.12.0 0.0.0.3 area 0</code></pre>
+
+      <p>
+        Creates OSPF process 1, assigns a router ID and enables OSPF on
+        interfaces matched by the network statement. The OSPF process ID is
+        locally significant and does not need to match neighbouring routers.
+      </p>
+
+      <h3>Configure a passive interface</h3>
+
+      <pre><code>router ospf 1
+ passive-interface gigabitEthernet0/0</code></pre>
+
+      <p>
+        Prevents OSPF Hello packets from being sent on the selected interface
+        while still allowing its connected network to be advertised through
+        OSPF when that network is included in the routing process.
+      </p>
+
+      <h3>Restore OSPF neighbour formation on an interface</h3>
+
+      <pre><code>router ospf 1
+ no passive-interface gigabitEthernet0/2</code></pre>
+
+      <p>
+        Removes the passive setting so that OSPF Hello packets can once again be
+        exchanged and a neighbour relationship can form.
+      </p>
+
+      <h3>OSPF Hello debugging</h3>
+
+      <pre><code>debug ip ospf hello
+undebug all</code></pre>
+
+      <p>
+        Displays OSPF Hello activity in real time and can help identify
+        neighbour formation problems. Debugging should be disabled when the
+        required evidence has been collected.
+      </p>
+
+      <div class="journal-callout">
+        <strong>OSPF TROUBLESHOOTING</strong>
+
+        <p>
+          A <code>FULL</code> OSPF neighbour relationship confirms that an
+          adjacency has formed, but it does not prove that every required
+          network is being advertised. Check both
+          <code>show ip ospf neighbor</code> and
+          <code>show ip route ospf</code> when verifying the final network state.
         </p>
       </div>
 
